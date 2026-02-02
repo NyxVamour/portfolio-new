@@ -3,4 +3,55 @@
     height: 100%;
     position: absolute;
     top: 0;
+    font-family: var(--font-orbitron);
+    font-weight: bold;
+    font-size: 10px;
+}
+
+.boxContainer{
+    display: flex;
+    width: fit-content;
+    padding: 0px 4px;
+    background-color: white;
+}
+
+.boxContainer > p{
+    color: var(--color-bg);
+}
+
+.targetContainer{
+    position: absolute;
+    width: fit-content;
+    right: 40px;
+    top: 30%;
+}
+
+.topData{
+    position: absolute;
+    top: 2%;
+    left: 2%;
+}
+
+.bottomData{
+    position: absolute;
+    bottom: 2%;
+    left: 2%;
+}
+
+.linesContainer{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.bgElement__horizontal{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.bgElement__vertical{
+    position: absolute;
+    transform:scaleY(90%);
+    right: 0;
 }
