@@ -4,9 +4,9 @@
   --font-sans: "Play", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-orbitron: "Orbitron";
-  --color-primary: "#BD4A4A";
-  --color-secondary: "#FFD50B";
-  --color-bg: "#0D0D1A";
+  --color-primary: #BD4A4A;
+  --color-secondary: #FFD50B;
+  --color-bg: #0D0D1A;
 }
 
 html,
