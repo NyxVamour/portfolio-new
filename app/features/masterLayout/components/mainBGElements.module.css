@@ -22,8 +22,8 @@
 .targetContainer{
     position: absolute;
     width: fit-content;
-    right: clamp(40px, calc(40px + ((100vw - 300px) * (510 / 1700))), 550px);
-    top: 30%;
+    right: clamp(40px, calc(40px + ((100vw - 300px) * (510 / 2000))), 550px);
+    top: 27%;
     width: clamp(86px, 20%, 200px);
 }
 
