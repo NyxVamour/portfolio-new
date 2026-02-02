@@ -5,12 +5,13 @@ interface BGElementProps {
 export default function BGElementHorizontal({ className }: BGElementProps) {
     return (
         <svg
-            width="203"
+            width="clamp(50px, calc(50px + (100vw - 300px) * 0.941176), 1650px)"
             height="30"
             viewBox="0 0 203 30"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className={className}
+            preserveAspectRatio="none"
         >
             <g filter="url(#filter0_d_2208_1253)">
                 <line

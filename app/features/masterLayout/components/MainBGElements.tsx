@@ -20,11 +20,13 @@ export default function MainBGElements() {
                 <p className="glowWhite">43.642987° N, -79.391809° W</p>
             </div>
             <div className={`flex-col ${styles.targetContainer}`}>
-                <p className="glowWhite text-[8px] opacity-40">Target Locked</p>
+                <p className={`glowWhite opacity-40 ${styles.targetText}`}>
+                    Target Locked
+                </p>
                 <img
                     src="/images/target.png"
                     alt="Photo of Charlize in an all black outfit and sunglasses drinking a cup of coffee."
-                    className="border glowWhite"
+                    className={`border glowWhite ${styles.targetImage}`}
                 ></img>
                 <div className="flex gap-2 justify-end mt-1 opacity-40">
                     <div className="flex flex-col ">

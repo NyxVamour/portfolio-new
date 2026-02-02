@@ -6,11 +6,12 @@ export default function BGElementVertical({ className }: BGElementProps) {
     return (
         <svg
             width="33"
-            height="666"
+            height="100%"
             viewBox="0 0 33 666"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className={className}
+            preserveAspectRatio="none"
         >
             <g filter="url(#filter0_d_2208_1252)">
                 <path d="M23 10V82.4805L12 114.1V656H10V10H23Z" fill="white" />

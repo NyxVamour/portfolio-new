@@ -5,7 +5,7 @@
     top: 0;
     font-family: var(--font-orbitron);
     font-weight: bold;
-    font-size: 10px;
+    font-size: clamp(0.625rem, 0.5588rem + 0.3529vw, 1rem);
 }
 
 .boxContainer{
@@ -22,8 +22,18 @@
 .targetContainer{
     position: absolute;
     width: fit-content;
-    right: 40px;
+    right: clamp(40px, calc(40px + ((100vw - 300px) * (510 / 1700))), 550px);
     top: 30%;
+    width: clamp(86px, 20%, 200px);
+}
+
+.targetText{
+    font-size: clamp(0.5rem, 0.4669rem + 0.1765vw, 0.6875rem);
+}
+
+.targetImage{
+    width: 100%;
+    aspect-ratio: 1;
 }
 
 .topData{
@@ -34,7 +44,7 @@
 
 .bottomData{
     position: absolute;
-    bottom: 2%;
+    bottom: 20px;
     left: 2%;
 }
 
@@ -46,12 +56,31 @@
 
 .bgElement__horizontal{
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 14px;
+    right: clamp(30px, 5%, 35px);
 }
 
 .bgElement__vertical{
     position: absolute;
     transform:scaleY(90%);
     right: 0;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
 }
