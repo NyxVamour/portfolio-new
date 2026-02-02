@@ -4,7 +4,7 @@ import styles from "./mainBGElements.module.css";
 
 export default function MainBGElements() {
     return (
-        <div className={` ${styles.mainContainer}`}>
+        <div className={` ${styles.mainBGContainer}`}>
             <div className={`opacity-40 ${styles.topData}`}>
                 <div className={`glowWhite--strong ${styles.boxContainer}`}>
                     <p>SECURITY CAM FEED</p>
