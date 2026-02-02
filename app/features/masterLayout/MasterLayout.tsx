@@ -1,4 +1,4 @@
-import MainBGElements from "./components/mainBGElements";
+import MainBGElements from "./components/MainBGElements";
 import styles from "./masterLayout.module.css";
 
 export default function MasterLayout() {
