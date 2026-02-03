@@ -20,7 +20,7 @@ export default function BGElementHorizontal({ className }: BGElementProps) {
                     x2="193"
                     y2="19"
                     stroke="white"
-                    stroke-width="2"
+                    strokeWidth="2"
                 />
             </g>
             <g filter="url(#filter1_d_2208_1253)">
@@ -30,7 +30,7 @@ export default function BGElementHorizontal({ className }: BGElementProps) {
                     x2="128"
                     y2="11"
                     stroke="white"
-                    stroke-width="2"
+                    strokeWidth="2"
                 />
             </g>
             <defs>
@@ -41,9 +41,9 @@ export default function BGElementHorizontal({ className }: BGElementProps) {
                     width="203"
                     height="22"
                     filterUnits="userSpaceOnUse"
-                    color-interpolation-filters="sRGB"
+                    colorInterpolationFilters="sRGB"
                 >
-                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
                     <feColorMatrix
                         in="SourceAlpha"
                         type="matrix"
@@ -76,9 +76,9 @@ export default function BGElementHorizontal({ className }: BGElementProps) {
                     width="138"
                     height="22"
                     filterUnits="userSpaceOnUse"
-                    color-interpolation-filters="sRGB"
+                    colorInterpolationFilters="sRGB"
                 >
-                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
                     <feColorMatrix
                         in="SourceAlpha"
                         type="matrix"
