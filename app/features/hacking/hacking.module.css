@@ -39,6 +39,6 @@
 
 .navigationMap{
     position: absolute;
-    top: calc(50% - (12px + 20px));
-    right: calc(50% - (12px + 19px));
+    top: calc(50% - (87px + 25px));
+    right: calc(50% - (158px + 30px));
 }
