@@ -5,6 +5,7 @@ import type { NodeID, Direction } from "../data/navigationNodes";
 export function useControls(
     isMoving: boolean,
     setIsMoving: React.Dispatch<React.SetStateAction<boolean>>,
+    setCurrentPage: React.Dispatch<React.SetStateAction<string>>,
 ) {
     const [position, setPosition] = useState<NodeID>("a3");
     const [prevPosition, setPrevPosition] = useState<NodeID | "">("");
@@ -36,6 +37,10 @@ export function useControls(
         return;
     }
 
+    function changePage(pageName: string) {
+        setCurrentPage(`${pageName}`);
+    }
+
     const isTouch = isTouchPrimary();
 
     if (isTouch) {
@@ -59,6 +64,14 @@ export function useControls(
                     case "ArrowRight":
                         changePosition("right");
                         break;
+
+                    case "Enter":
+                        const currentNode = nodes[position];
+                        const enterID = currentNode.enterID;
+                        const newPage = currentNode.linkTo;
+                        if (enterID && newPage) {
+                            changePage(newPage);
+                        }
                     default:
                         break;
                 }

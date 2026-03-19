@@ -76,18 +76,6 @@ export default function useMap(
         });
     }
 
-    // useEffect(() => {
-
-    // }, [position]);
-
-    // useEffect(() => {
-    //     function getCoordinates() {
-    //         const map = document.getElementById("navigationMapWrapper");
-    //         const mapRect = map?.getBoundingClientRect();
-    //         // console.log("new maprect is: ", mapRect);
-    //     }
-    //     getCoordinates();
-    // }, [position]);
     function colorCurrentNode(tl: gsap.core.Timeline) {
         const currentNodeGlow = document.getElementById(position);
         const filledShape = currentNodeGlow?.querySelector(

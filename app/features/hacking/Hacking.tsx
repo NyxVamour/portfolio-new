@@ -3,7 +3,7 @@ import styles from "./hacking.module.css";
 
 export default function Hacking() {
     return (
-        <main className={`${styles.hackingMain}`}>
+        <main id="hackingMain" className={`${styles.hackingMain}`}>
             <section className={`glowWhite--medium ${styles.hackingContainer}`}>
                 <InteractiveNavigation></InteractiveNavigation>
                 <div className={`${styles.titleWrapper}`}>

@@ -22,6 +22,7 @@ export type Connection = {
 export interface Node {
     id: string;
     type: "link" | "empty";
+    linkTo?: string;
     connectedTo: Connection;
     filterID: string;
     textBoxFilterID?: string;
@@ -52,6 +53,7 @@ export const nodes: NodesObj = {
     a1: {
         id: "a1",
         type: "link",
+        linkTo: "profile",
         connectedTo: {
             right: "a2",
         },
@@ -101,6 +103,7 @@ export const nodes: NodesObj = {
     b4: {
         id: "b4",
         type: "link",
+        linkTo: "secrets",
         connectedTo: {
             left: "b3",
         },
@@ -113,6 +116,7 @@ export const nodes: NodesObj = {
     c1: {
         id: "c1",
         type: "link",
+        linkTo: "about",
         connectedTo: {
             right: "c2",
         },
@@ -144,6 +148,7 @@ export const nodes: NodesObj = {
     d2: {
         id: "d2",
         type: "link",
+        linkTo: "projects",
         connectedTo: {
             right: "d3",
         },
