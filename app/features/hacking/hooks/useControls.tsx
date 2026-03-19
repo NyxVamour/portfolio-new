@@ -11,6 +11,16 @@ export function useControls(
 
     const keyIsDown = useRef<boolean>(false);
 
+    function isTouchPrimary(): boolean {
+        if (typeof window === "undefined") return false;
+
+        const coarsePointer = window.matchMedia?.("(pointer: coarse)").matches;
+        const noHover = window.matchMedia?.("(hover: none)").matches;
+        const touchPoints = navigator.maxTouchPoints > 0;
+
+        return (coarsePointer && noHover) || touchPoints;
+    }
+
     function changePosition(direction: Direction) {
         if (isMoving || keyIsDown.current) return;
         keyIsDown.current = true;
@@ -26,38 +36,45 @@ export function useControls(
         return;
     }
 
-    useEffect(() => {
-        function keyDown(e: KeyboardEvent) {
-            if (isMoving) return;
+    const isTouch = isTouchPrimary();
 
-            switch (e.key) {
-                case "ArrowUp":
-                    changePosition("up");
-                    break;
-                case "ArrowDown":
-                    changePosition("down");
-                    break;
-                case "ArrowLeft":
-                    changePosition("left");
-                    break;
-                case "ArrowRight":
-                    changePosition("right");
-                    break;
-                default:
-                    break;
+    if (isTouch) {
+        // enable touch navigation (swipe, tap, etc.)
+    } else {
+        // enable keyboard arrows
+        useEffect(() => {
+            function keyDown(e: KeyboardEvent) {
+                if (isMoving) return;
+
+                switch (e.key) {
+                    case "ArrowUp":
+                        changePosition("up");
+                        break;
+                    case "ArrowDown":
+                        changePosition("down");
+                        break;
+                    case "ArrowLeft":
+                        changePosition("left");
+                        break;
+                    case "ArrowRight":
+                        changePosition("right");
+                        break;
+                    default:
+                        break;
+                }
             }
-        }
-        function keyUp(e: KeyboardEvent) {
-            keyIsDown.current = false;
-        }
+            function keyUp(e: KeyboardEvent) {
+                keyIsDown.current = false;
+            }
 
-        window.addEventListener("keydown", keyDown);
-        window.addEventListener("keyup", keyUp);
-        return () => {
-            window.removeEventListener("keydown", keyDown);
-            window.removeEventListener("keyup", keyUp);
-        };
-    }, [isMoving]);
+            window.addEventListener("keydown", keyDown);
+            window.addEventListener("keyup", keyUp);
+            return () => {
+                window.removeEventListener("keydown", keyDown);
+                window.removeEventListener("keyup", keyUp);
+            };
+        }, [isMoving]);
+    }
 
     return { position, prevPosition };
 }
