@@ -196,7 +196,7 @@ const NavigationMap = React.forwardRef<SVGSVGElement, NavigationMapProps>(
                                 />
                             </g>
                             <text
-                                id="ENTER"
+                                id="ENTER_1"
                                 fill="white"
                                 xmlSpace="preserve"
                                 fontFamily="Orbitron"
