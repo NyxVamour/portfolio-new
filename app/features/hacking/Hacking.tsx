@@ -6,6 +6,11 @@ export default function Hacking() {
         <main className={`${styles.hackingMain}`}>
             <section className={`glowWhite--medium ${styles.hackingContainer}`}>
                 <InteractiveNavigation></InteractiveNavigation>
+                <div className={`${styles.titleWrapper}`}>
+                    <h1 className={`${styles.hackingContainer__title}`}>
+                        HACKING TARGET
+                    </h1>
+                </div>
                 <section className={`${styles.controls}`}>
                     <p>CONTROLS:</p>
                     <div className={`${styles.iconsWrapper}`}></div>

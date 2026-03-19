@@ -10,14 +10,36 @@
 
 .hackingContainer{
     background-color: var(--color-bg);
-
+    position: absolute;
+    display: flex;
+    align-items: center;
+    left: 5%;
     border: 1px solid white;
     width: clamp(327px, 90%, 750px);
     height: 90%;
     overflow: hidden;
 }
 
+.titleWrapper{
+    position: absolute;
+    top: 16px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.hackingContainer__title{
+    width: fit-content;
+    background-color: var(--color-primary);
+    font-family: var(--font-orbitron);
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: 2px 8px;
+}
+
 .controls{
+    position: absolute;
+    bottom: 0;
     display: flex;
     font-family: var(--font-orbitron);
 }
