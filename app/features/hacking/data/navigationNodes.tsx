@@ -26,6 +26,8 @@ export interface Node {
     filterID: string;
     textBoxFilterID?: string;
     enterID?: string;
+    textWrapperID?: string;
+    textWrapperFilterID?: string;
 }
 
 interface NodesObj {
@@ -56,6 +58,8 @@ export const nodes: NodesObj = {
         filterID: "filter14_d_2234_1041",
         textBoxFilterID: "filter13_d_2234_1041",
         enterID: "ENTER_4",
+        textWrapperID: "profile_wrapper",
+        textWrapperFilterID: "filter13_d_2234_1041",
     },
     a2: {
         id: "a2",
@@ -103,6 +107,8 @@ export const nodes: NodesObj = {
         filterID: "filter9_d_2234_1041",
         textBoxFilterID: "filter8_d_2234_1041",
         enterID: "ENTER_3",
+        textWrapperID: "secrets_wrapper",
+        textWrapperFilterID: "filter8_d_2234_1041",
     },
     c1: {
         id: "c1",
@@ -112,7 +118,9 @@ export const nodes: NodesObj = {
         },
         filterID: "filter5_d_2234_1041",
         textBoxFilterID: "filter4_d_2234_1041",
-        enterID: "ENTER",
+        enterID: "ENTER_1",
+        textWrapperID: "about_wrapper",
+        textWrapperFilterID: "filter4_d_2234_1041",
     },
     c2: {
         id: "c2",
@@ -142,6 +150,8 @@ export const nodes: NodesObj = {
         filterID: "filter7_d_2234_1041",
         textBoxFilterID: "filter6_d_2234_1041",
         enterID: "ENTER_2",
+        textWrapperID: "projects_wrapper",
+        textWrapperFilterID: "filter6_d_2234_1041",
     },
     d3: {
         id: "d3",
