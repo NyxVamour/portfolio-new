@@ -6,11 +6,11 @@ import { useControls } from "../../hooks/useControls";
 import NavigationController from "./NavigationController";
 import NavigationMap from "./NavigationMap";
 import useMap from "../../hooks/useMap";
+import useChangePage from "~/hooks/useChangePage";
 
 export default function InteractiveNavigation() {
     const [isMoving, setIsMoving] = useState(false);
-    const [currentPage, setCurrentPage] = useState("");
-
+    const [currentPage, setCurrentPage] = useState("home");
     const mapRef = useRef<SVGSVGElement>(null);
     const { position, prevPosition } = useControls(
         isMoving,
@@ -18,10 +18,10 @@ export default function InteractiveNavigation() {
         setCurrentPage,
     );
     useMap(mapRef, position, prevPosition, setIsMoving);
-
-    useEffect(() => {
-        console.log(currentPage);
-    }, [currentPage]);
+    useChangePage(currentPage);
+    // useEffect(() => {
+    //     console.log(currentPage);
+    // }, [currentPage]);
     // useEffect(() => {
     //     console.log("current position is ", position);
     //     console.log("previous position is: ", prevPosition);
