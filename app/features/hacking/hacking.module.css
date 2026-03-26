@@ -1,0 +1,66 @@
+.hackingMain{
+    width: 100%;
+    height: 100%;
+    position: inherit;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hackingContainer{
+    background-color: var(--color-bg);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    left: 5%;
+    border: 1px solid white;
+    width: clamp(327px, 90%, 750px);
+    height: 90%;
+    overflow: hidden;
+}
+
+.titleWrapper{
+    position: absolute;
+    top: 16px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.hackingContainer__title{
+    width: fit-content;
+    background-color: var(--color-primary);
+    font-family: var(--font-orbitron);
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: 2px 8px;
+}
+
+.controls{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    font-family: var(--font-orbitron);
+}
+
+.navigationContainer{
+    background-image: url("/public/images/circuit-bg.jpg");
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.navigationController{
+    position: absolute;
+    top: calc(50% - 83px);
+    left: calc(50% - 53px/2);
+    z-index: 20;
+}
+
+.navigationMap{
+    position: absolute;
+    top: calc(50% - (87px + 25px));
+    right: calc(50% - (158px + 30px));
+}

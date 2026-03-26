@@ -1,0 +1,86 @@
+.mainBGContainer{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    font-family: var(--font-orbitron);
+    font-weight: bold;
+    font-size: clamp(0.625rem, 0.5588rem + 0.3529vw, 1rem);
+}
+
+.boxContainer{
+    display: flex;
+    width: fit-content;
+    padding: 0px 4px;
+    background-color: white;
+}
+
+.boxContainer > p{
+    color: var(--color-bg);
+}
+
+.targetContainer{
+    position: absolute;
+    width: fit-content;
+    right: clamp(40px, calc(40px + ((100vw - 300px) * (510 / 2000))), 550px);
+    top: 27%;
+    width: clamp(86px, 20%, 200px);
+}
+
+.targetText{
+    font-size: clamp(0.5rem, 0.4669rem + 0.1765vw, 0.6875rem);
+}
+
+.targetImage{
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+.topData{
+    position: absolute;
+    top: 2%;
+    left: 2%;
+}
+
+.bottomData{
+    position: absolute;
+    bottom: 20px;
+    left: 2%;
+}
+
+.linesContainer{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.bgElement__horizontal{
+    position: absolute;
+    bottom: 14px;
+    right: clamp(30px, 5%, 35px);
+}
+
+.bgElement__vertical{
+    position: absolute;
+    transform:scaleY(90%);
+    right: 0;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}

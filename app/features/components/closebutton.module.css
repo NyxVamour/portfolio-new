@@ -1,0 +1,17 @@
+.closeBtn{
+    cursor: pointer;
+    right: 0;
+    aspect-ratio: 1;
+    width: 42px;
+    height: auto;
+    font-family: var(--font-orbitron);
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1;
+    padding: 0 6px;
+    border: 2px solid var(--color-primary);
+}
+
+.closeBtn:hover{
+    background-color: var(--color-primary);
+}

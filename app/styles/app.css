@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Play", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-orbitron: "Orbitron";
+  --color-primary: #BD4A4A;
+  --color-secondary: #FFD50B;
+  --color-bg: #0D0D1A;
+}
+
+html,
+body {
+  @apply bg-white dark:bg-gray-950;
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
+
+}
+
+.glowWhite--medium{
+  filter: drop-shadow(0px 0px 6px rgba(255, 255, 255, 0.5));
+}
+
+.glowWhite--strong{
+  filter: drop-shadow(0px 0px 6px rgba(255, 255, 255, 1));
+}
+
+.glowRed--strong{
+  filter: drop-shadow(0px 0px 6px rgba(189, 74, 74, 1));
+}

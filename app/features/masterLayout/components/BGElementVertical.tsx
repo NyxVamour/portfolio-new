@@ -1,0 +1,58 @@
+interface BGElementProps {
+    className: string;
+}
+
+export default function BGElementVertical({ className }: BGElementProps) {
+    return (
+        <svg
+            width="33"
+            height="100%"
+            viewBox="0 0 33 666"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className={className}
+            preserveAspectRatio="none"
+        >
+            <g filter="url(#filter0_d_2208_1252)">
+                <path d="M23 10V82.4805L12 114.1V656H10V10H23Z" fill="white" />
+            </g>
+            <defs>
+                <filter
+                    id="filter0_d_2208_1252"
+                    x="0"
+                    y="0"
+                    width="33"
+                    height="666"
+                    filterUnits="userSpaceOnUse"
+                    colorInterpolationFilters="sRGB"
+                >
+                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                    />
+                    <feOffset />
+                    <feGaussianBlur stdDeviation="5" />
+                    <feComposite in2="hardAlpha" operator="out" />
+                    <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"
+                    />
+                    <feBlend
+                        mode="normal"
+                        in2="BackgroundImageFix"
+                        result="effect1_dropShadow_2208_1252"
+                    />
+                    <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="effect1_dropShadow_2208_1252"
+                        result="shape"
+                    />
+                </filter>
+            </defs>
+        </svg>
+    );
+}
