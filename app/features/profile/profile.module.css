@@ -1,0 +1,229 @@
+.profileWrapper{
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.profileMain{
+    position: relative;
+    margin: 0 clamp(1rem, 0.478rem + 2.458vw, 2rem);
+    overflow-y: scroll;
+    height: calc(100% - 74px);
+    padding-bottom: 120px;
+    padding-right: 16px;
+}
+
+.tlDetails{
+    font-family: var(--font-orbitron);
+    font-size: clamp(0.5rem, 0.461rem + 0.182vw, 0.625rem);
+    font-weight: 700;
+    opacity: 50%;
+    padding-bottom: 40px;
+}
+
+.tlDetails > *{
+    line-height: 1;
+}
+
+/**** PROFILE CARD ****/
+
+.profileCard{
+    display: flex;
+    /* grid-template-columns: 1fr 1fr; */
+    padding-bottom: 76px;
+    align-items: center;
+    min-height: 250px;
+}
+
+.mugshotAndDetailsWrapper{
+    position: relative;
+    display: flex;
+    width: 150px;
+    height: 100%;
+}
+
+.mugshotWrapper{
+    aspect-ratio: 1 / 1;
+    width: clamp(100px, 90%, 150px);
+    height: auto;
+    overflow: hidden;
+    border: 1px solid white
+}
+
+.mugshot{
+    object-position: 50% 50%;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.profileCard__detailsWrapper{
+    position: relative;
+}
+
+.profileCard__otherDetails{
+    position: absolute;
+    top: 0;
+    left: 8px;
+    width: 62px;
+    opacity: 50%;
+    font-family: var(--font-orbitron);
+    font-size: clamp(0.25rem, 0.211rem + 0.182vw, 0.375rem);
+}
+
+.profileCard__otherDetails > *{
+    line-height: 1;
+}
+
+.profileCard__details{
+    font-family: var(--font-orbitron);
+}
+
+.profileCard__details > *{
+    line-height: 1;
+}
+
+.profileCard__name{
+    font-size: clamp(1.25rem, 0.941rem + 1.455vw, 2.25rem);
+    font-weight: 700;
+}
+
+.profileCard__title{
+    color: var(--color-secondary);
+}
+
+.profileCard__powerLvlWrapper{
+    position: absolute;
+    bottom: 0;
+    left: 8px;
+    opacity: 50%;
+    font-family: var(--font-orbitron);
+
+}
+
+.profileCard__powerLvlWrapper > *{
+    line-height: 1;
+}
+
+.profileCard__powerLvlTitle{
+    font-size: clamp(0.5rem, 0.461rem + 0.182vw, 0.625rem);
+}
+
+.profileCard__powerLvlResult{
+    width: fit-content;
+    background-color: var(--color-secondary);
+    color: var(--color-bg);
+    font-size: clamp(0.625rem, 0.548rem + 0.364vw, 0.875rem);
+    padding: 0 8px;
+    text-wrap: nowrap;
+}
+
+/**** PROFILE SECTIONS ********/
+.profileSectionsWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 24px ;
+    height: 100%;
+}
+
+.profileSection__bulletWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.profileSection__subTitle{
+    border-left: 4px solid var(--color-secondary);
+    padding-left: 12px;
+    color: var(--color-secondary);
+    /* margin-bottom: 8px; */
+}
+
+.profileSection__iconWrapper{
+    display: flex;
+    gap: 10px;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .mugshotAndDetailsWrapper{
+        width: 150px;
+    }
+    .mugshotWrapper{
+        aspect-ratio: 2/3;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .profileContentWrapper{
+        display: flex;
+        justify-content: center;
+    }
+
+    .profileMain{
+        margin-bottom: 140px;
+    }
+
+    .profileCard{
+        width: 320px;
+        height: fit-content;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .profileCard__powerLvlWrapper{
+        top: 20%;
+    }
+
+    .profileCard__details{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .profileSectionsWrapper{
+        margin-bottom: 0px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .profileMain{
+        padding-right: 0;
+    }
+    
+    .profileCard{
+        width: 40%;
+    }
+
+    .mugshotAndDetailsWrapper{
+        width: fit-content;
+    }
+
+    .mugshotWrapper{
+        width: 250px;
+    }
+
+    .profileSectionsWrapper{
+        width: calc(5/12*100%);
+    }
+
+
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .profileMain{
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+
+}
