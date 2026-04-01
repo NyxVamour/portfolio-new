@@ -13,6 +13,7 @@ import IconHTML from "../components/icons/IconHTML";
 import IconCSS from "../components/icons/IconCSS";
 import IconPHP from "../components/icons/IconPHP";
 import IconNode from "../components/icons/IconNode";
+import TlDetails from "../components/TlDetails";
 
 export default function Profile() {
     return (
@@ -24,16 +25,7 @@ export default function Profile() {
                 altHeader={"PROFILE PAGE OF CHARLIZE SAN GABRIEL"}
             ></SubPageHeader>
             <main className={`${styles.profileMain}`}>
-                <div className={`${styles.tlDetails}`}>
-                    <p>
-                        Security:
-                        <span className="text-yellow-300"> Bypassed</span>
-                    </p>
-                    <p>
-                        Unread Emails: <span className="text-red-500">48</span>
-                    </p>
-                    <p>XMHJK-984021</p>
-                </div>
+                <TlDetails></TlDetails>
                 <div className={`${styles.profileContentWrapper}`}>
                     <section className={`${styles.profileCard}`}>
                         <div className={`${styles.mugshotAndDetailsWrapper}`}>
