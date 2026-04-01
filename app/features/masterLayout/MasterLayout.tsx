@@ -1,3 +1,4 @@
+import About from "../about/About";
 import Hacking from "../hacking/Hacking";
 import Profile from "../profile/Profile";
 import MainBGElements from "./components/MainBGElements";
@@ -10,6 +11,7 @@ export default function MasterLayout() {
             <MainBGElements></MainBGElements>
             <Hacking />
             <Profile />
+            <About />
         </div>
     );
 }

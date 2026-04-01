@@ -1,0 +1,11 @@
+.tlDetails{
+    font-family: var(--font-orbitron);
+    font-size: clamp(0.5rem, 0.461rem + 0.182vw, 0.625rem);
+    font-weight: 700;
+    opacity: 50%;
+    padding-bottom: 40px;
+}
+
+.tlDetails > *{
+    line-height: 1;
+}
