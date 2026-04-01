@@ -1,14 +1,27 @@
 import InteractiveNavigation from "./components/interactive navigation/InteractiveNavigation";
 import styles from "./hacking.module.css";
+import type { pageRefsProps } from "../masterLayout/MasterLayout";
 
-export default function Hacking() {
+type HackingProps = {
+    pageRefs: pageRefsProps;
+};
+
+export default function Hacking({ pageRefs }: HackingProps) {
+    const { hackingRef, profileRef, aboutRef, hackingWindowRef } = pageRefs;
+
     return (
-        <main id="hackingMain" className={`${styles.hackingMain}`}>
+        <main
+            id="hackingMain"
+            ref={hackingRef}
+            className={`${styles.hackingMain}`}
+        >
             <section
-                id="hackingWindow"
+                ref={hackingWindowRef}
                 className={`glowWhite--medium ${styles.hackingContainer}`}
             >
-                <InteractiveNavigation></InteractiveNavigation>
+                <InteractiveNavigation
+                    pageRefs={pageRefs}
+                ></InteractiveNavigation>
                 <div className={`${styles.titleWrapper}`}>
                     <h1 className={`${styles.hackingContainer__title}`}>
                         HACKING TARGET

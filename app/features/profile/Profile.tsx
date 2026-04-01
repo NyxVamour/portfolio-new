@@ -14,10 +14,15 @@ import IconCSS from "../components/icons/IconCSS";
 import IconPHP from "../components/icons/IconPHP";
 import IconNode from "../components/icons/IconNode";
 import TlDetails from "../components/TlDetails";
+import { useRef } from "react";
 
-export default function Profile() {
+type ProfileProps = {
+    ref?: React.Ref<HTMLDivElement>;
+};
+
+export default function Profile({ ref }: ProfileProps) {
     return (
-        <div className={`${styles.profileWrapper}`}>
+        <div ref={ref} className={`${styles.profileWrapper}`}>
             <BlurLayer></BlurLayer>
 
             <SubPageHeader

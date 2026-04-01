@@ -3,9 +3,13 @@ import SubPageHeader from "../components/subpageHeader/SubpageHeader";
 import TlDetails from "../components/TlDetails";
 import styles from "./about.module.css";
 
-export default function About() {
+type AboutProps = {
+    ref?: React.Ref<HTMLDivElement>;
+};
+
+export default function About({ ref }: AboutProps) {
     return (
-        <div className={`${styles.aboutWrapper}`}>
+        <div ref={ref} className={`${styles.aboutWrapper}`}>
             <BlurLayer></BlurLayer>
             <SubPageHeader
                 title={"ABOUT"}
