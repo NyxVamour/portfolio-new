@@ -11,6 +11,7 @@ export type pageRefsProps = {
     aboutRef: React.RefObject<HTMLDivElement | null>;
     hackingWindowRef: React.RefObject<HTMLElement | null>;
     closeProfileBtnRef: React.RefObject<HTMLButtonElement | null>;
+    closeAboutBtnRef: React.RefObject<HTMLButtonElement | null>;
 };
 
 export default function MasterLayout() {
@@ -19,12 +20,14 @@ export default function MasterLayout() {
     const aboutRef = useRef<HTMLDivElement>(null);
     const hackingWindowRef = useRef<HTMLElement>(null);
     const closeProfileBtnRef = useRef<HTMLButtonElement>(null);
+    const closeAboutBtnRef = useRef<HTMLButtonElement>(null);
     const pageRefs: pageRefsProps = {
         hackingRef,
         profileRef,
         aboutRef,
         hackingWindowRef,
         closeProfileBtnRef,
+        closeAboutBtnRef,
     };
 
     return (
@@ -36,7 +39,7 @@ export default function MasterLayout() {
                 profileRef={profileRef}
                 closeProfileBtnRef={closeProfileBtnRef}
             />
-            <About ref={aboutRef} />
+            <About aboutRef={aboutRef} closeAboutBtnRef={closeAboutBtnRef} />
         </div>
     );
 }

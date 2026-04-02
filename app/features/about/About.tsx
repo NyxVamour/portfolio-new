@@ -4,14 +4,16 @@ import TlDetails from "../components/TlDetails";
 import styles from "./about.module.css";
 
 type AboutProps = {
-    ref?: React.Ref<HTMLDivElement>;
+    aboutRef?: React.Ref<HTMLDivElement>;
+    closeAboutBtnRef?: React.Ref<HTMLButtonElement>;
 };
 
-export default function About({ ref }: AboutProps) {
+export default function About({ aboutRef, closeAboutBtnRef }: AboutProps) {
     return (
-        <div ref={ref} className={`${styles.aboutWrapper}`}>
+        <div ref={aboutRef} className={`${styles.aboutWrapper}`}>
             <BlurLayer></BlurLayer>
             <SubPageHeader
+                buttonRef={closeAboutBtnRef}
                 title={"ABOUT"}
                 altHeader={"ABOUT PAGE OF CHARLIZE SAN GABRIEL"}
             ></SubPageHeader>

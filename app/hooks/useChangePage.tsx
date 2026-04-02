@@ -15,13 +15,12 @@ export default function useChangePage(
         aboutRef,
         hackingWindowRef,
         closeProfileBtnRef,
+        closeAboutBtnRef,
     } = pageRefs;
 
     const [previousPage, setPreviousPage] = useState("home");
 
     function closeHome(tl: gsap.core.Timeline) {
-        if (!hackingRef) return;
-
         tl.to(hackingWindowRef.current, {
             scaleX: 0,
             autoAlpha: 0,
@@ -73,13 +72,17 @@ export default function useChangePage(
             setCurrentPage("home");
         }
 
-        const el = closeProfileBtnRef.current;
-        if (!el) return;
-        el.addEventListener("click", closeBtnAction);
+        const elProfile = closeProfileBtnRef.current;
+        const elAbout = closeAboutBtnRef.current;
+
+        if (!elProfile || !elAbout) return;
+        elProfile.addEventListener("click", closeBtnAction);
+        elAbout.addEventListener("click", closeBtnAction);
 
         return () => {
-            if (!el) return;
-            el.removeEventListener("click", closeBtnAction);
+            if (!elProfile && !elAbout) return;
+            elProfile.removeEventListener("click", closeBtnAction);
+            elAbout.removeEventListener("click", closeBtnAction);
         };
     }, [closeProfileBtnRef]);
 
