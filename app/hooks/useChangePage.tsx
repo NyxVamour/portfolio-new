@@ -14,9 +14,11 @@ export default function useChangePage(
         hackingRef,
         profileRef,
         aboutRef,
+        projectsRef,
         hackingWindowRef,
         closeProfileBtnRef,
         closeAboutBtnRef,
+        closeProjectsBtnRef,
     } = pageRefs;
 
     const [previousPage, setPreviousPage] = useState("home");
@@ -78,6 +80,8 @@ export default function useChangePage(
                 return profileRef;
             case "about":
                 return aboutRef;
+            case "projects":
+                return projectsRef;
             default:
                 break;
         }
@@ -90,15 +94,18 @@ export default function useChangePage(
 
         const elProfile = closeProfileBtnRef.current;
         const elAbout = closeAboutBtnRef.current;
+        const elProjects = closeProjectsBtnRef.current;
 
-        if (!elProfile || !elAbout) return;
+        if (!elProfile || !elAbout || !elProjects) return;
         elProfile.addEventListener("click", closeBtnAction);
         elAbout.addEventListener("click", closeBtnAction);
+        elProjects.addEventListener("click", closeBtnAction);
 
         return () => {
-            if (!elProfile && !elAbout) return;
+            if (!elProfile && !elAbout && !elProjects) return;
             elProfile.removeEventListener("click", closeBtnAction);
             elAbout.removeEventListener("click", closeBtnAction);
+            elProjects.removeEventListener("click", closeBtnAction);
         };
     }, [closeProfileBtnRef]);
 
@@ -122,6 +129,11 @@ export default function useChangePage(
                 closeHome(tl);
                 openPage(tl, aboutRef);
                 setPreviousPage("about");
+                break;
+            case "projects":
+                closeHome(tl);
+                openPage(tl, projectsRef);
+                setPreviousPage("projects");
             default:
                 break;
         }
