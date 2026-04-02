@@ -10,6 +10,7 @@ export default function useChangePage(
 ) {
     gsap.registerPlugin(useGSAP);
     const {
+        backgroundLayerRef,
         hackingRef,
         profileRef,
         aboutRef,
@@ -42,7 +43,16 @@ export default function useChangePage(
     ) {
         tl.to(pageRef.current, {
             autoAlpha: 1,
-        });
+        }).to(
+            backgroundLayerRef.current,
+            {
+                filter: "blur(8px)",
+            },
+            "<",
+        );
+        // .set("._blurLayer_loggy_1", {
+        //     backdropFilter: "blur(8px)",
+        // });
     }
 
     function closePage(
@@ -53,7 +63,13 @@ export default function useChangePage(
 
         tl.to(pageRef.current, {
             autoAlpha: 0,
-        });
+        }).to(
+            backgroundLayerRef.current,
+            {
+                filter: "blur(0px)",
+            },
+            "<",
+        );
     }
 
     function getCurrentRef(currentPage: string) {
