@@ -10,6 +10,7 @@ export type pageRefsProps = {
     profileRef: React.RefObject<HTMLDivElement | null>;
     aboutRef: React.RefObject<HTMLDivElement | null>;
     hackingWindowRef: React.RefObject<HTMLElement | null>;
+    closeProfileBtnRef: React.RefObject<HTMLButtonElement | null>;
 };
 
 export default function MasterLayout() {
@@ -17,12 +18,13 @@ export default function MasterLayout() {
     const profileRef = useRef<HTMLDivElement>(null);
     const aboutRef = useRef<HTMLDivElement>(null);
     const hackingWindowRef = useRef<HTMLElement>(null);
-
+    const closeProfileBtnRef = useRef<HTMLButtonElement>(null);
     const pageRefs: pageRefsProps = {
         hackingRef,
         profileRef,
         aboutRef,
         hackingWindowRef,
+        closeProfileBtnRef,
     };
 
     return (
@@ -30,7 +32,10 @@ export default function MasterLayout() {
             <div className={styles.vignette}></div>
             <MainBGElements></MainBGElements>
             <Hacking pageRefs={pageRefs} />
-            <Profile ref={profileRef} />
+            <Profile
+                profileRef={profileRef}
+                closeProfileBtnRef={closeProfileBtnRef}
+            />
             <About ref={aboutRef} />
         </div>
     );

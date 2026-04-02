@@ -6,9 +6,11 @@ import WhiteDetail from "./WhiteDetail";
 export default function SubPageHeader({
     title,
     altHeader,
+    buttonRef,
 }: {
     title: string;
     altHeader: string;
+    buttonRef?: React.Ref<HTMLButtonElement>;
 }) {
     return (
         <header className={`${styles.header}`}>
@@ -22,7 +24,7 @@ export default function SubPageHeader({
                     <h1 className={`${styles.title}`}>{title}</h1>
                     <RedDetail></RedDetail>
                 </div>
-                <CloseButton></CloseButton>
+                <CloseButton ref={buttonRef}></CloseButton>
             </div>
         </header>
     );

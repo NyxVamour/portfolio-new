@@ -1,13 +1,23 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "../client/gsapClient";
 import type { pageRefsProps } from "~/features/masterLayout/MasterLayout";
+import { useEffect, useState } from "react";
 
 export default function useChangePage(
     currentPage: string,
+    setCurrentPage: React.Dispatch<React.SetStateAction<string>>,
     pageRefs: pageRefsProps,
 ) {
     gsap.registerPlugin(useGSAP);
-    const { hackingRef, profileRef, aboutRef, hackingWindowRef } = pageRefs;
+    const {
+        hackingRef,
+        profileRef,
+        aboutRef,
+        hackingWindowRef,
+        closeProfileBtnRef,
+    } = pageRefs;
+
+    const [previousPage, setPreviousPage] = useState("home");
 
     function closeHome(tl: gsap.core.Timeline) {
         if (!hackingRef) return;
@@ -15,6 +25,13 @@ export default function useChangePage(
         tl.to(hackingWindowRef.current, {
             scaleX: 0,
             autoAlpha: 0,
+        });
+    }
+
+    function openHome(tl: gsap.core.Timeline) {
+        tl.to(hackingWindowRef.current, {
+            scaleX: 1,
+            autoAlpha: 1,
         });
     }
 
@@ -29,16 +46,63 @@ export default function useChangePage(
         });
     }
 
+    function closePage(
+        tl: gsap.core.Timeline,
+        pageRef: React.RefObject<HTMLDivElement | null>,
+    ) {
+        if (!pageRef.current) return;
+
+        tl.to(pageRef.current, {
+            autoAlpha: 0,
+        });
+    }
+
+    function getCurrentRef(currentPage: string) {
+        switch (currentPage) {
+            case "profile":
+                return profileRef;
+            case "about":
+                return aboutRef;
+            default:
+                break;
+        }
+    }
+
+    useEffect(() => {
+        function closeBtnAction() {
+            setCurrentPage("home");
+        }
+
+        const el = closeProfileBtnRef.current;
+        if (!el) return;
+        el.addEventListener("click", closeBtnAction);
+
+        return () => {
+            if (!el) return;
+            el.removeEventListener("click", closeBtnAction);
+        };
+    }, [closeProfileBtnRef]);
+
     useGSAP(() => {
         const tl = gsap.timeline();
         switch (currentPage) {
+            case "home":
+                const currentRef = getCurrentRef(previousPage);
+                console.log(currentRef);
+                if (currentRef) {
+                    closePage(tl, currentRef);
+                    openHome(tl);
+                }
+                break;
             case "profile":
                 closeHome(tl);
                 openPage(tl, profileRef);
+                setPreviousPage("profile");
                 break;
             case "about":
                 closeHome(tl);
                 openPage(tl, aboutRef);
+                setPreviousPage("about");
             default:
                 break;
         }

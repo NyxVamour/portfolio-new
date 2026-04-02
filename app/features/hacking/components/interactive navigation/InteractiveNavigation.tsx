@@ -25,7 +25,7 @@ export default function InteractiveNavigation({
         setCurrentPage,
     );
     useMap(mapRef, position, prevPosition, setIsMoving);
-    useChangePage(currentPage, pageRefs);
+    useChangePage(currentPage, setCurrentPage, pageRefs);
     useEffect(() => {
         console.log(currentPage);
     }, [currentPage]);
