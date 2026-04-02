@@ -1,5 +1,7 @@
 .profileWrapper{
-    display: none;
+    opacity: 0;
+    visibility: hidden;
+    top: 0;
     position: relative;
     z-index: 10;
     width: 100%;

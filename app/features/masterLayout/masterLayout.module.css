@@ -1,12 +1,18 @@
 .masterLayout{
     width: 100vw;
     height: 100dvh;
+    position: relative;
+}
 
+.backgroundLayer{
+    width: 100vw;
+    height: 100dvh;
     background-image: url("/images/city-street.jpg");
     background-size: cover;
     background-position: center;
-
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .vignette{

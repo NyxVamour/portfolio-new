@@ -2,10 +2,10 @@ import SubPageHeader from "../components/subpageHeader/SubpageHeader";
 import styles from "./profile.module.css";
 import BlurLayer from "../components/BlurLayer";
 import ProfileSection from "./components/ProfileSection";
-import IconFigma from "../components/icons/iconFigma";
+import IconFigma from "../components/icons/IconFigma";
 import IconAE from "../components/icons/IconAE";
-import IconAI from "../components/icons/iconAI";
-import IconPr from "../components/icons/iconPr";
+import IconAI from "../components/icons/IconAI";
+import IconPr from "../components/icons/IconPr";
 import IconPs from "../components/icons/IconPs";
 import IconJs from "../components/icons/IconJs";
 import IconReact from "../components/icons/IconReact";
@@ -15,12 +15,21 @@ import IconPHP from "../components/icons/IconPHP";
 import IconNode from "../components/icons/IconNode";
 import TlDetails from "../components/TlDetails";
 
-export default function Profile() {
+type ProfileProps = {
+    profileRef?: React.Ref<HTMLDivElement>;
+    closeProfileBtnRef?: React.Ref<HTMLButtonElement>;
+};
+
+export default function Profile({
+    profileRef,
+    closeProfileBtnRef,
+}: ProfileProps) {
     return (
-        <div className={`${styles.profileWrapper}`}>
+        <div ref={profileRef} className={`${styles.profileWrapper}`}>
             <BlurLayer></BlurLayer>
 
             <SubPageHeader
+                buttonRef={closeProfileBtnRef}
                 title={"PROFILE"}
                 altHeader={"PROFILE PAGE OF CHARLIZE SAN GABRIEL"}
             ></SubPageHeader>
@@ -32,6 +41,7 @@ export default function Profile() {
                             <figure className={`${styles.mugshotWrapper}`}>
                                 <img
                                     src="/images/charlizeMugshot.jpg"
+                                    alt="mugshot picture of Charlize"
                                     className={`${styles.mugshot}`}
                                 ></img>
                             </figure>

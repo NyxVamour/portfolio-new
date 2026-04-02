@@ -3,11 +3,17 @@ import SubPageHeader from "../components/subpageHeader/SubpageHeader";
 import TlDetails from "../components/TlDetails";
 import styles from "./about.module.css";
 
-export default function About() {
+type AboutProps = {
+    aboutRef?: React.Ref<HTMLDivElement>;
+    closeAboutBtnRef?: React.Ref<HTMLButtonElement>;
+};
+
+export default function About({ aboutRef, closeAboutBtnRef }: AboutProps) {
     return (
-        <div className={`${styles.aboutWrapper}`}>
+        <div ref={aboutRef} className={`${styles.aboutWrapper}`}>
             <BlurLayer></BlurLayer>
             <SubPageHeader
+                buttonRef={closeAboutBtnRef}
                 title={"ABOUT"}
                 altHeader={"ABOUT PAGE OF CHARLIZE SAN GABRIEL"}
             ></SubPageHeader>
