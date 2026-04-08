@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import styles from "./projectCard.module.css";
 
 type ProjectCardProps = {
@@ -5,6 +6,7 @@ type ProjectCardProps = {
     title: string;
     description: string;
     stack: string[];
+    link: string;
 };
 
 export default function ProjectCard({
@@ -12,6 +14,7 @@ export default function ProjectCard({
     title,
     description,
     stack,
+    link,
 }: ProjectCardProps) {
     return (
         <article className={`${styles.projectCard}`}>
@@ -41,9 +44,9 @@ export default function ProjectCard({
                         <button className={`${styles.button}`}>
                             Read More
                         </button>
-                        <button className={`${styles.button}`}>
+                        <Link to={link} className={`${styles.button}`}>
                             Visit Site
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>

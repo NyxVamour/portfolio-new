@@ -37,6 +37,7 @@ export default function Projects({
                                 title={project.title}
                                 description={project.description}
                                 stack={project.stack}
+                                link={project.link}
                             />
                         ))}
                     </div>
