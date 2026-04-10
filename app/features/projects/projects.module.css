@@ -16,9 +16,9 @@
     overflow-y: scroll;
     height: calc(100% - 74px);
     padding-bottom: 120px;
-    padding-right: 16px;
     display: flex;
     flex-direction: column;
+    padding-top: 24px;
     gap: 24px;
 }
 
@@ -29,6 +29,7 @@
 }
 
 .title{
+    font-size: 1.25rem;
     font-weight: 700;
 }
 
@@ -40,10 +41,25 @@
     padding: 0 2px;
 }
 
-.projectCardsWrapper{
+.projectsMainContentWrapper{
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 16px;
+}
+
+.projectsSection{
+    position: relative;
+    display: flex;
+}
+
+.cardsUl{
+    position: relative;
+    display: flex;
+        /* display: none; */
+
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -69,11 +85,6 @@
         /* margin-bottom: 140px; */
     }
 
-    .projectCardsWrapper{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
-    }
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -88,11 +99,6 @@
         margin: 0 auto;
     }
 
-    .projectCardsWrapper{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 40px;
-    }
 }
 
 /* XX-Large devices (larger desktops, 1400px and up) */
