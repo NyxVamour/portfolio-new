@@ -16,11 +16,23 @@ export default function Projects({
     projectsRef,
     closeProjectsBtnRef,
 }: ProjectsProps) {
-    const [selectedProject, setSelectedProject] = useState(0);
+    const [selectedProjectID, setSelectedProjectID] = useState(0);
+    const [projectInfo, setProjectInfo] = useState({});
 
-    // useEffect(() => {
-    //     console.log(selectedProject);
-    // }, [selectedProject]);
+    useEffect(() => {
+        console.log(projectInfo);
+    }, [projectInfo]);
+
+    useEffect(() => {
+        function changeInfo() {
+            const results = projectsData.filter(
+                (project) => project.id === selectedProjectID,
+            );
+            setProjectInfo(results[0]);
+        }
+        if (!selectedProjectID) return;
+        changeInfo();
+    }, [selectedProjectID]);
 
     return (
         <div ref={projectsRef} className={`${styles.projectsWrapper}`}>
@@ -44,7 +56,7 @@ export default function Projects({
                                     title={project.title}
                                     category={project.category}
                                     onClick={() =>
-                                        setSelectedProject(project.id)
+                                        setSelectedProjectID(project.id)
                                     }
                                 />
                             ))}
