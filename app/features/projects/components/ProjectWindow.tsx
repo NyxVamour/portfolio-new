@@ -3,6 +3,7 @@ import styles from "./projectWindow.module.css";
 import { Link } from "react-router";
 
 type ProjectWindowProps = {
+    ref: React.Ref<HTMLElement>;
     title: string;
     description: string;
     imgSrc: string;
@@ -11,6 +12,7 @@ type ProjectWindowProps = {
 };
 
 export default function ProjectWindow({
+    ref,
     title,
     description,
     imgSrc,
@@ -18,7 +20,7 @@ export default function ProjectWindow({
     stack,
 }: ProjectWindowProps) {
     return (
-        <article className={`${styles.window}`}>
+        <article ref={ref} className={`${styles.window}`}>
             <header className={`${styles.header}`}>
                 <button className={`${styles.backBtn}`}>
                     <IconArrow></IconArrow>
