@@ -23,10 +23,9 @@ export default function Projects({
                 altHeader="PROJECTS PAGE OF CHARLIZE SAN GABRIEL"
             ></SubPageHeader>
             <main className={`${styles.projectsMain}`}>
-                <TlDetails></TlDetails>
                 <section className={`${styles.projectsMainContentWrapper}`}>
                     <header className={`${styles.header}`}>
-                        <h2 className={`${styles.title}`}>SELECT PROJECTS</h2>
+                        <h2 className={`${styles.title}`}>SELECT PROJECT</h2>
                         <p className={`${styles.loaded}`}>LOADED 100%</p>
                     </header>
                     <div className={`${styles.projectCardsWrapper}`}>
