@@ -4,7 +4,7 @@ import SubPageHeader from "../components/subpageHeader/SubpageHeader";
 import TlDetails from "../components/TlDetails";
 import ProjectCard from "./components/ProjectCard";
 import ProjectWindow from "./components/ProjectWindow";
-import { projectsData } from "./data/projectsData";
+import { projectsData, type projectsDataProps } from "./data/projectsData";
 import styles from "./projects.module.css";
 
 type ProjectsProps = {
@@ -17,7 +17,7 @@ export default function Projects({
     closeProjectsBtnRef,
 }: ProjectsProps) {
     const [selectedProjectID, setSelectedProjectID] = useState(0);
-    const [projectInfo, setProjectInfo] = useState({});
+    const [projectInfo, setProjectInfo] = useState<projectsDataProps[number]>();
 
     useEffect(() => {
         console.log(projectInfo);
@@ -25,10 +25,11 @@ export default function Projects({
 
     useEffect(() => {
         function changeInfo() {
-            const results = projectsData.filter(
+            const results = projectsData.find(
                 (project) => project.id === selectedProjectID,
             );
-            setProjectInfo(results[0]);
+            console.log(results);
+            setProjectInfo(results);
         }
         if (!selectedProjectID) return;
         changeInfo();
@@ -61,7 +62,15 @@ export default function Projects({
                                 />
                             ))}
                         </ul>
-                        <ProjectWindow />
+                        {projectInfo && (
+                            <ProjectWindow
+                                title={projectInfo.title}
+                                description={projectInfo.description}
+                                imgSrc={projectInfo.imgSrc}
+                                link={projectInfo.link}
+                                stack={projectInfo.stack}
+                            />
+                        )}
                     </section>
                 </section>
             </main>
