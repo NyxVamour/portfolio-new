@@ -7,7 +7,7 @@ type closeButtonProps = {
 export default function CloseButton({ ref }: closeButtonProps) {
     return (
         <button ref={ref} className={`${styles.closeBtn}`}>
-            X
+            <span className={`${styles.buttonX}`}>X</span>
         </button>
     );
 }

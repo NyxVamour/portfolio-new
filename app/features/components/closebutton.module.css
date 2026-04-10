@@ -9,9 +9,15 @@
     font-weight: 700;
     line-height: 1;
     padding: 0 6px;
-    border: 2px solid var(--color-primary);
+    border: 1px solid var(--color-primary);
+    background-color: var(--color-primary--darker);
+    filter: drop-shadow(0 0 4px var(--color-primary));
 }
 
 .closeBtn:hover{
     background-color: var(--color-primary);
+}
+
+.buttonX{
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
 }
