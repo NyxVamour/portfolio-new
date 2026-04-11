@@ -47,6 +47,13 @@ export default function Projects({
         changeInfo();
     }, [selectedProjectID]);
 
+    //* Setup for gsap */
+    useGSAP(() => {
+        gsap.set(projectWindowRef.current, {
+            autoAlpha: 0,
+        });
+    }, []);
+
     useGSAP(() => {
         if (!finishedPageFirstLoad) return;
         const tl = gsap.timeline();

@@ -2,8 +2,6 @@
     position: absolute;
     width: 100%;
     transform: translateX(calc(100% + 24px));
-    opacity: 0;
-    visibility: hidden;
     background-color: var(--color-bg);
     filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.25));
 }
@@ -103,4 +101,42 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .aboutMainContentWrapper{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .portraitWrapper{
+        width: 50%;
+    }
+
+    .contentWrapper{
+        width: 50%;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .window{
+        width: calc(1/3 * 100%);
+    }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+
 }
