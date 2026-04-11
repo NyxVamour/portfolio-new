@@ -9,6 +9,7 @@ type ProjectWindowProps = {
     imgSrc: string;
     link: string;
     stack: string[];
+    onClick?: () => void;
 };
 
 export default function ProjectWindow({
@@ -18,11 +19,12 @@ export default function ProjectWindow({
     imgSrc,
     link,
     stack,
+    onClick,
 }: ProjectWindowProps) {
     return (
         <article ref={ref} className={`${styles.window}`}>
             <header className={`${styles.header}`}>
-                <button className={`${styles.backBtn}`}>
+                <button onClick={onClick} className={`${styles.backBtn}`}>
                     <IconArrow></IconArrow>
                 </button>
                 <div className={`${styles.headerTextWrapper}`}>
@@ -37,7 +39,9 @@ export default function ProjectWindow({
                     <h2 className={`${styles.projectTitle}`}>{title}</h2>
                     <ul className={`${styles.stackUl}`}>
                         {stack.map((stackItem) => (
-                            <li className={`${styles.stackLi}`}>{stackItem}</li>
+                            <li key={stackItem} className={`${styles.stackLi}`}>
+                                {stackItem}
+                            </li>
                         ))}
                     </ul>
                     <Link to={link} className={`${styles.linkBtn}`}>

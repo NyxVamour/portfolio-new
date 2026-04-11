@@ -2,6 +2,8 @@
     position: absolute;
     width: 100%;
     transform: translateX(calc(100% + 24px));
+    opacity: 0;
+    visibility: hidden;
     background-color: var(--color-bg);
     filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.25));
 }

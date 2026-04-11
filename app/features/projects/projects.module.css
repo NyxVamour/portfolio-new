@@ -13,6 +13,7 @@
 .projectsMain{
     position: relative;
     margin: 0 clamp(1rem, 0.478rem + 2.458vw, 2rem);
+    overflow-x: hidden;
     overflow-y: scroll;
     height: calc(100% - 74px);
     padding-bottom: 120px;
@@ -20,6 +21,7 @@
     flex-direction: column;
     padding-top: 24px;
     gap: 24px;
+    
 }
 
 .header{

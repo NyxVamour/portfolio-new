@@ -20,14 +20,18 @@ export default function Projects({
 }: ProjectsProps) {
     const [selectedProjectID, setSelectedProjectID] = useState(0);
     const [projectInfo, setProjectInfo] = useState<projectsDataProps[number]>();
-    const [isProjectWindowOpen, setIsProjectWindowOpen] = useState(false);
-
+    const [finishedPageFirstLoad, setFinishedPageFirstLoad] = useState(false);
     const projectsUlRef = useRef(null);
     const projectWindowRef = useRef(null);
 
-    useEffect(() => {
-        console.log(projectInfo);
-    }, [projectInfo]);
+    function handleCardClick(id: number) {
+        setSelectedProjectID(id);
+        setFinishedPageFirstLoad(true);
+    }
+
+    function handleCloseBtnClick() {
+        setSelectedProjectID(0);
+    }
 
     useEffect(() => {
         function changeInfo() {
@@ -37,29 +41,50 @@ export default function Projects({
             console.log(results);
             setProjectInfo(results);
         }
+
         if (!selectedProjectID) return;
+
         changeInfo();
     }, [selectedProjectID]);
 
     useGSAP(() => {
+        if (!finishedPageFirstLoad) return;
         const tl = gsap.timeline();
-        if (selectedProjectID === 0) return;
 
-        tl.to(projectsUlRef.current, {
-            xPercent: -100,
-        }).to(
-            projectWindowRef.current,
-            {
-                x: "calc(-100% - 24px)",
-            },
-            "<",
-        );
+        switch (selectedProjectID) {
+            case 0:
+                tl.to(projectsUlRef.current, {
+                    xPercent: 0,
+                    x: 0,
+                    autoAlpha: 1,
+                }).to(
+                    projectWindowRef.current,
+                    {
+                        xPercent: 100,
+                        x: 24,
+                        autoAlpha: 0,
+                    },
+                    "<",
+                );
+                break;
+
+            default:
+                tl.to(projectsUlRef.current, {
+                    xPercent: -100,
+                    x: -24,
+                    autoAlpha: 0,
+                }).to(
+                    projectWindowRef.current,
+                    {
+                        xPercent: 0,
+                        x: 0,
+                        autoAlpha: 1,
+                    },
+                    "<",
+                );
+                break;
+        }
     }, [selectedProjectID]);
-
-    useGSAP(() => {
-        if (!isProjectWindowOpen) return;
-        const tl = gsap.timeline();
-    }, [isProjectWindowOpen]);
 
     return (
         <div ref={projectsRef} className={`${styles.projectsWrapper}`}>
@@ -82,9 +107,7 @@ export default function Projects({
                                     key={project.id}
                                     title={project.title}
                                     category={project.category}
-                                    onClick={() =>
-                                        setSelectedProjectID(project.id)
-                                    }
+                                    onClick={() => handleCardClick(project.id)}
                                 />
                             ))}
                         </ul>
@@ -96,6 +119,7 @@ export default function Projects({
                                 imgSrc={projectInfo?.imgSrc ?? ""}
                                 link={projectInfo?.link ?? ""}
                                 stack={projectInfo?.stack ?? []}
+                                onClick={() => handleCloseBtnClick()}
                             />
                         }
                     </section>
