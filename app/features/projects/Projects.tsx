@@ -56,41 +56,45 @@ export default function Projects({
 
     useGSAP(() => {
         if (!finishedPageFirstLoad) return;
+        let mm = gsap.matchMedia();
         const tl = gsap.timeline();
 
-        switch (selectedProjectID) {
-            case 0:
-                tl.to(projectsUlRef.current, {
-                    xPercent: 0,
-                    x: 0,
-                    autoAlpha: 1,
-                }).to(
-                    projectWindowRef.current,
-                    {
-                        xPercent: 100,
-                        x: 24,
-                        autoAlpha: 0,
-                    },
-                    "<",
-                );
-                break;
-
-            default:
-                tl.to(projectsUlRef.current, {
-                    xPercent: -100,
-                    x: -24,
-                    autoAlpha: 0,
-                }).to(
-                    projectWindowRef.current,
-                    {
+        mm.add("(max-width: 991px)", () => {
+            switch (selectedProjectID) {
+                case 0:
+                    tl.to(projectsUlRef.current, {
                         xPercent: 0,
                         x: 0,
                         autoAlpha: 1,
-                    },
-                    "<",
-                );
-                break;
-        }
+                    }).to(
+                        projectWindowRef.current,
+                        {
+                            xPercent: 100,
+                            x: 24,
+                            autoAlpha: 0,
+                        },
+                        "<",
+                    );
+                    break;
+
+                default:
+                    tl.to(projectsUlRef.current, {
+                        xPercent: -100,
+                        x: -24,
+                        autoAlpha: 0,
+                    }).to(
+                        projectWindowRef.current,
+                        {
+                            xPercent: 0,
+                            x: 0,
+                            autoAlpha: 1,
+                        },
+                        "<",
+                    );
+                    break;
+            }
+        });
+        mm.add("(min-width:992px)", () => {});
     }, [selectedProjectID]);
 
     return (
