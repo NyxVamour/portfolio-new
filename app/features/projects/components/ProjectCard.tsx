@@ -6,11 +6,17 @@ type ProjectCardProps = {
     onClick?: () => void;
 };
 
-export default function ProjectCard({ title, category, onClick }: ProjectCardProps) {
+export default function ProjectCard({
+    title,
+    category,
+    onClick,
+}: ProjectCardProps) {
     return (
-        <li className={`${styles.card}`} onClick={onClick}>
-            <p className={`${styles.category}`}>{category}</p>
-            <p className={`${styles.title}`}>{title}</p>
+        <li>
+            <button className={`${styles.card}`} onClick={onClick}>
+                <p className={`${styles.category}`}>{category}</p>
+                <p className={`${styles.title}`}>{title}</p>
+            </button>
         </li>
         // <article className={`${styles.projectCard}`}>
         //     <figure className={`${styles.imgWrapper}`}>
