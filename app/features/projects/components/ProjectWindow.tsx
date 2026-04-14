@@ -34,25 +34,30 @@ export default function ProjectWindow({
                     </p>
                 </div>
             </header>
-            <section className={`${styles.section}`}>
-                <div className={`${styles.sectionInfoWrapper}`}>
-                    <h2 className={`${styles.projectTitle}`}>{title}</h2>
-                    <ul className={`${styles.stackUl}`}>
-                        {stack.map((stackItem) => (
-                            <li key={stackItem} className={`${styles.stackLi}`}>
-                                {stackItem}
-                            </li>
-                        ))}
-                    </ul>
-                    <Link to={link} className={`${styles.linkBtn}`}>
-                        Visit Site
-                    </Link>
-                </div>
-                <div className={`${styles.caseStudyWrapper}`}>
-                    <img src={`/images/${imgSrc}`} alt="" />
-                    <p>{description}</p>
-                </div>
-            </section>
+            <div className={`${styles.sectionWrapper}`}>
+                <section className={`${styles.section}`}>
+                    <div className={`${styles.sectionInfoWrapper}`}>
+                        <h2 className={`${styles.projectTitle}`}>{title}</h2>
+                        <ul className={`${styles.stackUl}`}>
+                            {stack.map((stackItem) => (
+                                <li
+                                    key={stackItem}
+                                    className={`${styles.stackLi}`}
+                                >
+                                    {stackItem}
+                                </li>
+                            ))}
+                        </ul>
+                        <Link to={link} className={`${styles.linkBtn}`}>
+                            Visit Site
+                        </Link>
+                    </div>
+                    <div className={`${styles.caseStudyWrapper}`}>
+                        <img src={`/images/${imgSrc}`} alt="" />
+                        <p>{description}</p>
+                    </div>
+                </section>
+            </div>
         </article>
     );
 }
