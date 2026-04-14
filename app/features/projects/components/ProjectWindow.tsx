@@ -26,7 +26,9 @@ export default function ProjectWindow({
         projectWindowRef,
         headerTopRef,
         headerBotRef,
-        sectionInfoRef,
+        titleRef,
+        stackRef,
+        linkRef,
         caseStudyRef,
     } = refs;
 
@@ -50,12 +52,11 @@ export default function ProjectWindow({
             </header>
             <div className={`${styles.sectionWrapper}`}>
                 <section className={`${styles.section}`}>
-                    <div
-                        ref={sectionInfoRef}
-                        className={`${styles.sectionInfoWrapper}`}
-                    >
-                        <h2 className={`${styles.projectTitle}`}>{title}</h2>
-                        <ul className={`${styles.stackUl}`}>
+                    <div className={`${styles.sectionInfoWrapper}`}>
+                        <h2 ref={titleRef} className={`${styles.projectTitle}`}>
+                            {""}
+                        </h2>
+                        <ul ref={stackRef} className={`${styles.stackUl}`}>
                             {stack.map((stackItem) => (
                                 <li
                                     key={stackItem}

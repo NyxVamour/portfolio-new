@@ -20,7 +20,9 @@ export type windowRefsProps = {
     projectWindowRef: React.RefObject<HTMLElement | null>;
     headerTopRef: React.RefObject<HTMLParagraphElement | null>;
     headerBotRef: React.RefObject<HTMLParagraphElement | null>;
-    sectionInfoRef: React.RefObject<HTMLDivElement | null>;
+    titleRef: React.RefObject<HTMLHeadingElement | null>;
+    stackRef: React.RefObject<HTMLUListElement | null>;
+    linkRef: React.RefObject<HTMLAnchorElement | null>;
     caseStudyRef: React.RefObject<HTMLDivElement | null>;
 };
 
@@ -36,14 +38,18 @@ export default function Projects({
     const projectWindowRef = useRef(null);
     const headerTopRef = useRef(null);
     const headerBotRef = useRef(null);
-    const sectionInfoRef = useRef(null);
+    const stackRef = useRef(null);
+    const linkRef = useRef(null);
+    const titleRef = useRef(null);
     const caseStudyRef = useRef(null);
 
     const windowRefs: windowRefsProps = {
         projectWindowRef,
         headerTopRef,
         headerBotRef,
-        sectionInfoRef,
+        titleRef,
+        stackRef,
+        linkRef,
         caseStudyRef,
     };
     function handleCardClick(id: number) {
@@ -78,61 +84,267 @@ export default function Projects({
 
     useGSAP(() => {
         if (!finishedPageFirstLoad) return;
+        if (!projectInfo) return;
         let mm = gsap.matchMedia();
         const tl = gsap.timeline();
+
+        const projUl = projectsUlRef.current;
+        const projWindow = projectWindowRef.current;
+        const headerTop = headerTopRef.current;
+        const headerBot = headerBotRef.current;
+        const title = titleRef.current;
+        const stack = stackRef.current;
+        const linkBtn = linkRef.current;
+        const caseStudy = caseStudyRef.current;
 
         mm.add("(max-width: 991px)", () => {
             switch (selectedProjectID) {
                 case 0:
-                    tl.to(projectsUlRef.current, {
+                    tl.restart();
+                    tl.to(projUl, {
                         xPercent: 0,
                         x: 0,
                         autoAlpha: 1,
-                    }).to(
-                        projectWindowRef.current,
-                        {
-                            xPercent: 100,
-                            x: 24,
-                            autoAlpha: 0,
-                        },
-                        "<",
-                    );
+                    })
+                        .to(
+                            projWindow,
+                            {
+                                xPercent: 100,
+                                x: 24,
+                                autoAlpha: 0,
+                            },
+                            "<",
+                        )
+                        .to(
+                            headerTop,
+                            {
+                                autoAlpha: 0,
+                                duration: 0,
+                            },
+                            ">",
+                        )
+                        .to(
+                            headerBot,
+                            {
+                                autoAlpha: 0,
+                                duration: 0,
+                            },
+                            "<",
+                        )
+                        .to(
+                            title,
+                            {
+                                text: "",
+                                duration: 0,
+                            },
+                            "<",
+                        )
+                        .to(
+                            stack,
+                            {
+                                x: 50,
+                                autoAlpha: 0,
+                                duration: 0,
+                            },
+                            "<",
+                        )
+                        .to(
+                            linkBtn,
+                            {
+                                autoAlpha: 0,
+                                duration: 0,
+                            },
+                            "<",
+                        )
+                        .to(
+                            caseStudy,
+                            {
+                                y: -50,
+                                autoAlpha: 0,
+                                duration: 0,
+                            },
+                            "<",
+                        );
                     break;
 
                 default:
-                    tl.to(projectsUlRef.current, {
+                    tl.restart();
+                    tl.to(projUl, {
                         xPercent: -100,
                         x: -24,
                         autoAlpha: 0,
-                    }).to(
-                        projectWindowRef.current,
-                        {
-                            xPercent: 0,
-                            x: 0,
-                            autoAlpha: 1,
-                        },
-                        "<",
-                    );
+                    })
+                        .to(
+                            projWindow,
+                            {
+                                xPercent: 0,
+                                x: 0,
+                                autoAlpha: 1,
+                            },
+                            "<",
+                        )
+                        .to(
+                            headerTop,
+                            {
+                                autoAlpha: 1,
+                            },
+                            ">",
+                        )
+                        .to(
+                            headerBot,
+                            {
+                                autoAlpha: 1,
+                            },
+                            "<",
+                        )
+                        .to(
+                            title,
+                            {
+                                text: `${projectInfo.title}`,
+                            },
+                            "<",
+                        )
+                        .to(
+                            stack,
+                            {
+                                x: 0,
+                                autoAlpha: 1,
+                            },
+                            ">-0.4",
+                        )
+                        .to(
+                            linkBtn,
+                            {
+                                autoAlpha: 1,
+                            },
+                            ">",
+                        )
+                        .to(
+                            caseStudy,
+                            {
+                                y: 0,
+                                autoAlpha: 1,
+                            },
+                            "<",
+                        );
                     break;
             }
         });
         mm.add("(min-width:992px)", () => {
             switch (selectedProjectID) {
                 case 0:
-                    tl.to(projectWindowRef.current, {
+                    tl.restart();
+
+                    tl.to(projWindow, {
                         scaleX: 0,
                         autoAlpha: 0,
-                    });
+                        duration: 0.5,
+                    })
+                        .to(
+                            headerTop,
+                            {
+                                autoAlpha: 0,
+                                duration: 0,
+                            },
+                            ">",
+                        )
+                        .to(
+                            headerBot,
+                            {
+                                autoAlpha: 0,
+                                duration: 0,
+                            },
+                            "<",
+                        )
+                        .to(
+                            title,
+                            {
+                                text: "",
+                                duration: 0,
+                            },
+                            "<",
+                        )
+                        .to(
+                            stack,
+                            {
+                                x: 50,
+                                autoAlpha: 0,
+                                duration: 0,
+                            },
+                            "<",
+                        )
+                        .to(
+                            linkBtn,
+                            {
+                                autoAlpha: 0,
+                                duration: 0,
+                            },
+                            "<",
+                        )
+                        .to(
+                            caseStudy,
+                            {
+                                y: -50,
+                                autoAlpha: 0,
+                                duration: 0,
+                            },
+                            "<",
+                        );
                     break;
                 default:
-                    tl.to(projectWindowRef.current, {
+                    tl.restart();
+                    tl.to(projWindow, {
                         scaleX: 1,
                         autoAlpha: 1,
-                    });
+                    })
+                        .to(
+                            headerTop,
+                            {
+                                autoAlpha: 1,
+                            },
+                            ">",
+                        )
+                        .to(
+                            headerBot,
+                            {
+                                autoAlpha: 1,
+                            },
+                            "<",
+                        )
+                        .to(
+                            title,
+                            {
+                                text: `${projectInfo.title}`,
+                            },
+                            "<",
+                        )
+                        .to(
+                            stack,
+                            {
+                                x: 0,
+                                autoAlpha: 1,
+                            },
+                            ">-0.4",
+                        )
+                        .to(
+                            linkBtn,
+                            {
+                                autoAlpha: 1,
+                            },
+                            ">",
+                        )
+                        .to(
+                            caseStudy,
+                            {
+                                y: 0,
+                                autoAlpha: 1,
+                            },
+                            "<",
+                        );
                     break;
             }
         });
-    }, [selectedProjectID]);
+    }, [selectedProjectID, projectInfo]);
 
     return (
         <div ref={projectsRef} className={`${styles.projectsWrapper}`}>
