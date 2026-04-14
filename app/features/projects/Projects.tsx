@@ -18,6 +18,7 @@ type ProjectsProps = {
 
 export type windowRefsProps = {
     projectWindowRef: React.RefObject<HTMLElement | null>;
+    sectionRef: React.RefObject<HTMLElement | null>;
     headerTopRef: React.RefObject<HTMLParagraphElement | null>;
     headerBotRef: React.RefObject<HTMLParagraphElement | null>;
     titleRef: React.RefObject<HTMLHeadingElement | null>;
@@ -36,6 +37,7 @@ export default function Projects({
     const [finishedPageFirstLoad, setFinishedPageFirstLoad] = useState(false);
     const projectsUlRef = useRef(null);
     const projectWindowRef = useRef(null);
+    const sectionRef = useRef<HTMLElement | null>(null);
     const headerTopRef = useRef(null);
     const headerBotRef = useRef(null);
     const stackRef = useRef(null);
@@ -45,6 +47,7 @@ export default function Projects({
 
     const windowRefs: windowRefsProps = {
         projectWindowRef,
+        sectionRef,
         headerTopRef,
         headerBotRef,
         titleRef,
@@ -66,7 +69,6 @@ export default function Projects({
             const results = projectsData.find(
                 (project) => project.id === selectedProjectID,
             );
-            console.log(results);
             setProjectInfo(results);
         }
 
@@ -74,6 +76,14 @@ export default function Projects({
 
         changeInfo();
     }, [selectedProjectID]);
+
+    useEffect(() => {
+        if (!sectionRef.current) return;
+        sectionRef.current.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    }, [selectedProjectID, sectionRef]);
 
     //* Setup for gsap */
     useGSAP(() => {

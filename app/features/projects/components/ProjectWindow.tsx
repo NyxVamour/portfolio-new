@@ -24,6 +24,7 @@ export default function ProjectWindow({
 }: ProjectWindowProps) {
     const {
         projectWindowRef,
+        sectionRef,
         headerTopRef,
         headerBotRef,
         titleRef,
@@ -51,7 +52,7 @@ export default function ProjectWindow({
                 </div>
             </header>
             <div className={`${styles.sectionWrapper}`}>
-                <section className={`${styles.section}`}>
+                <section ref={sectionRef} className={`${styles.section}`}>
                     <div className={`${styles.sectionInfoWrapper}`}>
                         <h2 ref={titleRef} className={`${styles.projectTitle}`}>
                             {""}
