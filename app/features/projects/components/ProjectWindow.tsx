@@ -65,9 +65,15 @@ export default function ProjectWindow({
                                 </li>
                             ))}
                         </ul>
-                        <Link to={link} className={`${styles.linkBtn}`}>
+                        <a
+                            ref={linkRef}
+                            href={link}
+                            className={`${styles.linkBtn}`}
+                            target="_blank"
+                            rel="noreferrer"
+                        >
                             Visit Site
-                        </Link>
+                        </a>
                     </div>
                     <div
                         ref={caseStudyRef}
