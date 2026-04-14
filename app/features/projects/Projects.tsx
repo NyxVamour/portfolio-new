@@ -94,7 +94,20 @@ export default function Projects({
                     break;
             }
         });
-        mm.add("(min-width:992px)", () => {});
+        mm.add("(min-width:992px)", () => {
+            switch (selectedProjectID) {
+                case 0:
+                    tl.to(projectWindowRef.current, {
+                        autoAlpha: 0,
+                    });
+                    break;
+                default:
+                    tl.to(projectWindowRef.current, {
+                        autoAlpha: 1,
+                    });
+                    break;
+            }
+        });
     }, [selectedProjectID]);
 
     return (
