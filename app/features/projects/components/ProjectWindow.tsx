@@ -1,9 +1,10 @@
 import IconArrow from "~/features/components/icons/IconArrow";
 import styles from "./projectWindow.module.css";
 import { Link } from "react-router";
+import type { windowRefsProps } from "../Projects";
 
 type ProjectWindowProps = {
-    ref: React.Ref<HTMLElement>;
+    refs: windowRefsProps;
     title: string;
     description: string;
     imgSrc: string;
@@ -13,7 +14,7 @@ type ProjectWindowProps = {
 };
 
 export default function ProjectWindow({
-    ref,
+    refs,
     title,
     description,
     imgSrc,
@@ -21,22 +22,38 @@ export default function ProjectWindow({
     stack,
     onClick,
 }: ProjectWindowProps) {
+    const {
+        projectWindowRef,
+        headerTopRef,
+        headerBotRef,
+        sectionInfoRef,
+        caseStudyRef,
+    } = refs;
+
     return (
-        <article ref={ref} className={`${styles.window}`}>
+        <article ref={projectWindowRef} className={`${styles.window}`}>
             <header className={`${styles.header}`}>
                 <button onClick={onClick} className={`${styles.backBtn}`}>
                     <IconArrow></IconArrow>
                 </button>
                 <div className={`${styles.headerTextWrapper}`}>
-                    <p className={`${styles.headerTopText}`}>PROJECT HACKED</p>
-                    <p className={`${styles.headerBottomText}`}>
+                    <p ref={headerTopRef} className={`${styles.headerTopText}`}>
+                        PROJECT HACKED
+                    </p>
+                    <p
+                        ref={headerBotRef}
+                        className={`${styles.headerBottomText}`}
+                    >
                         ACCESS GRANTED
                     </p>
                 </div>
             </header>
             <div className={`${styles.sectionWrapper}`}>
                 <section className={`${styles.section}`}>
-                    <div className={`${styles.sectionInfoWrapper}`}>
+                    <div
+                        ref={sectionInfoRef}
+                        className={`${styles.sectionInfoWrapper}`}
+                    >
                         <h2 className={`${styles.projectTitle}`}>{title}</h2>
                         <ul className={`${styles.stackUl}`}>
                             {stack.map((stackItem) => (
@@ -52,7 +69,10 @@ export default function ProjectWindow({
                             Visit Site
                         </Link>
                     </div>
-                    <div className={`${styles.caseStudyWrapper}`}>
+                    <div
+                        ref={caseStudyRef}
+                        className={`${styles.caseStudyWrapper}`}
+                    >
                         <img src={`/images/${imgSrc}`} alt="" />
                         <p>{description}</p>
                     </div>

@@ -16,6 +16,14 @@ type ProjectsProps = {
     setSelectedProjectID: React.Dispatch<React.SetStateAction<number>>;
 };
 
+export type windowRefsProps = {
+    projectWindowRef: React.RefObject<HTMLElement | null>;
+    headerTopRef: React.RefObject<HTMLParagraphElement | null>;
+    headerBotRef: React.RefObject<HTMLParagraphElement | null>;
+    sectionInfoRef: React.RefObject<HTMLDivElement | null>;
+    caseStudyRef: React.RefObject<HTMLDivElement | null>;
+};
+
 export default function Projects({
     projectsRef,
     closeProjectsBtnRef,
@@ -26,7 +34,18 @@ export default function Projects({
     const [finishedPageFirstLoad, setFinishedPageFirstLoad] = useState(false);
     const projectsUlRef = useRef(null);
     const projectWindowRef = useRef(null);
+    const headerTopRef = useRef(null);
+    const headerBotRef = useRef(null);
+    const sectionInfoRef = useRef(null);
+    const caseStudyRef = useRef(null);
 
+    const windowRefs: windowRefsProps = {
+        projectWindowRef,
+        headerTopRef,
+        headerBotRef,
+        sectionInfoRef,
+        caseStudyRef,
+    };
     function handleCardClick(id: number) {
         setSelectedProjectID(id);
         setFinishedPageFirstLoad(true);
@@ -101,11 +120,13 @@ export default function Projects({
             switch (selectedProjectID) {
                 case 0:
                     tl.to(projectWindowRef.current, {
+                        scaleX: 0,
                         autoAlpha: 0,
                     });
                     break;
                 default:
                     tl.to(projectWindowRef.current, {
+                        scaleX: 1,
                         autoAlpha: 1,
                     });
                     break;
@@ -140,7 +161,7 @@ export default function Projects({
                         </ul>
                         {
                             <ProjectWindow
-                                ref={projectWindowRef}
+                                refs={windowRefs}
                                 title={projectInfo?.title ?? ""}
                                 description={projectInfo?.description ?? ""}
                                 imgSrc={projectInfo?.imgSrc ?? ""}
