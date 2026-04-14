@@ -63,13 +63,13 @@
     padding-right: 16px;
     overflow-y: scroll;
     height: 100%;
+    overflow-x: hidden;
 }
 
 .sectionInfoWrapper{
     display: flex;
     flex-direction: column;
     gap: 16px;
-    overflow-x: hidden;
 }
 
 .projectTitle{
