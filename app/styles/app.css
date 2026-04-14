@@ -29,8 +29,9 @@ body {
 
 ::-webkit-scrollbar-track{
   background: black;
-  background-color: black;
+  background-color: rgb(53, 53, 53);
   width: 8px;
+  border-radius: 30px;
 }
 
 ::-webkit-scrollbar-thumb{
