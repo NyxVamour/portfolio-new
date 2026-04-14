@@ -74,7 +74,6 @@
 .projectTitle{
     font-family: var(--font-orbitron);
     font-size: 1.25rem;
-    font-size: 700;
     padding-left: 16px;
     border-left: 3px solid var(--color-secondary);
 }
