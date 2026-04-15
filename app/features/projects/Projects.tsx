@@ -90,6 +90,88 @@ export default function Projects({
         gsap.set(projectWindowRef.current, {
             autoAlpha: 0,
         });
+
+        let mm = gsap.matchMedia();
+
+        const projUl = projectsUlRef.current;
+        const projWindow = projectWindowRef.current;
+        const headerTop = headerTopRef.current;
+        const headerBot = headerBotRef.current;
+        const title = titleRef.current;
+        const stack = stackRef.current;
+        const linkBtn = linkRef.current;
+        const caseStudy = caseStudyRef.current;
+
+        mm.add("(max-width: 991px)", () => {
+            switch (selectedProjectID) {
+                case 0:
+                    gsap.set(
+                        [
+                            linkBtn,
+                            headerTop,
+                            headerBot,
+                            title,
+                            stack,
+                            caseStudy,
+                            projWindow,
+                        ],
+                        {
+                            autoAlpha: 0,
+                        },
+                    );
+                    gsap.set(projUl, {
+                        xPercent: 0,
+                        x: 0,
+                        autoAlpha: 1,
+                    });
+                    gsap.set(projWindow, {
+                        xPercent: 100,
+                        x: 24,
+                    });
+                    gsap.set(title, {
+                        autoAlpha: 0,
+                        text: "",
+                    });
+                    gsap.set(stack, {
+                        x: 50,
+                    });
+                    gsap.set(caseStudy, {
+                        y: -50,
+                    });
+                    break;
+            }
+        });
+        mm.add("(min-width:992px)", () => {
+            switch (selectedProjectID) {
+                case 0:
+                    gsap.set(
+                        [
+                            linkBtn,
+                            headerTop,
+                            headerBot,
+                            stack,
+                            caseStudy,
+                            projWindow,
+                        ],
+                        {
+                            autoAlpha: 0,
+                        },
+                    );
+                    gsap.set(projWindow, {
+                        scaleX: 0,
+                    });
+                    gsap.set(title, {
+                        text: "",
+                    });
+                    gsap.set(stack, {
+                        x: 50,
+                    });
+                    gsap.set(caseStudy, {
+                        y: -50,
+                    });
+                    break;
+            }
+        });
     }, []);
 
     useGSAP(() => {
