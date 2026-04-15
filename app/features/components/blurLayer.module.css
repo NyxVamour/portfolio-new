@@ -7,3 +7,13 @@
     width: 100%;
     height: 100%;
 }
+
+.detailsLayer{
+    background-image: url(/public/images/textureCropped.jpg);
+    background-repeat: repeat;
+    background-size: 40%;
+    background-position: -50px;
+    width: 100%;
+    height: 100%;
+    opacity: 10%;
+}

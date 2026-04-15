@@ -7,6 +7,7 @@ export default function useChangePage(
     currentPage: string,
     setCurrentPage: React.Dispatch<React.SetStateAction<string>>,
     pageRefs: pageRefsProps,
+    setSelectedProjectID: React.Dispatch<React.SetStateAction<number>>,
 ) {
     gsap.registerPlugin(useGSAP);
     const {
@@ -34,6 +35,9 @@ export default function useChangePage(
         tl.to(hackingWindowRef.current, {
             scaleX: 1,
             autoAlpha: 1,
+            onComplete: () => {
+                setSelectedProjectID(0);
+            },
         });
     }
 

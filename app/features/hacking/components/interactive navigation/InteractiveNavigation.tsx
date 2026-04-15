@@ -11,10 +11,12 @@ import type { pageRefsProps } from "~/features/masterLayout/MasterLayout";
 
 type interactiveNavigationProps = {
     pageRefs: pageRefsProps;
+    setSelectedProjectID: React.Dispatch<React.SetStateAction<number>>;
 };
 
 export default function InteractiveNavigation({
     pageRefs,
+    setSelectedProjectID,
 }: interactiveNavigationProps) {
     const [isMoving, setIsMoving] = useState(false);
     const [currentPage, setCurrentPage] = useState("home");
@@ -25,7 +27,7 @@ export default function InteractiveNavigation({
         setCurrentPage,
     );
     useMap(mapRef, position, prevPosition, setIsMoving);
-    useChangePage(currentPage, setCurrentPage, pageRefs);
+    useChangePage(currentPage, setCurrentPage, pageRefs, setSelectedProjectID);
     useEffect(() => {
         console.log(currentPage);
     }, [currentPage]);

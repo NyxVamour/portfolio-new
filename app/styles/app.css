@@ -5,6 +5,8 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-orbitron: "Orbitron";
   --color-primary: #BD4A4A;
+  --color-primary--darker: #400D0D;
+  --color-primary--darkest: #1F0909;
   --color-secondary: #FFD50B;
   --color-tertiary: #394751;
   --color-bg: #0D0D1A;
@@ -18,6 +20,23 @@ body {
     color-scheme: dark;
   }
 
+}
+
+::-webkit-scrollbar{
+  width: 4px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track{
+  background: black;
+  background-color: rgb(53, 53, 53);
+  width: 8px;
+  border-radius: 30px;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: white;
+  border-radius: 30px;
 }
 
 .glowWhite--medium{

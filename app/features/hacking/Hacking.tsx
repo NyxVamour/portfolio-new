@@ -4,9 +4,13 @@ import type { pageRefsProps } from "../masterLayout/MasterLayout";
 
 type HackingProps = {
     pageRefs: pageRefsProps;
+    setSelectedProjectID: React.Dispatch<React.SetStateAction<number>>;
 };
 
-export default function Hacking({ pageRefs }: HackingProps) {
+export default function Hacking({
+    pageRefs,
+    setSelectedProjectID,
+}: HackingProps) {
     const { hackingRef, profileRef, aboutRef, hackingWindowRef } = pageRefs;
 
     return (
@@ -21,6 +25,7 @@ export default function Hacking({ pageRefs }: HackingProps) {
             >
                 <InteractiveNavigation
                     pageRefs={pageRefs}
+                    setSelectedProjectID={setSelectedProjectID}
                 ></InteractiveNavigation>
                 <div className={`${styles.titleWrapper}`}>
                     <h1 className={`${styles.hackingContainer__title}`}>
