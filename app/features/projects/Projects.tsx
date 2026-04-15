@@ -111,11 +111,23 @@ export default function Projects({
             switch (selectedProjectID) {
                 case 0:
                     tl.restart();
-                    tl.to(projUl, {
-                        xPercent: 0,
-                        x: 0,
-                        autoAlpha: 1,
+                    tl.to(linkBtn, {
+                        autoAlpha: 0,
+                        duration: 0.1,
                     })
+                        .to(
+                            [headerTop, headerBot, title, stack, caseStudy],
+                            {
+                                autoAlpha: 0,
+                                duration: 0.3,
+                            },
+                            ">",
+                        )
+                        .to(projUl, {
+                            xPercent: 0,
+                            x: 0,
+                            autoAlpha: 1,
+                        })
                         .to(
                             projWindow,
                             {
@@ -126,17 +138,9 @@ export default function Projects({
                             "<",
                         )
                         .to(
-                            headerTop,
+                            title,
                             {
-                                autoAlpha: 0,
-                                duration: 0,
-                            },
-                            ">",
-                        )
-                        .to(
-                            headerBot,
-                            {
-                                autoAlpha: 0,
+                                autoAlpha: 1,
                                 duration: 0,
                             },
                             "<",
@@ -153,15 +157,6 @@ export default function Projects({
                             stack,
                             {
                                 x: 50,
-                                autoAlpha: 0,
-                                duration: 0,
-                            },
-                            "<",
-                        )
-                        .to(
-                            linkBtn,
-                            {
-                                autoAlpha: 0,
                                 duration: 0,
                             },
                             "<",
@@ -170,7 +165,6 @@ export default function Projects({
                             caseStudy,
                             {
                                 y: -50,
-                                autoAlpha: 0,
                                 duration: 0,
                             },
                             "<",
@@ -245,48 +239,35 @@ export default function Projects({
                 case 0:
                     tl.restart();
 
-                    tl.to(projWindow, {
-                        scaleX: 0,
+                    tl.to(linkBtn, {
                         autoAlpha: 0,
-                        duration: 0.5,
+                        duration: 0.1,
                     })
                         .to(
-                            headerTop,
+                            [headerTop, headerBot, title, stack, caseStudy],
                             {
                                 autoAlpha: 0,
-                                duration: 0,
+                                duration: 0.3,
                             },
                             ">",
                         )
-                        .to(
-                            headerBot,
-                            {
-                                autoAlpha: 0,
-                                duration: 0,
-                            },
-                            "<",
-                        )
+                        .to(projWindow, {
+                            scaleX: 0,
+                            autoAlpha: 0,
+                            duration: 0.5,
+                        })
                         .to(
                             title,
                             {
                                 text: "",
                                 duration: 0,
                             },
-                            "<",
+                            ">",
                         )
                         .to(
                             stack,
                             {
                                 x: 50,
-                                autoAlpha: 0,
-                                duration: 0,
-                            },
-                            "<",
-                        )
-                        .to(
-                            linkBtn,
-                            {
-                                autoAlpha: 0,
                                 duration: 0,
                             },
                             "<",
@@ -295,7 +276,6 @@ export default function Projects({
                             caseStudy,
                             {
                                 y: -50,
-                                autoAlpha: 0,
                                 duration: 0,
                             },
                             "<",
@@ -318,6 +298,14 @@ export default function Projects({
                             headerBot,
                             {
                                 autoAlpha: 1,
+                            },
+                            "<",
+                        )
+                        .to(
+                            title,
+                            {
+                                autoAlpha: 1,
+                                duration: 0,
                             },
                             "<",
                         )
