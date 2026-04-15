@@ -204,6 +204,13 @@ export default function Projects({
                         .to(
                             title,
                             {
+                                autoAlpha: 1,
+                            },
+                            "<",
+                        )
+                        .to(
+                            title,
+                            {
                                 text: `${projectInfo.title}`,
                             },
                             "<",
