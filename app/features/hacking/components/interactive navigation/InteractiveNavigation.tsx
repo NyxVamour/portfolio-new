@@ -21,10 +21,12 @@ export default function InteractiveNavigation({
     const [isMoving, setIsMoving] = useState(false);
     const [currentPage, setCurrentPage] = useState("home");
     const mapRef = useRef<SVGSVGElement>(null);
+    const { hackingWindowRef } = pageRefs;
     const { position, prevPosition } = useControls(
         isMoving,
         setIsMoving,
         setCurrentPage,
+        hackingWindowRef,
     );
     useMap(mapRef, position, prevPosition, setIsMoving);
     useChangePage(currentPage, setCurrentPage, pageRefs, setSelectedProjectID);

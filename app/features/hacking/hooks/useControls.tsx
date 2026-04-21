@@ -6,9 +6,17 @@ export function useControls(
     isMoving: boolean,
     setIsMoving: React.Dispatch<React.SetStateAction<boolean>>,
     setCurrentPage: React.Dispatch<React.SetStateAction<string>>,
+    hackingWindowRef: React.RefObject<HTMLElement | null>,
 ) {
     const [position, setPosition] = useState<NodeID>("a3");
     const [prevPosition, setPrevPosition] = useState<NodeID | "">("");
+    const [swipeDir, setSwipeDir] = useState();
+    const [startX, setStartX] = useState(0);
+    const [startY, setStartY] = useState(0);
+    const [distX, setDistX] = useState(0);
+    const [distY, setDistY] = useState(0);
+    const [elapsedTime, setElapsedTime] = useState(0);
+    const [startTime, setStartTime] = useState(0);
 
     const keyIsDown = useRef<boolean>(false);
 
@@ -28,7 +36,7 @@ export function useControls(
         setPosition((prev) => {
             const nextPosition = nodes[prev].connectedTo[direction];
             if (nextPosition) {
-                // console.log(`moving from ${prev} to ${nextPosition}`);
+                console.log(`moving from ${prev} to ${nextPosition}`);
                 setPrevPosition(prev);
                 return nextPosition;
             }
@@ -43,8 +51,103 @@ export function useControls(
 
     const isTouch = isTouchPrimary();
 
+    const swipeStartRef = useRef<{
+        x: number;
+        y: number;
+        time: number;
+    } | null>(null);
+
     if (isTouch) {
         // enable touch navigation (swipe, tap, etc.)
+        useEffect(() => {
+            function onPointerDown(e: PointerEvent) {
+                console.log("pointer down");
+
+                swipeStartRef.current = {
+                    x: e.clientX,
+                    y: e.clientY,
+                    time: performance.now(),
+                };
+            }
+
+            function onPointerUp(e: PointerEvent) {
+                console.log("pointer up");
+                if (!swipeStartRef.current) return;
+                const dx = e.clientX - swipeStartRef.current.x;
+                const dy = e.clientY - swipeStartRef.current.y;
+                const dt = performance.now() - swipeStartRef.current.time;
+
+                const threshold = 50;
+                const restraint = 80;
+                const allowedTime = 400;
+
+                if (dt <= allowedTime) {
+                    if (
+                        Math.abs(dx) > Math.abs(dy) &&
+                        Math.abs(dx) >= threshold &&
+                        Math.abs(dy) <= restraint
+                    ) {
+                        changePosition(dx < 0 ? "left" : "right");
+                    } else if (
+                        Math.abs(dy) > Math.abs(dx) &&
+                        Math.abs(dy) >= threshold &&
+                        Math.abs(dx) <= restraint
+                    ) {
+                        changePosition(dy < 0 ? "up" : "down");
+                    }
+                }
+
+                swipeStartRef.current = null;
+                keyIsDown.current = false;
+            }
+
+            // function onPointerCancel(e: PointerEvent) {
+            //     console.log("pointer cancel");
+            //     swipeStartRef.current = null;
+            //     keyIsDown.current = false;
+            // }
+
+            if (!hackingWindowRef.current) return;
+
+            hackingWindowRef.current.addEventListener(
+                "pointerdown",
+                onPointerDown,
+                {
+                    passive: true,
+                },
+            );
+            hackingWindowRef.current.addEventListener(
+                "pointerup",
+                onPointerUp,
+                {
+                    passive: true,
+                },
+            );
+
+            // hackingWindowRef.current.addEventListener(
+            //     "pointercancel",
+            //     onPointerCancel,
+            //     {
+            //         passive: true,
+            //     },
+            // );
+
+            return () => {
+                if (!hackingWindowRef.current) return;
+                hackingWindowRef.current.removeEventListener(
+                    "pointerdown",
+                    onPointerDown,
+                );
+                hackingWindowRef.current.removeEventListener(
+                    "pointerup",
+                    onPointerUp,
+                );
+                // hackingWindowRef.current.removeEventListener(
+                //     "pointercancel",
+                //     onPointerCancel,
+                // );
+            };
+        }, [isMoving]);
     } else {
         // enable keyboard arrows
         useEffect(() => {
