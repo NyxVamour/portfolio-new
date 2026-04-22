@@ -66,9 +66,9 @@ export function useControls(
         time: number;
     } | null>(null);
 
-    if (isTouch) {
-        // enable touch navigation (swipe, tap, etc.)
-        useEffect(() => {
+    // enable touch navigation (swipe, tap, etc.)
+    useEffect(() => {
+        if (isTouch) {
             function onPointerDown(e: PointerEvent) {
                 console.log("pointer down");
 
@@ -110,12 +110,6 @@ export function useControls(
                 keyIsDown.current = false;
             }
 
-            // function onPointerCancel(e: PointerEvent) {
-            //     console.log("pointer cancel");
-            //     swipeStartRef.current = null;
-            //     keyIsDown.current = false;
-            // }
-
             if (!hackingWindowRef.current) return;
 
             hackingWindowRef.current.addEventListener(
@@ -133,14 +127,6 @@ export function useControls(
                 },
             );
 
-            // hackingWindowRef.current.addEventListener(
-            //     "pointercancel",
-            //     onPointerCancel,
-            //     {
-            //         passive: true,
-            //     },
-            // );
-
             return () => {
                 if (!hackingWindowRef.current) return;
                 hackingWindowRef.current.removeEventListener(
@@ -151,15 +137,8 @@ export function useControls(
                     "pointerup",
                     onPointerUp,
                 );
-                // hackingWindowRef.current.removeEventListener(
-                //     "pointercancel",
-                //     onPointerCancel,
-                // );
             };
-        }, [isMoving]);
-    } else {
-        // enable keyboard arrows
-        useEffect(() => {
+        } else {
             function keyDown(e: KeyboardEvent) {
                 if (isMoving) return;
 
@@ -193,8 +172,8 @@ export function useControls(
                 window.removeEventListener("keydown", keyDown);
                 window.removeEventListener("keyup", keyUp);
             };
-        }, [isMoving]);
-    }
+        }
+    }, [isMoving]);
 
     return { position, prevPosition };
 }
