@@ -11,13 +11,6 @@ export function useControls(
 ) {
     const [position, setPosition] = useState<NodeID>("a3");
     const [prevPosition, setPrevPosition] = useState<NodeID | "">("");
-    const [swipeDir, setSwipeDir] = useState();
-    const [startX, setStartX] = useState(0);
-    const [startY, setStartY] = useState(0);
-    const [distX, setDistX] = useState(0);
-    const [distY, setDistY] = useState(0);
-    const [elapsedTime, setElapsedTime] = useState(0);
-    const [startTime, setStartTime] = useState(0);
 
     const keyIsDown = useRef<boolean>(false);
 
