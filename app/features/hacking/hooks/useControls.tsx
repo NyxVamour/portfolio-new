@@ -49,6 +49,15 @@ export function useControls(
         setCurrentPage(`${pageName}`);
     }
 
+    function enterPage() {
+        const currentNode = nodes[position];
+        const enterID = currentNode.enterID;
+        const newPage = currentNode.linkTo;
+        if (enterID && newPage) {
+            changePage(newPage);
+        }
+    }
+
     const isTouch = isTouchPrimary();
 
     const swipeStartRef = useRef<{
@@ -169,12 +178,7 @@ export function useControls(
                         break;
 
                     case "Enter":
-                        const currentNode = nodes[position];
-                        const enterID = currentNode.enterID;
-                        const newPage = currentNode.linkTo;
-                        if (enterID && newPage) {
-                            changePage(newPage);
-                        }
+                        enterPage();
                     default:
                         break;
                 }
