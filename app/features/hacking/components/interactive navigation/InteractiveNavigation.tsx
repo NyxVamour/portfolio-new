@@ -51,6 +51,9 @@ export default function InteractiveNavigation({
             id="navigationWrapper"
             className={`${styles.navigationContainer}`}
         >
+            <button className={`${styles.enterBtn}`}>
+                <span className={`${styles.enterBtnInner}`}>ENTER</span>
+            </button>
             <NavigationController className={styles.navigationController} />
             <NavigationMap className={styles.navigationMap} ref={mapRef} />
         </section>

@@ -63,5 +63,37 @@
 .navigationMap{
     position: absolute;
     top: calc(50% - (87px + 25px));
-    right: calc(50% - (158px + 30px));
+    right: calc(50% - (152px + 30px));
+}
+
+.enterBtn{
+    position: absolute;
+    z-index: 30;
+    top: calc(50% + 54px);
+    left: calc(50% - 66px);
+    cursor: pointer;
+    padding: 8px;
+    background-color: var(--color-bg);
+    border: 3px solid white;
+    font-family: var(--font-orbitron);
+    font-weight: 700;
+    font-size: 20px;
+    transition: 0.2s;
+}
+
+.enterBtnInner{
+    background-color: white;
+    color: var(--color-bg);
+    padding: 4px 14px;
+    transition: 0.2s
+}
+
+.enterBtn:hover{
+    border: 3px solid #C2F2FF;
+    transform: scale(0.98);
+}
+
+.enterBtn:hover .enterBtnInner{
+    background-color: #C2F2FF;
+
 }
