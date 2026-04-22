@@ -30,23 +30,8 @@ export default function InteractiveNavigation({
         hackingWindowRef,
         enterBtnRef,
     );
-    useMap(mapRef, position, prevPosition, setIsMoving);
+    useMap(mapRef, position, prevPosition, setIsMoving, enterBtnRef);
     useChangePage(currentPage, setCurrentPage, pageRefs, setSelectedProjectID);
-    useEffect(() => {
-        console.log(currentPage);
-    }, [currentPage]);
-    // useEffect(() => {
-    //     console.log("current position is ", position);
-    //     console.log("previous position is: ", prevPosition);
-    // }, [position]);
-
-    // useEffect(() => {
-    //     console.log("map is moving!!", isMoving);
-    // }, [isMoving]);
-
-    // useEffect(() => {
-    //     console.log(mapRef.current);
-    // }, []);
 
     return (
         <section
