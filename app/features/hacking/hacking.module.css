@@ -72,6 +72,7 @@
     top: calc(50% + 54px);
     left: calc(50% - 66px);
     cursor: pointer;
+    width: 129px;
     padding: 8px;
     background-color: var(--color-bg);
     border: 3px solid white;
@@ -79,21 +80,23 @@
     font-weight: 700;
     font-size: 20px;
     transition: 0.2s;
+    transform-origin: center;
 }
 
 .enterBtnInner{
     background-color: white;
     color: var(--color-bg);
     padding: 4px 14px;
-    transition: 0.2s
+    transition: 0.2s;
+    transform-origin: center;
 }
 
 .enterBtn:hover{
-    border: 3px solid #C2F2FF;
-    transform: scale(0.98);
+    filter: drop-shadow(0 0 6px white);
 }
 
-.enterBtn:hover .enterBtnInner{
-    background-color: #C2F2FF;
-
+.enterBtn:active .enterBtnInner{
+    background-color: #bfc4c5;
+    padding: 3px 12px;
+    font-size: 19px;
 }
