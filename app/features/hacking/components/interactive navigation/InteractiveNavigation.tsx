@@ -21,12 +21,14 @@ export default function InteractiveNavigation({
     const [isMoving, setIsMoving] = useState(false);
     const [currentPage, setCurrentPage] = useState("home");
     const mapRef = useRef<SVGSVGElement>(null);
+    const enterBtnRef = useRef<HTMLButtonElement>(null);
     const { hackingWindowRef } = pageRefs;
     const { position, prevPosition } = useControls(
         isMoving,
         setIsMoving,
         setCurrentPage,
         hackingWindowRef,
+        enterBtnRef,
     );
     useMap(mapRef, position, prevPosition, setIsMoving);
     useChangePage(currentPage, setCurrentPage, pageRefs, setSelectedProjectID);
@@ -51,7 +53,7 @@ export default function InteractiveNavigation({
             id="navigationWrapper"
             className={`${styles.navigationContainer}`}
         >
-            <button className={`${styles.enterBtn}`}>
+            <button ref={enterBtnRef} className={`${styles.enterBtn}`}>
                 <span className={`${styles.enterBtnInner}`}>ENTER</span>
             </button>
             <NavigationController className={styles.navigationController} />

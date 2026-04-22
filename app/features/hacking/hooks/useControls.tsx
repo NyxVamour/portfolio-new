@@ -7,6 +7,7 @@ export function useControls(
     setIsMoving: React.Dispatch<React.SetStateAction<boolean>>,
     setCurrentPage: React.Dispatch<React.SetStateAction<string>>,
     hackingWindowRef: React.RefObject<HTMLElement | null>,
+    enterBtnRef: React.RefObject<HTMLButtonElement | null>,
 ) {
     const [position, setPosition] = useState<NodeID>("a3");
     const [prevPosition, setPrevPosition] = useState<NodeID | "">("");
@@ -50,6 +51,7 @@ export function useControls(
     }
 
     function enterPage() {
+        console.log("click!");
         const currentNode = nodes[position];
         const enterID = currentNode.enterID;
         const newPage = currentNode.linkTo;
@@ -127,8 +129,14 @@ export function useControls(
                 },
             );
 
+            if (!enterBtnRef.current) return;
+
+            enterBtnRef.current.addEventListener("click", enterPage);
+
             return () => {
                 if (!hackingWindowRef.current) return;
+                if (!enterBtnRef.current) return;
+
                 hackingWindowRef.current.removeEventListener(
                     "pointerdown",
                     onPointerDown,
@@ -137,6 +145,8 @@ export function useControls(
                     "pointerup",
                     onPointerUp,
                 );
+
+                enterBtnRef.current.removeEventListener("click", enterPage);
             };
         } else {
             function keyDown(e: KeyboardEvent) {
@@ -166,11 +176,17 @@ export function useControls(
                 keyIsDown.current = false;
             }
 
+            if (!enterBtnRef.current) return;
+            enterBtnRef.current.addEventListener("click", enterPage);
+
             window.addEventListener("keydown", keyDown);
             window.addEventListener("keyup", keyUp);
             return () => {
+                if (!enterBtnRef.current) return;
+
                 window.removeEventListener("keydown", keyDown);
                 window.removeEventListener("keyup", keyUp);
+                enterBtnRef.current.removeEventListener("click", enterPage);
             };
         }
     }, [isMoving]);
