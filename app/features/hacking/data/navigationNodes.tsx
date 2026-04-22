@@ -108,7 +108,7 @@ export const nodes: NodesObj = {
         textWrapperID: "secrets_wrapper",
         textWrapperFilterID: "filter8_d_2274_1134",
         filterID: "filter9_d_2274_1134",
-        enterID: "Secrets",
+        enterID: "COMING_SOON",
     },
     c1: {
         id: "c1",

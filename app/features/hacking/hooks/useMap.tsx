@@ -19,7 +19,7 @@ export default function useMap(
         "projects_wrapper",
     ];
 
-    const enterIDList = ["ENTER_1", "ENTER_2", "ENTER_3", "ENTER_4"];
+    const enterIDList = ["ENTER_1", "ENTER_2", "ENTER_3", "COMING_SOON"];
 
     useGSAP(() => {
         function clearGlowFilters() {

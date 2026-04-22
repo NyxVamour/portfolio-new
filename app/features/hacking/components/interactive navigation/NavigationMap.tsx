@@ -320,7 +320,7 @@ const NavigationMap = React.forwardRef<SVGSVGElement, NavigationMapProps>(
                                 />
                             </g>
                             <text
-                                id="COMING SOON"
+                                id="COMING_SOON"
                                 fill="white"
                                 style={{ whiteSpace: "pre" }}
                                 xmlSpace="preserve"
