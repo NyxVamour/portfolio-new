@@ -30,7 +30,6 @@ export function useControls(
         setPosition((prev) => {
             const nextPosition = nodes[prev].connectedTo[direction];
             if (nextPosition) {
-                console.log(`moving from ${prev} to ${nextPosition}`);
                 setPrevPosition(prev);
                 return nextPosition;
             }
@@ -44,7 +43,6 @@ export function useControls(
     }
 
     function enterPage() {
-        console.log("click!");
         const currentNode = nodes[position];
         const enterID = currentNode.enterID;
         const newPage = currentNode.linkTo;
@@ -65,8 +63,6 @@ export function useControls(
     useEffect(() => {
         if (isTouch) {
             function onPointerDown(e: PointerEvent) {
-                console.log("pointer down");
-
                 swipeStartRef.current = {
                     x: e.clientX,
                     y: e.clientY,
@@ -75,7 +71,6 @@ export function useControls(
             }
 
             function onPointerUp(e: PointerEvent) {
-                console.log("pointer up");
                 if (!swipeStartRef.current) return;
                 const dx = e.clientX - swipeStartRef.current.x;
                 const dy = e.clientY - swipeStartRef.current.y;
