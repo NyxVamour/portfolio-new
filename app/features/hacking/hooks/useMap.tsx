@@ -8,6 +8,7 @@ export default function useMap(
     position: string,
     prevPosition: string,
     setIsMoving: React.Dispatch<React.SetStateAction<boolean>>,
+    enterBtnRef: React.RefObject<HTMLButtonElement | null>,
 ) {
     const firstRender = useRef(true);
     gsap.registerPlugin(useGSAP);
@@ -19,7 +20,7 @@ export default function useMap(
         "projects_wrapper",
     ];
 
-    const enterIDList = ["ENTER_1", "ENTER_2", "ENTER_3", "ENTER_4"];
+    const enterIDList = ["ENTER_1", "ENTER_2", "ENTER_3", "COMING_SOON"];
 
     useGSAP(() => {
         function clearGlowFilters() {
@@ -39,6 +40,10 @@ export default function useMap(
                 gsap.set(`#${id}`, {
                     autoAlpha: 0,
                 });
+            });
+
+            gsap.set(enterBtnRef.current, {
+                autoAlpha: 0,
             });
         }
         const tl = gsap.timeline();
@@ -77,17 +82,20 @@ export default function useMap(
     }
 
     function colorCurrentNode(tl: gsap.core.Timeline) {
+        if (!enterBtnRef.current) return;
+
         const currentNodeGlow = document.getElementById(position);
         const filledShape = currentNodeGlow?.querySelector(
             "circle[fill], rect[fill]",
         );
+
         const currentTextWrapper = document.getElementById(
             `${nodes[position].textWrapperID}`,
         );
         const filledTextShape = currentTextWrapper?.querySelector("path[fill]");
-        const currentEnterID = document.getElementById(
-            `${nodes[position].enterID}`,
-        );
+        const enterBtn = enterBtnRef.current;
+        const hasEnterID = nodes[position].enterID;
+
         if (filledShape) {
             tl.to(
                 filledShape,
@@ -129,12 +137,12 @@ export default function useMap(
                 "0.5",
             );
         }
-        if (currentEnterID) {
+        if (hasEnterID) {
             tl.to(
-                currentEnterID,
+                enterBtn,
                 {
                     autoAlpha: 1,
-                    duration: 0.5,
+                    duration: 0.05,
                 },
                 "0.5",
             );
@@ -150,9 +158,9 @@ export default function useMap(
             `${nodes[prevPosition].textWrapperID}`,
         );
         const filledTextShape = prevTextWrapper?.querySelector("path[fill]");
-        const prevEnterID = document.getElementById(
-            `${nodes[prevPosition].enterID}`,
-        );
+        const enterBtn = enterBtnRef.current;
+        const prevHasEnterID = nodes[prevPosition].enterID;
+
         if (prevFilledShape) {
             tl.to(
                 previousNodeGlow,
@@ -189,12 +197,12 @@ export default function useMap(
                 "<",
             );
         }
-        if (prevEnterID) {
+        if (prevHasEnterID) {
             tl.to(
-                prevEnterID,
+                enterBtn,
                 {
                     autoAlpha: 0,
-                    duration: 0.5,
+                    duration: 0,
                 },
                 "0",
             );

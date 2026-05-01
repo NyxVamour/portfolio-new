@@ -24,11 +24,10 @@ export interface Node {
     type: "link" | "empty";
     linkTo?: string;
     connectedTo: Connection;
-    filterID: string;
-    textBoxFilterID?: string;
-    enterID?: string;
     textWrapperID?: string;
     textWrapperFilterID?: string;
+    filterID: string;
+    enterID?: string;
 }
 
 interface NodesObj {
@@ -57,11 +56,10 @@ export const nodes: NodesObj = {
         connectedTo: {
             right: "a2",
         },
-        filterID: "filter14_d_2234_1041",
-        textBoxFilterID: "filter13_d_2234_1041",
-        enterID: "ENTER_4",
         textWrapperID: "profile_wrapper",
-        textWrapperFilterID: "filter13_d_2234_1041",
+        textWrapperFilterID: "filter13_d_2274_1134",
+        filterID: "filter14_d_2274_1134",
+        enterID: "ENTER_3",
     },
     a2: {
         id: "a2",
@@ -71,7 +69,7 @@ export const nodes: NodesObj = {
             down: "b2",
             right: "a3",
         },
-        filterID: "filter12_d_2234_1041",
+        filterID: "filter12_d_2274_1134",
     },
     a3: {
         id: "a3",
@@ -79,7 +77,7 @@ export const nodes: NodesObj = {
         connectedTo: {
             left: "a2",
         },
-        filterID: "filter10_d_2234_1041",
+        filterID: "filter10_d_2274_1134",
     },
     b2: {
         id: "b2",
@@ -89,7 +87,7 @@ export const nodes: NodesObj = {
             down: "c2",
             right: "b3",
         },
-        filterID: "filter11_d_2234_1041",
+        filterID: "filter11_d_2274_1134",
     },
     b3: {
         id: "b3",
@@ -98,7 +96,7 @@ export const nodes: NodesObj = {
             left: "b2",
             right: "b4",
         },
-        filterID: "filter2_d_2234_1041",
+        filterID: "filter2_d_2274_1134",
     },
     b4: {
         id: "b4",
@@ -107,11 +105,10 @@ export const nodes: NodesObj = {
         connectedTo: {
             left: "b3",
         },
-        filterID: "filter9_d_2234_1041",
-        textBoxFilterID: "filter8_d_2234_1041",
-        enterID: "ENTER_3",
         textWrapperID: "secrets_wrapper",
-        textWrapperFilterID: "filter8_d_2234_1041",
+        textWrapperFilterID: "filter8_d_2274_1134",
+        filterID: "filter9_d_2274_1134",
+        enterID: "COMING_SOON",
     },
     c1: {
         id: "c1",
@@ -120,11 +117,10 @@ export const nodes: NodesObj = {
         connectedTo: {
             right: "c2",
         },
-        filterID: "filter5_d_2234_1041",
-        textBoxFilterID: "filter4_d_2234_1041",
-        enterID: "ENTER_1",
         textWrapperID: "about_wrapper",
-        textWrapperFilterID: "filter4_d_2234_1041",
+        textWrapperFilterID: "filter4_d_2274_1134",
+        filterID: "filter5_d_2274_1134",
+        enterID: "ENTER_1",
     },
     c2: {
         id: "c2",
@@ -134,7 +130,7 @@ export const nodes: NodesObj = {
             left: "c1",
             right: "c3",
         },
-        filterID: "filter3_d_2234_1041",
+        filterID: "filter3_d_2274_1134",
     },
     c3: {
         id: "c3",
@@ -143,7 +139,7 @@ export const nodes: NodesObj = {
             left: "c2",
             down: "d3",
         },
-        filterID: "filter0_d_2234_1041",
+        filterID: "filter0_d_2274_1134",
     },
     d2: {
         id: "d2",
@@ -152,11 +148,10 @@ export const nodes: NodesObj = {
         connectedTo: {
             right: "d3",
         },
-        filterID: "filter7_d_2234_1041",
-        textBoxFilterID: "filter6_d_2234_1041",
-        enterID: "ENTER_2",
         textWrapperID: "projects_wrapper",
-        textWrapperFilterID: "filter6_d_2234_1041",
+        textWrapperFilterID: "filter6_d_2274_1134",
+        filterID: "filter7_d_2274_1134",
+        enterID: "ENTER_2",
     },
     d3: {
         id: "d3",
@@ -165,6 +160,6 @@ export const nodes: NodesObj = {
             left: "d2",
             up: "c3",
         },
-        filterID: "filter1_d_2234_1041",
+        filterID: "filter1_d_2274_1134",
     },
 } as const;
