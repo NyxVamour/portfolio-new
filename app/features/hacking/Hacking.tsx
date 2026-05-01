@@ -42,7 +42,7 @@ export default function Hacking({
                     </h1>
                 </div>
                 <section className={`${styles.controls}`}>
-                    <p className={`${styles.controlsLabel}`}>CONTROLS:</p>
+                    <p className={`${styles.controlsLabel}`}>CONTROLS</p>
                     {!isTouch ? (
                         <div className={`${styles.iconsWrapper}`}>
                             <kbd className={`${styles.kbdIcon}`}>
