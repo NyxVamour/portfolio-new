@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import styles from "../../hacking.module.css";
 import { useControls } from "../../hooks/useControls";
 import NavigationController from "./NavigationController";
@@ -12,11 +12,13 @@ import type { pageRefsProps } from "~/features/masterLayout/MasterLayout";
 type interactiveNavigationProps = {
     pageRefs: pageRefsProps;
     setSelectedProjectID: React.Dispatch<React.SetStateAction<number>>;
+    setIsTouch: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export default function InteractiveNavigation({
     pageRefs,
     setSelectedProjectID,
+    setIsTouch,
 }: interactiveNavigationProps) {
     const [isMoving, setIsMoving] = useState(false);
     const [currentPage, setCurrentPage] = useState("home");
@@ -25,10 +27,10 @@ export default function InteractiveNavigation({
     const { hackingWindowRef } = pageRefs;
     const { position, prevPosition } = useControls(
         isMoving,
-        setIsMoving,
         setCurrentPage,
         hackingWindowRef,
         enterBtnRef,
+        setIsTouch,
     );
     useMap(mapRef, position, prevPosition, setIsMoving, enterBtnRef);
     useChangePage(currentPage, setCurrentPage, pageRefs, setSelectedProjectID);

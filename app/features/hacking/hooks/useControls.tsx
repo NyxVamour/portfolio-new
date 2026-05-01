@@ -4,10 +4,10 @@ import type { NodeID, Direction } from "../data/navigationNodes";
 
 export function useControls(
     isMoving: boolean,
-    setIsMoving: React.Dispatch<React.SetStateAction<boolean>>,
     setCurrentPage: React.Dispatch<React.SetStateAction<string>>,
     hackingWindowRef: React.RefObject<HTMLElement | null>,
     enterBtnRef: React.RefObject<HTMLButtonElement | null>,
+    setIsTouch: React.Dispatch<React.SetStateAction<boolean>>,
 ) {
     const [position, setPosition] = useState<NodeID>("a3");
     const [prevPosition, setPrevPosition] = useState<NodeID | "">("");
@@ -51,7 +51,7 @@ export function useControls(
         }
     }
 
-    const isTouch = isTouchPrimary();
+    const isTouchScreen = isTouchPrimary();
 
     const swipeStartRef = useRef<{
         x: number;
@@ -59,9 +59,13 @@ export function useControls(
         time: number;
     } | null>(null);
 
+    useEffect(() => {
+        setIsTouch(isTouchScreen);
+    }, [isTouchScreen, setIsTouch]);
+
     // enable touch navigation (swipe, tap, etc.)
     useEffect(() => {
-        if (isTouch) {
+        if (isTouchScreen) {
             function onPointerDown(e: PointerEvent) {
                 swipeStartRef.current = {
                     x: e.clientX,
@@ -177,7 +181,7 @@ export function useControls(
                 enterBtnRef.current.removeEventListener("click", enterPage);
             };
         }
-    }, [isMoving]);
+    }, [enterBtnRef, hackingWindowRef, isMoving, isTouchScreen, position]);
 
     return { position, prevPosition };
 }
