@@ -40,6 +40,14 @@ export default function Hacking({
                     <h1 className={`${styles.hackingContainer__title}`}>
                         HACKING TARGET
                     </h1>
+                    <p className={`${styles.hackingContainer__etc}`}>
+                        PRZ-432 AZT7
+                    </p>
+                    <div className={`${styles.hackingUIWrapper}`}>
+                        <p>Link Established</p>
+                        <p>External Connections Disabled</p>
+                        <p>001001000 001 100 001 1000</p>
+                    </div>
                 </div>
                 <section className={`${styles.controls}`}>
                     <p className={`${styles.controlsLabel}`}>CONTROLS</p>
