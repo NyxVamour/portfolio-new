@@ -31,11 +31,13 @@
 
 .hackingContainer__title{
     width: fit-content;
-    background-color: var(--color-primary);
+    border-left: 2px solid var(--color-primary);
+    border-right: 2px solid var(--color-primary);
     font-family: var(--font-orbitron);
     font-weight: 700;
-    font-size: 1.5rem;
-    padding: 2px 8px;
+    font-size: 14px;
+    padding: 0px 6px;
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
 }
 
 .navigationContainer{
@@ -96,21 +98,23 @@
 
 .controls{
     position: absolute;
-    bottom: 20px;
-    left: 20px;
+    bottom: 10px;
+    left: 10px;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 8px;
     padding: 4px 8px;
-    background-color: var(--color-secondary--darker);
-    border: 1px solid var(--color-secondary);
-    filter: drop-shadow(0 0 2px var(--color-secondary));
 }
 
 .controlsLabel{
+    background-color: var(--color-secondary--faded);
+    width: fit-content;
     font-family: var(--font-orbitron);
     font-size: 14px;
     font-weight: 700;
+    padding: 0 2px;
+    color: var(--color-bg);
+    filter: drop-shadow(0 0 4px rgba(227, 193, 91, 0.75));
 }
 
 .iconsWrapper{
@@ -122,19 +126,36 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #4C4C4C;
-    border: 1px solid white;
-    min-width: 30px;
-    height: 30px;
-    padding: 8px;
+    background-color: var(--color-secondary--darker);
+    border: 1px solid var(--color-secondary--faded);
+    min-width: 38px;
+    height: 38px;
+    padding: 4px;
+    filter: drop-shadow(0 0 4px rgba(227, 193, 91, 0.5));
+}
+
+.kbdInnerIcon{
+    background-color: var(--color-secondary--faded);
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-secondary--darker); 
+    font-weight: 700;
+    padding: 2px;
+    filter: drop-shadow(0 0 4px rgba(227, 193, 91, 0.5));
 }
 
 .kbdIconTouch{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #4C4C4C;
-    border: 1px solid white;
-    width: 30px;
-    height: 30px;
+    background-color: var(--color-secondary--darker);
+    border: 1px solid var(--color-secondary--faded);
+    width: 38px;
+    height: 38px;
+    filter: drop-shadow(0 0 4px rgba(227, 193, 91, 0.5));
+    padding: 4px;
 }

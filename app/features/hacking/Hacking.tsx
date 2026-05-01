@@ -46,26 +46,42 @@ export default function Hacking({
                     {!isTouch ? (
                         <div className={`${styles.iconsWrapper}`}>
                             <kbd className={`${styles.kbdIcon}`}>
-                                <IconArrowSMUp />
+                                <div className={`${styles.kbdInnerIcon}`}>
+                                    <IconArrowSMUp />
+                                </div>
                             </kbd>
                             <kbd className={`${styles.kbdIcon}`}>
-                                <IconArrowSMLeft />
+                                <div className={`${styles.kbdInnerIcon}`}>
+                                    <IconArrowSMLeft />
+                                </div>
                             </kbd>
                             <kbd className={`${styles.kbdIcon}`}>
-                                <IconArrowSMDown />
+                                <div className={`${styles.kbdInnerIcon}`}>
+                                    <IconArrowSMDown />
+                                </div>
                             </kbd>
                             <kbd className={`${styles.kbdIcon}`}>
-                                <IconArrowSMRight />
+                                <div className={`${styles.kbdInnerIcon}`}>
+                                    <IconArrowSMRight />
+                                </div>
                             </kbd>
-                            <kbd className={`${styles.kbdIcon}`}>Enter</kbd>
+                            <kbd className={`${styles.kbdIcon}`}>
+                                <div className={`${styles.kbdInnerIcon}`}>
+                                    Enter
+                                </div>
+                            </kbd>
                         </div>
                     ) : (
                         <div className={`${styles.iconsWrapper}`}>
                             <kbd className={`${styles.kbdIconTouch}`}>
-                                <IconScrollHor />
+                                <div className={`${styles.kbdInnerIcon}`}>
+                                    <IconScrollHor />
+                                </div>
                             </kbd>
                             <kbd className={`${styles.kbdIconTouch}`}>
-                                <IconScrollVer />
+                                <div className={`${styles.kbdInnerIcon}`}>
+                                    <IconScrollHor />
+                                </div>
                             </kbd>
                         </div>
                     )}
