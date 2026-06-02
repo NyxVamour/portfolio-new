@@ -123,7 +123,7 @@ export default function Hacking({
                             </kbd>
                             <kbd className={`${styles.kbdIconTouch}`}>
                                 <div className={`${styles.kbdInnerIcon}`}>
-                                    <IconScrollHor />
+                                    <IconScrollVer />
                                 </div>
                             </kbd>
                         </div>
