@@ -1,16 +1,56 @@
 export default function IconArrowSMUp() {
     return (
         <svg
-            width="13"
-            height="14"
-            viewBox="0 0 13 14"
+            width="30"
+            height="30"
+            viewBox="0 0 30 30"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
         >
-            <path
-                d="M5.40928 12.8501C5.40928 13.3195 5.78984 13.7001 6.25928 13.7001C6.72872 13.7001 7.10928 13.3195 7.10928 12.8501L6.25928 12.8501L5.40928 12.8501ZM6.86032 0.249057C6.52837 -0.0828886 5.99018 -0.0828886 5.65824 0.249057L0.24887 5.65842C-0.0830757 5.99037 -0.0830757 6.52856 0.24887 6.86051C0.580816 7.19245 1.11901 7.19245 1.45095 6.86051L6.25928 2.05218L11.0676 6.86051C11.3995 7.19245 11.9377 7.19245 12.2697 6.86051C12.6016 6.52856 12.6016 5.99037 12.2697 5.65842L6.86032 0.249057ZM6.25928 12.8501L7.10928 12.8501L7.10928 0.850098L6.25928 0.850098L5.40928 0.850098L5.40928 12.8501L6.25928 12.8501Z"
-                fill="#282204"
-            />
+            <rect width="30" height="30" fill="#1F0909" />
+            <g filter="url(#filter0_d_2703_650)">
+                <path
+                    d="M14.15 21C14.15 21.4694 14.5306 21.85 15 21.85C15.4694 21.85 15.85 21.4694 15.85 21L15 21L14.15 21ZM15.601 8.39896C15.2691 8.06701 14.7309 8.06701 14.399 8.39896L8.98959 13.8083C8.65765 14.1403 8.65765 14.6785 8.98959 15.0104C9.32154 15.3424 9.85973 15.3424 10.1917 15.0104L15 10.2021L19.8083 15.0104C20.1403 15.3424 20.6785 15.3424 21.0104 15.0104C21.3424 14.6785 21.3424 14.1403 21.0104 13.8083L15.601 8.39896ZM15 21L15.85 21L15.85 9L15 9L14.15 9L14.15 21L15 21Z"
+                    fill="#BD4A4A"
+                />
+            </g>
+            <defs>
+                <filter
+                    id="filter0_d_2703_650"
+                    x="6.74072"
+                    y="6.1499"
+                    width="16.5186"
+                    height="17.7002"
+                    filterUnits="userSpaceOnUse"
+                    colorInterpolationFilters="sRGB"
+                >
+                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                    />
+                    <feOffset />
+                    <feGaussianBlur stdDeviation="1" />
+                    <feComposite in2="hardAlpha" operator="out" />
+                    <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0.741176 0 0 0 0 0.290196 0 0 0 0 0.290196 0 0 0 1 0"
+                    />
+                    <feBlend
+                        mode="normal"
+                        in2="BackgroundImageFix"
+                        result="effect1_dropShadow_2703_650"
+                    />
+                    <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="effect1_dropShadow_2703_650"
+                        result="shape"
+                    />
+                </filter>
+            </defs>
         </svg>
     );
 }
