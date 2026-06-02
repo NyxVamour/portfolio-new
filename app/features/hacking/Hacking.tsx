@@ -74,7 +74,9 @@ export default function Hacking({
                                 </div>
                             </kbd>
                             <kbd className={`${styles.kbdIcon}`}>
-                                <div className={`${styles.kbdInnerIcon}`}>
+                                <div
+                                    className={`${styles.kbdInnerIcon} ${styles.kbdInnerIconEnter}`}
+                                >
                                     Enter
                                 </div>
                             </kbd>
