@@ -120,14 +120,13 @@
 }
 
 .controlsLabel{
-    background-color: var(--color-secondary--faded);
     width: fit-content;
     font-family: var(--font-orbitron);
     font-size: 12px;
     font-weight: 700;
     padding: 0 2px;
-    color: var(--color-bg);
-    filter: drop-shadow(0 0 4px rgba(227, 193, 91, 0.75));
+    color: white;
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.75));
 }
 
 .iconsWrapper{
