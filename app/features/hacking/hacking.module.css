@@ -28,29 +28,92 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    gap: 7px;
+}
+
+.hackingContainer__titleWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    border: 1px solid var(--color-primary);
+    filter: drop-shadow(-3px 0 2px var(--drop-shadow-primary));
 }
 
 .hackingContainer__title{
     width: fit-content;
-    border-left: 2px solid var(--color-primary);
-    border-right: 2px solid var(--color-primary);
     font-family: var(--font-orbitron);
     font-weight: 700;
     font-size: 14px;
     padding: 0px 6px;
-    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
+    color: var(--color-primary);
 }
 
 .hackingContainer__etc{
-    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
+    opacity: 80%;
+    filter: drop-shadow(-3px 0 2px var(--drop-shadow-white));
     font-size: 10px;
 }
 
-.hackingUIWrapper{
+.hackingContainer__etcSM{
+    opacity: 80%;
+    filter: drop-shadow(-3px 0 2px var(--drop-shadow-white));
+    font-size: 8px;
+}
+
+.hackingUI_boxesWrapper{
     position: relative;
     top: 16px;
     font-size: 8px;
-    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
+    line-height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.hackingUI_boxes{
+    opacity: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    border: 1px solid white;
+    padding: 2px;
+    font-family: var(--font-orbitron);
+    filter: drop-shadow(-3px 0 2px var(--drop-shadow-white));
+}
+
+.hackingUI_nums{
+    position: relative;
+    top: 200px;
+    opacity: 60%;
+    line-height: 100%;
+    font-size: 8px;
+    font-weight: 700;
+    color: var(--color-primary);
+    filter: drop-shadow(-3px 0 2px var(--drop-shadow-primary));
+}
+
+.hackingUI_right{
+    opacity: 80%;
+    position: absolute;
+    width: fit-content;
+    top: 15px;
+    right: 6px;
+    display: flex;
+    flex-direction: column;
+    line-height: 100%;
+    font-size: 8px;
+}
+
+.hackingUI_rightYel{
+    color: var(--color-secondary);
+    filter: drop-shadow(3px 0 2px var(--drop-shadow-secondary));
+}
+
+.hackingUI_rightGr{
+    color: #4AFF32;
+    filter: drop-shadow(3px 0 2px var(--drop-shadow-green));
 }
 
 .navigationContainer{

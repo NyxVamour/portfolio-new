@@ -37,17 +37,50 @@ export default function Hacking({
                     setIsTouch={setIsTouch}
                 ></InteractiveNavigation>
                 <div className={`${styles.titleWrapper}`}>
-                    <h1 className={`${styles.hackingContainer__title}`}>
-                        HACKING TARGET
-                    </h1>
-                    <p className={`${styles.hackingContainer__etc}`}>
-                        PRZ-432 AZT7
-                    </p>
-                    <div className={`${styles.hackingUIWrapper}`}>
-                        <p>Link Established</p>
-                        <p>External Connections Disabled</p>
-                        <p>001001000 001 100 001 1000</p>
+                    <div className={`${styles.hackingContainer__titleWrapper}`}>
+                        <h1 className={`${styles.hackingContainer__title}`}>
+                            HACKING TARGET
+                        </h1>
                     </div>
+                    <div>
+                        <p className={`${styles.hackingContainer__etc}`}>
+                            C:\SYS\GRID\SECTOR_07\
+                        </p>
+                        <p className={`${styles.hackingContainer__etcSM}`}>
+                            UPLINKS DETECTED: 12
+                            <br />
+                            ACTIVE RELAYS: 4
+                        </p>
+                    </div>
+                    <div className={`${styles.hackingUI_boxesWrapper}`}>
+                        <p className={`${styles.hackingUI_boxes}`}>SYS</p>
+                        <p className={`${styles.hackingUI_boxes}`}>NET</p>
+                        <p className={`${styles.hackingUI_boxes}`}>BIO</p>
+                        <p className={`${styles.hackingUI_boxes}`}>SIG</p>
+                    </div>
+                    <p className={`${styles.hackingUI_nums}`}>
+                        12345678
+                        <br />
+                        4123
+                        <br />
+                        123121500
+                        <br />
+                        009247
+                        <br />
+                        4241
+                    </p>
+                </div>
+                <div className={`${styles.hackingUI_right}`}>
+                    <p className={`${styles.hackingUI_rightYel}`}>
+                        &gt; connect node_07
+                        <br />
+                        &gt; bypass firewall
+                        <br />
+                        &gt; inject override
+                    </p>
+                    <p className={`${styles.hackingUI_rightGr}`}>
+                        &gt; access granted
+                    </p>
                 </div>
                 <section className={`${styles.controls}`}>
                     <p className={`${styles.controlsLabel}`}>CONTROLS</p>
