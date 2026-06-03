@@ -143,7 +143,7 @@
     position: absolute;
     z-index: 30;
     top: calc(50% + 54px);
-    left: calc(50% - 63px);
+    left: calc(50% - 60px);
     cursor: pointer;
     width: 119px;
     height: 33px;
