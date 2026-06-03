@@ -3,29 +3,41 @@ export default function Reticle_rect({ className }: { className: string }) {
         <svg
             width="100%"
             height="100%"
-            preserveAspectRatio="none"
-            viewBox="0 0 718 598"
+            viewBox="0 0 330 464"
             fill="none"
             className={className}
+            preserveAspectRatio="none"
             xmlns="http://www.w3.org/2000/svg"
         >
-            <g filter="url(#filter0_d_2734_1159)">
-                <path d="M6 592H35V594H4V563H6V592Z" fill="#BD4A4A" />
-                <path d="M714 594H684V592H712V563H714V594Z" fill="#BD4A4A" />
-                <path d="M35 6H6V36H4V4H35V6Z" fill="#BD4A4A" />
-                <path d="M714 36H712V6H684V4H714V36Z" fill="#BD4A4A" />
+            <g filter="url(#filter0_d_2751_1177)">
+                <path
+                    d="M6.00098 458H18.0596V460H4V436.041H6.00098V458Z"
+                    fill="#BD4A4A"
+                />
+                <path
+                    d="M326 460H312.395V458H324V436.041H326V460Z"
+                    fill="#BD4A4A"
+                />
+                <path
+                    d="M18.0596 6H6.00098V28.7324H4V4H18.0596V6Z"
+                    fill="#BD4A4A"
+                />
+                <path
+                    d="M326 28.7324H324V6H312.395V4H326V28.7324Z"
+                    fill="#BD4A4A"
+                />
             </g>
             <defs>
                 <filter
-                    id="filter0_d_2734_1159"
+                    id="filter0_d_2751_1177"
                     x="0"
                     y="0"
-                    width="718"
-                    height="598"
+                    width="330"
+                    height="464"
                     filterUnits="userSpaceOnUse"
-                    color-interpolation-filters="sRGB"
+                    colorInterpolationFilters="sRGB"
                 >
-                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
                     <feColorMatrix
                         in="SourceAlpha"
                         type="matrix"
@@ -42,12 +54,12 @@ export default function Reticle_rect({ className }: { className: string }) {
                     <feBlend
                         mode="normal"
                         in2="BackgroundImageFix"
-                        result="effect1_dropShadow_2734_1159"
+                        result="effect1_dropShadow_2751_1177"
                     />
                     <feBlend
                         mode="normal"
                         in="SourceGraphic"
-                        in2="effect1_dropShadow_2734_1159"
+                        in2="effect1_dropShadow_2751_1177"
                         result="shape"
                     />
                 </filter>
