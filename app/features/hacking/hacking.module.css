@@ -141,29 +141,42 @@
     position: absolute;
     z-index: 30;
     top: calc(50% + 54px);
-    left: calc(50% - 66px);
+    left: calc(50% - 63px);
     cursor: pointer;
-    width: 129px;
-    padding: 8px;
+    width: 119px;
+    height: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--color-bg);
-    border: 3px solid white;
     font-family: var(--font-orbitron);
     font-weight: 700;
-    font-size: 20px;
+    font-size: 16px;
     transition: 0.2s;
     transform-origin: center;
 }
 
 .enterBtnInner{
-    background-color: white;
-    color: var(--color-bg);
-    padding: 4px 14px;
+    color: white;
+    padding: 0px 1px;
     transition: 0.2s;
     transform-origin: center;
 }
 
+.enterBracketL{
+    position: absolute;
+    left: -7px;
+    top: -6.5px;
+}
+
+.enterBracketR{
+    position: absolute;
+    right: -6px;
+    top: -6.5px;
+}
+
 .enterBtn:hover{
-    filter: drop-shadow(0 0 6px white);
+    background-color: rgba(255, 255, 255, 0.15);
 }
 
 .enterBtn:active .enterBtnInner{
