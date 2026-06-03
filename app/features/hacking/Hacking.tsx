@@ -36,17 +36,17 @@ export default function Hacking({
                     setSelectedProjectID={setSelectedProjectID}
                     setIsTouch={setIsTouch}
                 ></InteractiveNavigation>
-                <div className={`${styles.titleWrapper}`}>
-                    <div className={`${styles.hackingContainer__titleWrapper}`}>
-                        <h1 className={`${styles.hackingContainer__title}`}>
+                <div className={`${styles.hackingUILeftWrapper}`}>
+                    <div className={`${styles.hackingUI__titleWrapper}`}>
+                        <h1 className={`${styles.hackingUI__title}`}>
                             HACKING TARGET
                         </h1>
                     </div>
                     <div>
-                        <p className={`${styles.hackingContainer__etc}`}>
+                        <p className={`${styles.hackingUI__etc}`}>
                             C:\SYS\GRID\SECTOR_07\
                         </p>
-                        <p className={`${styles.hackingContainer__etcSM}`}>
+                        <p className={`${styles.hackingUI__etcSM}`}>
                             UPLINKS DETECTED: 12
                             <br />
                             ACTIVE RELAYS: 4
