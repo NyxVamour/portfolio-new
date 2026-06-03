@@ -8,6 +8,8 @@ import NavigationMap from "./NavigationMap";
 import useMap from "../../hooks/useMap";
 import useChangePage from "~/hooks/useChangePage";
 import type { pageRefsProps } from "~/features/masterLayout/MasterLayout";
+import EnterBracketL from "~/features/components/buttons/EnterBracketL";
+import EnterBracketR from "~/features/components/buttons/EnterBracketR";
 
 type interactiveNavigationProps = {
     pageRefs: pageRefsProps;
@@ -41,7 +43,9 @@ export default function InteractiveNavigation({
             className={`${styles.navigationContainer}`}
         >
             <button ref={enterBtnRef} className={`${styles.enterBtn}`}>
+                <EnterBracketL className={styles.enterBracketL} />
                 <span className={`${styles.enterBtnInner}`}>ENTER</span>
+                <EnterBracketR className={styles.enterBracketR} />
             </button>
             <NavigationController className={styles.navigationController} />
             <NavigationMap className={styles.navigationMap} ref={mapRef} />
