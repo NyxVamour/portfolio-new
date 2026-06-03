@@ -29,6 +29,7 @@
     display: flex;
     flex-direction: column;
     gap: 7px;
+    user-select: none;
 }
 
 .hackingUI__titleWrapper{
@@ -103,6 +104,7 @@
     flex-direction: column;
     line-height: 100%;
     font-size: 8px;
+    user-select: none;
 }
 
 .hackingUI_rightYel{
