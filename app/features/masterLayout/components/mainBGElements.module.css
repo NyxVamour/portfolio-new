@@ -453,6 +453,10 @@
         height: 80%;
     }
 
+    .reticle_circ{
+        height: 100%;
+    }
+
     .remoteAccess_wrapper{
         left: calc(50% - 300px);
     }
