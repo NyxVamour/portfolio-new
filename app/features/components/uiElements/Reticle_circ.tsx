@@ -2,7 +2,6 @@ export default function Reticle_circ({ className }: { className: string }) {
     return (
         <svg
             width="100%"
-            height="auto"
             viewBox="0 0 352 352"
             fill="none"
             className={className}
