@@ -3,8 +3,9 @@ import BGElementHorizontal from "./BGElementHorizontal";
 import BGElementVertical from "./BGElementVertical";
 import styles from "./mainBGElements.module.css";
 import Reticle_rect from "~/features/components/uiElements/Reticle_rect";
-import Reticle_circ from "~/features/components/uiElements/reticle_circ";
+import Reticle_circ from "~/features/components/uiElements/Reticle_circ";
 import Reticle_target from "~/features/components/uiElements/Reticle_target";
+import Clock from "../functions/Clock";
 
 export default function MainBGElements() {
     return (
@@ -57,7 +58,9 @@ export default function MainBGElements() {
             </div>
             <section className={`${styles.topLeftData}`}>
                 <div className={`${styles.timeContainer}`}>
-                    <p className={`${styles.time}`}>12:50 PM</p>
+                    <p className={`${styles.time}`}>
+                        <Clock />
+                    </p>
                 </div>
                 <div className={`${styles.securityContainer}`}>
                     <div className={`${styles.securityTextContainer}`}>
