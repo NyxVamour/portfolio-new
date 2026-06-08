@@ -82,6 +82,7 @@
     font-family: var(--font-orbitron);
     line-height: normal;
     opacity: 60%;
+    user-select: none;
 }
 
 .mD_awesomenessWrapper{
