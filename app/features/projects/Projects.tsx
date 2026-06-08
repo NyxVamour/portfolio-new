@@ -56,6 +56,8 @@ export default function Projects({
         caseStudyRef,
     };
 
+    console.log(projectsData);
+
     return (
         <div ref={projectsRef} className={`${styles.projectsWrapper}`}>
             <BlurLayer></BlurLayer>
@@ -88,7 +90,20 @@ export default function Projects({
                             </button>
                         </li>
                     </ul>
-                    <section className={`${styles.projectsWrapper}`}></section>
+                    <section className={`${styles.projectsSection}`}>
+                        <ul className={`${styles.projectsUl}`}>
+                            {projectsData.map((project, index) => (
+                                <ProjectCard
+                                    key={index}
+                                    title={project.title}
+                                    url={project.url}
+                                    imgSrc={project.imgSrc}
+                                    link={project.link}
+                                    category={project.category}
+                                />
+                            ))}
+                        </ul>
+                    </section>
                 </section>
             </main>
         </div>

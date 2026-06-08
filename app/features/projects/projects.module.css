@@ -12,12 +12,18 @@
 
 .projectsMain{
     position: relative;
+    overflow-y: scroll;
+    height: calc(100% - 75px);
+    display: flex;
+    justify-content: flex-start;
+}
+
+.projectsMainContentWrapper{
     margin: 0 clamp(1rem, 0.478rem + 2.458vw, 2rem);
-    overflow: hidden;
-    height: calc(100% - 74px);
-    padding-bottom: 60px;
+    width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 24px;
 }
 
@@ -38,14 +44,6 @@
     height: fit-content;
     font-size: 6px;
     padding: 0 2px;
-}
-
-.projectsMainContentWrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    height: 100%;
 }
 
 .categories{
@@ -75,9 +73,16 @@
 }
 
 /** PROJECTS WRAPPER **/
-.projectsWrapper{
+.projectsSection{
     display: flex;
     flex-direction: column;
+}
+
+.projectsUl{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-bottom: 120px;
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -86,18 +91,23 @@
         display: flex;
         flex-direction: row;
     }
-
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-
+    .projectsUl{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
 
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-
+    .projectsUl{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 /* X-Large devices (large desktops, 1200px and up) */
