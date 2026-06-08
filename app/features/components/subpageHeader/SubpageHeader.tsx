@@ -13,22 +13,24 @@ export default function SubPageHeader({
     buttonRef?: React.Ref<HTMLButtonElement>;
 }) {
     return (
-        <header className={`${styles.header}`}>
-            <div className={`${styles.leftSide}`}>
-                <p className={`${styles.accessingData}`}>ACCESSING DATA</p>
-                <div className={`${styles.titleWrapper}`}>
-                    <h1 className={`${styles.title}`}>{title}</h1>
-                    <p className={`${styles.titleUIEl}`}>XMHJK-984021</p>
+        <div className={`${styles.headerWrapper}`}>
+            <header className={`${styles.header}`}>
+                <div className={`${styles.leftSide}`}>
+                    <p className={`${styles.accessingData}`}>ACCESSING DATA</p>
+                    <div className={`${styles.titleWrapper}`}>
+                        <h1 className={`${styles.title}`}>{title}</h1>
+                        <p className={`${styles.titleUIEl}`}>XMHJK-984021</p>
+                    </div>
                 </div>
-            </div>
-            <div className={`${styles.rightSide}`}>
-                <p className={`${styles.rightSideUIEl}`}>
-                    session cache cleared on exit
-                    <br />
-                    AUTHORIZED EXIT ONLY
-                </p>
-                <CloseButton ref={buttonRef}></CloseButton>
-            </div>
-        </header>
+                <div className={`${styles.rightSide}`}>
+                    <p className={`${styles.rightSideUIEl}`}>
+                        session cache cleared on exit
+                        <br />
+                        AUTHORIZED EXIT ONLY
+                    </p>
+                    <CloseButton ref={buttonRef}></CloseButton>
+                </div>
+            </header>
+        </div>
     );
 }
