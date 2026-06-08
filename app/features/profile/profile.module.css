@@ -237,15 +237,12 @@
 
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-    .profileMain{
-        display: flex;
-        justify-content: center;
-    }
+
 
     .profileContentWrapper{
-        width: 1200px;
         max-width: 1200px;
     }
+
 }
 
 /* XX-Large devices (larger desktops, 1400px and up) */
