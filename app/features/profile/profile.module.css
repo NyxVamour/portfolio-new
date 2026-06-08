@@ -13,8 +13,7 @@
 .profileMain{
     position: relative;
     overflow-y: scroll;
-    height: calc(100% - 74px);
-    padding-bottom: 120px;
+    height: calc(100% - 75px);
     display: flex;
     justify-content: flex-start;
 }
@@ -22,6 +21,8 @@
 .profileContentWrapper{
     margin: 0 clamp(1rem, 0.478rem + 2.458vw, 2rem);
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 /**** PROFILE CARD ****/
@@ -167,7 +168,8 @@
     display: flex;
     flex-direction: column;
     gap: 24px ;
-    height: 100%;
+    height: fit-content;
+    padding-bottom: 120px;
 }
 
 .profileSection__skills{
@@ -203,7 +205,7 @@
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     .profileContentWrapper{
-        display: flex;
+        flex-direction: row;
         justify-content: space-between;
         gap: 24px;
     }
@@ -240,13 +242,13 @@
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     .profileMain{
-        display: flex;
         justify-content: center;
     }
 
     .profileContentWrapper{
         max-width: 1200px;
     }
+
 
 }
 
