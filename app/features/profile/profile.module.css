@@ -168,22 +168,27 @@
     height: 100%;
 }
 
+.profileSection__skills{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
 .profileSection__bulletWrapper{
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
 }
 
 .profileSection__subTitle{
-    border-left: 4px solid var(--color-secondary);
-    padding-left: 12px;
+    line-height: normal;
     color: var(--color-secondary);
     /* margin-bottom: 8px; */
 }
 
-.profileSection__iconWrapper{
-    display: flex;
-    gap: 10px;
+.profileSection__ul{
+    list-style-type: disc;
+    margin-left: 12px;
 }
 
 /* Small devices (landscape phones, 576px and up) */

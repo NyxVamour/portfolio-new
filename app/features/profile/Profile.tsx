@@ -27,7 +27,6 @@ export default function Profile({
     return (
         <div ref={profileRef} className={`${styles.profileWrapper}`}>
             <BlurLayer></BlurLayer>
-
             <SubPageHeader
                 buttonRef={closeProfileBtnRef}
                 title={"PROFILE"}
@@ -154,42 +153,46 @@ export default function Profile({
                                 </p>
                             </div>
                         </ProfileSection>
-                        <ProfileSection title="LOADOUT">
-                            <div
-                                className={`${styles.profileSection__bulletWrapper}`}
-                            >
-                                <h3
-                                    className={`${styles.profileSection__subTitle}`}
-                                >
-                                    DESIGN
-                                </h3>
+                        <ProfileSection title="SKILLS">
+                            <div className={`${styles.profileSection__skills}`}>
                                 <div
-                                    className={`${styles.profileSection__iconWrapper}`}
+                                    className={`${styles.profileSection__bulletWrapper}`}
                                 >
-                                    <IconFigma></IconFigma>
-                                    <IconAE></IconAE>
-                                    <IconAI></IconAI>
-                                    <IconPr></IconPr>
-                                    <IconPs></IconPs>
+                                    <h3
+                                        className={`${styles.profileSection__subTitle}`}
+                                    >
+                                        DESIGN
+                                    </h3>
+                                    <ul
+                                        className={`${styles.profileSection__ul}`}
+                                    >
+                                        <li>Figma</li>
+                                        <li>Adobe Illustrator</li>
+                                        <li>Adobe Photoshop</li>
+                                        <li>Adobe After Effects</li>
+                                        <li>Adobe Premiere Pro</li>
+                                    </ul>
                                 </div>
-                            </div>
-                            <div
-                                className={`${styles.profileSection__bulletWrapper}`}
-                            >
-                                <h3
-                                    className={`${styles.profileSection__subTitle}`}
-                                >
-                                    DEVELOPMENT
-                                </h3>
                                 <div
-                                    className={`${styles.profileSection__iconWrapper}`}
+                                    className={`${styles.profileSection__bulletWrapper}`}
                                 >
-                                    <IconJs></IconJs>
-                                    <IconReact></IconReact>
-                                    <IconHTML></IconHTML>
-                                    <IconCSS></IconCSS>
-                                    <IconPHP></IconPHP>
-                                    <IconNode></IconNode>
+                                    <h3
+                                        className={`${styles.profileSection__subTitle}`}
+                                    >
+                                        DEVELOPMENT
+                                    </h3>
+                                    <ul
+                                        className={`${styles.profileSection__ul}`}
+                                    >
+                                        <li>HTML</li>
+                                        <li>CSS</li>
+                                        <li>JavaScript</li>
+                                        <li>TypeScript</li>
+                                        <li>React</li>
+                                        <li>Next.js</li>
+                                        <li>PHP</li>
+                                        <li>Node.js</li>
+                                    </ul>
                                 </div>
                             </div>
                         </ProfileSection>
