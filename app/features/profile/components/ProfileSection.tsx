@@ -10,10 +10,21 @@ export default function ProfileSection({
     children,
 }: ProfileSectionProps) {
     return (
-        <section>
+        <section className={`${styles.profileSection}`}>
             <header className={`${styles.header}`}>
                 <h2 className={`${styles.title}`}>{title}</h2>
-                <p className={`${styles.loaded}`}>LOADED 100%</p>
+                <div className={`${styles.details_wrapper}`}>
+                    <p className={`${styles.details_lyka}`}>
+                        LYKATECH CORPORATION
+                    </p>
+                    <p className={`${styles.details_etc}`}>
+                        SYS//ACTIVE
+                        <br />
+                        NODE:A-17
+                        <br />
+                        ACCESS GRANTED
+                    </p>
+                </div>
             </header>
             <div className={`${styles.contentWrapper}`}>{children}</div>
         </section>
