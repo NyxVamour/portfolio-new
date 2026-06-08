@@ -56,7 +56,18 @@ export default function Projects({
         caseStudyRef,
     };
 
-    console.log(projectsData);
+    const [selectedCategory, setSelectedCategory] = useState("All");
+
+    const filteredItems =
+        selectedCategory === "All"
+            ? projectsData
+            : projectsData.filter(
+                  (project) => project.category === selectedCategory,
+              );
+
+    function changeCategory(category: string) {
+        setSelectedCategory(category);
+    }
 
     return (
         <div ref={projectsRef} className={`${styles.projectsWrapper}`}>
@@ -70,29 +81,57 @@ export default function Projects({
                 <section className={`${styles.projectsMainContentWrapper}`}>
                     <ul className={`${styles.categories}`}>
                         <li className={`${styles.categories__li}`}>
-                            <button className={`${styles.categories__button}`}>
+                            <button
+                                onClick={() => changeCategory("All")}
+                                className={`${styles.categories__button} ${
+                                    selectedCategory === "All"
+                                        ? `${styles.categories__buttonActive}`
+                                        : ""
+                                }`}
+                            >
                                 All
                             </button>
                         </li>
                         <li className={`${styles.categories__li}`}>
-                            <button className={`${styles.categories__button}`}>
+                            <button
+                                onClick={() => changeCategory("Website")}
+                                className={`${styles.categories__button} ${
+                                    selectedCategory === "Website"
+                                        ? `${styles.categories__buttonActive}`
+                                        : ""
+                                }`}
+                            >
                                 Websites
                             </button>
                         </li>
                         <li className={`${styles.categories__li}`}>
-                            <button className={`${styles.categories__button}`}>
+                            <button
+                                onClick={() => changeCategory("Web App")}
+                                className={`${styles.categories__button} ${
+                                    selectedCategory === "Web App"
+                                        ? `${styles.categories__buttonActive}`
+                                        : ""
+                                }`}
+                            >
                                 Web Apps
                             </button>
                         </li>
                         <li className={`${styles.categories__li}`}>
-                            <button className={`${styles.categories__button}`}>
+                            <button
+                                onClick={() => changeCategory("Game")}
+                                className={`${styles.categories__button} ${
+                                    selectedCategory === "Game"
+                                        ? `${styles.categories__buttonActive}`
+                                        : ""
+                                }`}
+                            >
                                 Games
                             </button>
                         </li>
                     </ul>
                     <section className={`${styles.projectsSection}`}>
                         <ul className={`${styles.projectsUl}`}>
-                            {projectsData.map((project, index) => (
+                            {filteredItems.map((project, index) => (
                                 <ProjectCard
                                     key={index}
                                     title={project.title}

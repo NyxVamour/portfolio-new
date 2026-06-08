@@ -71,9 +71,13 @@
     line-height: 150%;
 }
 
-.categories__button:hover{
+.categories__buttonActive{
     background-color: white;
     color: var(--color-bg);
+}
+
+.categories__button:hover{
+    color: var(--color-secondary);
 }
 
 /** PROJECTS WRAPPER **/
