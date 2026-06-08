@@ -1,29 +1,104 @@
 export default function IconScrollVer() {
     return (
         <svg
-            width="19"
-            height="17"
-            viewBox="0 0 19 17"
+            width="30"
+            height="30"
+            viewBox="0 0 30 30"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
         >
-            <g clipPath="url(#clip0_2500_1514)">
-                <path
-                    d="M0.814942 2.95112L1.48591 3.54158L2.8189 2.02966L2.81891 15.2657L1.48591 13.7627L0.814942 14.3554L3.23714 17.084L5.71526 14.2659L5.04429 13.6755L3.71353 15.1874L3.71353 1.95362L5.04652 3.45435L5.71526 2.86166L3.29529 0.133051L0.814942 2.95112Z"
-                    fill="#18BCE0"
-                />
-                <path
-                    d="M10.1364 11.7938L12.7174 11.7647L11.7355 13.221C8.81681 13.9255 9.49226 15.1333 9.69802 15.2809C10.161 15.6141 12.6816 15.679 13.9341 14.9118C15.2112 14.129 18.0426 10.8634 18.0426 10.3154L18.0426 6.12636C18.0426 5.52249 17.7228 4.94769 17.2554 4.56524C16.7879 4.18278 16.1863 3.39999 15.0613 3.16515C13.5695 2.85426 11.1943 3.16515 10.1252 3.16515C9.92615 3.16515 9.06507 3.24343 9.07626 3.79586C9.13441 6.3858 10.1207 4.86941 10.1207 4.86941C10.1207 4.86941 8.70498 3.51182 8.70498 6.00782C8.70498 8.07888 10.1185 6.97626 10.1185 6.97626C10.1185 6.97626 8.45002 5.96533 8.45002 8.33609C8.45002 10.2439 10.1274 9.36267 10.1274 9.36267L2.9995 9.54831C2.37774 9.54831 1.87451 10.0515 1.87451 10.6733C1.87451 11.2951 2.37774 11.7983 2.99951 11.7983L10.1364 11.7983L10.1364 11.7938Z"
-                    fill="white"
-                />
+            <rect width="30" height="30" fill="#1F0909" />
+            <g clip-path="url(#clip0_2703_375)">
+                <g filter="url(#filter0_d_2703_375)">
+                    <path
+                        d="M4.99365 8.26366L5.8118 8.98363L7.43719 7.14007L7.43719 23.2794L5.8118 21.4467L4.99365 22.1694L7.94717 25.4966L10.9689 22.0604L10.1507 21.3404L8.52805 23.184L8.52805 7.04735L10.1534 8.87727L10.9689 8.15457L8.01807 4.82744L4.99365 8.26366Z"
+                        fill="white"
+                    />
+                </g>
+                <g filter="url(#filter1_d_2703_375)">
+                    <path
+                        d="M16.3598 19.0455L19.5069 19.01L18.3097 20.7857C14.7508 21.6448 15.5744 23.1174 15.8253 23.2974C16.3898 23.7038 19.4633 23.7829 20.9905 22.8474C22.5477 21.8929 26.0003 17.911 26.0003 17.2428L26.0003 12.1348C26.0003 11.3985 25.6103 10.6976 25.0403 10.2313C24.4703 9.76495 23.7367 8.81044 22.365 8.52409C20.546 8.14502 17.6497 8.52409 16.3461 8.52409C16.1034 8.52409 15.0535 8.61954 15.0671 9.29315C15.138 12.4512 16.3407 10.6022 16.3407 10.6022C16.3407 10.6022 14.6144 8.9468 14.6144 11.9903C14.6144 14.5157 16.338 13.1712 16.338 13.1712C16.338 13.1712 14.3035 11.9385 14.3035 14.8293C14.3035 17.1556 16.3489 16.0811 16.3489 16.0811L7.65741 16.3074C6.89926 16.3074 6.28564 16.921 6.28564 17.6792C6.28564 18.4373 6.89926 19.0509 7.65741 19.0509L16.3598 19.0509L16.3598 19.0455Z"
+                        fill="#BD4A4A"
+                    />
+                </g>
             </g>
             <defs>
-                <clipPath id="clip0_2500_1514">
+                <filter
+                    id="filter0_d_2703_375"
+                    x="2.99365"
+                    y="2.82764"
+                    width="9.9751"
+                    height="24.6689"
+                    filterUnits="userSpaceOnUse"
+                    colorInterpolationFilters="sRGB"
+                >
+                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                    />
+                    <feOffset />
+                    <feGaussianBlur stdDeviation="1" />
+                    <feComposite in2="hardAlpha" operator="out" />
+                    <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"
+                    />
+                    <feBlend
+                        mode="normal"
+                        in2="BackgroundImageFix"
+                        result="effect1_dropShadow_2703_375"
+                    />
+                    <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="effect1_dropShadow_2703_375"
+                        result="shape"
+                    />
+                </filter>
+                <filter
+                    id="filter1_d_2703_375"
+                    x="4.28564"
+                    y="6.35547"
+                    width="23.7148"
+                    height="19.23"
+                    filterUnits="userSpaceOnUse"
+                    colorInterpolationFilters="sRGB"
+                >
+                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                    />
+                    <feOffset />
+                    <feGaussianBlur stdDeviation="1" />
+                    <feComposite in2="hardAlpha" operator="out" />
+                    <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0.741176 0 0 0 0 0.290196 0 0 0 0 0.290196 0 0 0 1 0"
+                    />
+                    <feBlend
+                        mode="normal"
+                        in2="BackgroundImageFix"
+                        result="effect1_dropShadow_2703_375"
+                    />
+                    <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="effect1_dropShadow_2703_375"
+                        result="shape"
+                    />
+                </filter>
+                <clipPath id="clip0_2703_375">
                     <rect
-                        width="16.9509"
-                        height="18.0424"
+                        width="20.6691"
+                        height="22"
                         fill="white"
-                        transform="translate(7.40949e-07 16.9512) rotate(-90)"
+                        transform="translate(4 25.3345) rotate(-90)"
                     />
                 </clipPath>
             </defs>

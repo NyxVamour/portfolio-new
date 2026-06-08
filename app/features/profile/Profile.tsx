@@ -27,60 +27,87 @@ export default function Profile({
     return (
         <div ref={profileRef} className={`${styles.profileWrapper}`}>
             <BlurLayer></BlurLayer>
-
             <SubPageHeader
                 buttonRef={closeProfileBtnRef}
                 title={"PROFILE"}
                 altHeader={"PROFILE PAGE OF CHARLIZE SAN GABRIEL"}
             ></SubPageHeader>
             <main className={`${styles.profileMain}`}>
-                <TlDetails></TlDetails>
                 <div className={`${styles.profileContentWrapper}`}>
                     <section className={`${styles.profileCard}`}>
-                        <div className={`${styles.mugshotAndDetailsWrapper}`}>
+                        <div className={`${styles.portraitWrapper}`}>
                             <figure className={`${styles.mugshotWrapper}`}>
                                 <img
-                                    src="/images/charlizeMugshot.jpg"
+                                    src="/images/mugshot-transparent.png"
                                     alt="mugshot picture of Charlize"
                                     className={`${styles.mugshot}`}
                                 ></img>
                             </figure>
-                            <div
-                                className={`${styles.profileCard__detailsWrapper}`}
-                            >
+                            <div className={`${styles.nameplate_wrapper}`}>
+                                <p className={`${styles.nameplate_label}`}>
+                                    NAME:
+                                </p>
+                                <p className={`${styles.nameplate_name}`}>
+                                    CHARLIZE SAN GABRIEL
+                                </p>
+                            </div>
+                        </div>
+                        <div className={`${styles.mugDetails}`}>
+                            <div className={`${styles.mD_awesomenessWrapper}`}>
+                                <p className={`${styles.mD_awesomeness}`}>
+                                    AWESOMENESS DETECTED
+                                </p>
+                            </div>
+                            <p className={`${styles.mD_history}`}>
+                                ABS: 6<br />
+                                CRIMINAL RECORD:
+                                <br />
+                                NONE
+                            </p>
+                            <p className={`${styles.mD_prime}`}>
+                                Prime Target
+                                <br />
+                                0001-0101-0010-1100-1001
+                                <br />
+                                Mugshot taken from the made up database
+                            </p>
+                            <div className={`${styles.mD_threatWrapper}`}>
+                                <p className={`${styles.mD_threatLevel}`}>
+                                    Threat Level:
+                                </p>
                                 <div
-                                    className={`${styles.profileCard__otherDetails}`}
+                                    className={`${styles.mD_threatResultWrapper}`}
                                 >
-                                    <p>
-                                        Mugshot taken from the made up database
-                                    </p>
-                                    <p>Prime Target</p>
-                                    <p>0001-0101-0010-1100-1001</p>
-                                </div>
-                                <div
-                                    className={`${styles.profileCard__powerLvlWrapper}`}
-                                >
-                                    <p
-                                        className={`${styles.profileCard__powerLvlTitle}`}
-                                    >
-                                        Power Level:
-                                    </p>
-                                    <p
-                                        className={`${styles.profileCard__powerLvlResult}`}
-                                    >
+                                    <p className={`${styles.mD_threatResult}`}>
                                         Extremely Low
                                     </p>
                                 </div>
                             </div>
-                        </div>
-                        <div className={`${styles.profileCard__details}`}>
-                            <p className={`${styles.profileCard__name}`}>
-                                CHARLIZE <br />
-                                SAN GABRIEL
+                            <p className={`${styles.mD_socialBattery}`}>
+                                SOCIAL BATTERY: VARIABLE
+                                <br />
+                                DEBUGGING TOLERANCE: MAXIMUM
+                                <br />
+                                SANITY BUFFER: CRITICAL
                             </p>
-                            <p className={`${styles.profileCard__title}`}>
-                                Web Developer
-                            </p>
+                            <div
+                                className={`${styles.mD_attentionSpanWrapper}`}
+                            >
+                                <p className={`${styles.mD_attentionSpan}`}>
+                                    Attention Span:
+                                </p>
+                                <div
+                                    className={`${styles.mD_attentionSpanBar}`}
+                                ></div>
+                            </div>
+                            <div className={`${styles.mD_powerLevelWrapper}`}>
+                                <p className={`${styles.mD_powerLevel}`}>
+                                    Power Level:
+                                </p>
+                                <div
+                                    className={`${styles.mD_powerLevelBar}`}
+                                ></div>
+                            </div>
                         </div>
                     </section>
                     <div className={`${styles.profileSectionsWrapper}`}>
@@ -126,42 +153,46 @@ export default function Profile({
                                 </p>
                             </div>
                         </ProfileSection>
-                        <ProfileSection title="LOADOUT">
-                            <div
-                                className={`${styles.profileSection__bulletWrapper}`}
-                            >
-                                <h3
-                                    className={`${styles.profileSection__subTitle}`}
-                                >
-                                    DESIGN
-                                </h3>
+                        <ProfileSection title="SKILLS">
+                            <div className={`${styles.profileSection__skills}`}>
                                 <div
-                                    className={`${styles.profileSection__iconWrapper}`}
+                                    className={`${styles.profileSection__bulletWrapper}`}
                                 >
-                                    <IconFigma></IconFigma>
-                                    <IconAE></IconAE>
-                                    <IconAI></IconAI>
-                                    <IconPr></IconPr>
-                                    <IconPs></IconPs>
+                                    <h3
+                                        className={`${styles.profileSection__subTitle}`}
+                                    >
+                                        DESIGN
+                                    </h3>
+                                    <ul
+                                        className={`${styles.profileSection__ul}`}
+                                    >
+                                        <li>Figma</li>
+                                        <li>Adobe Illustrator</li>
+                                        <li>Adobe Photoshop</li>
+                                        <li>Adobe After Effects</li>
+                                        <li>Adobe Premiere Pro</li>
+                                    </ul>
                                 </div>
-                            </div>
-                            <div
-                                className={`${styles.profileSection__bulletWrapper}`}
-                            >
-                                <h3
-                                    className={`${styles.profileSection__subTitle}`}
-                                >
-                                    DEVELOPMENT
-                                </h3>
                                 <div
-                                    className={`${styles.profileSection__iconWrapper}`}
+                                    className={`${styles.profileSection__bulletWrapper}`}
                                 >
-                                    <IconJs></IconJs>
-                                    <IconReact></IconReact>
-                                    <IconHTML></IconHTML>
-                                    <IconCSS></IconCSS>
-                                    <IconPHP></IconPHP>
-                                    <IconNode></IconNode>
+                                    <h3
+                                        className={`${styles.profileSection__subTitle}`}
+                                    >
+                                        DEVELOPMENT
+                                    </h3>
+                                    <ul
+                                        className={`${styles.profileSection__ul}`}
+                                    >
+                                        <li>HTML</li>
+                                        <li>CSS</li>
+                                        <li>JavaScript</li>
+                                        <li>TypeScript</li>
+                                        <li>React</li>
+                                        <li>Next.js</li>
+                                        <li>PHP</li>
+                                        <li>Node.js</li>
+                                    </ul>
                                 </div>
                             </div>
                         </ProfileSection>

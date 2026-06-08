@@ -81,7 +81,7 @@ export default function ProjectWindow({
                         ref={caseStudyRef}
                         className={`${styles.caseStudyWrapper}`}
                     >
-                        <img src={`/images/${imgSrc}`} alt="" />
+                        {imgSrc && <img src={`/images/${imgSrc}`} alt="" />}
                         <p>{description}</p>
                     </div>
                 </section>

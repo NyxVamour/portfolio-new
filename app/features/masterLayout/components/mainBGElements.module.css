@@ -4,21 +4,226 @@
     position: absolute;
     top: 0;
     font-family: var(--font-orbitron);
-    font-weight: bold;
     font-size: clamp(0.625rem, 0.5588rem + 0.3529vw, 1rem);
+    line-height: normal;
 }
 
-.boxContainer{
+/** RETICLES **/
+.reticleWrapper{
+    position: absolute;
+    width: 100%;
+    height: 100%;
     display: flex;
-    width: fit-content;
-    padding: 0px 4px;
-    background-color: white;
+    justify-content: center;
+    align-items: center;
 }
 
-.boxContainer > p{
+.reticle_subWrapper{
+    position: absolute;
+    width: 90%;
+    height: 60%;
+}
+
+.reticle_rect{
+    position: absolute;
+}
+
+.reticle_circWrapper{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reticle_circ{
+    position: absolute;
+    transform: scale(0.9);
+}
+
+.circle_serial{
+    position: absolute;
+}
+
+.reticle_target{
+    position: absolute;
+}
+
+/** REMOTE ACCESS **/
+.remoteAccess_wrapper{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-weight: bold;
+    left: 0;
+    bottom: 13%;
+}
+
+.remoteAccess_title{
+    opacity: 60%;
+    font-size: 6px;
+    filter: drop-shadow(-2px 0px 1px var(--drop-shadow-white));
+}
+
+.scanner_wrapper{
+    color: var(--color-primary);
+    display: flex;
+    gap: 7px;
+    filter: drop-shadow(-2px 0px 1px var(--drop-shadow-primary));
+}
+
+.scanner_title{
+    font-size: 8px;
+}
+
+.scanner_number{
+    font-size: 2px;
+}
+
+.circle_nums{
+    position: absolute;
+    left: 10%;
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 6px;
+    filter: drop-shadow(-2px 0px 1px var(--drop-shadow-primary));
+}
+
+.circle_serial{
+    opacity: 60%;
+    bottom: 24px;
+    font-weight: bold;
+    font-size: 8px;
+    filter: drop-shadow(0px 2px 2px var(--drop-shadow-white));
+}
+
+/** TOP LEFT **/
+.timeContainer{
+    background-color: var(--color-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    padding: 0 3px;
+    filter: drop-shadow(-3px 0 2px var(--drop-shadow-primary));
+}
+
+.time{
+    font-family: var(--font-orbitron);
+    font-size: 8px;
     color: var(--color-bg);
 }
 
+.securityContainer{
+    margin-top: 6px;
+    opacity: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    filter: drop-shadow(-3px 0px 1px var(--drop-shadow-white));
+}
+
+.securitySubText{
+    font-weight: bold;
+    font-size: 4px;
+}
+
+.securityTextContainer{
+    display: flex;
+    width: fit-content;
+    padding: 2px 6px;
+    border: 1px solid white;
+}
+
+.securityContainer > p{
+    color: white;
+}
+
+.recording{
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 8px;
+    filter: drop-shadow(-3px 0 1px var(--drop-shadow-primary));
+}
+
+.cameraSettings{
+    opacity: 60%;
+    font-weight: bold;
+    font-size: 8px;
+    filter: drop-shadow(-2px 0px 1px var(--drop-shadow-white));
+}
+
+.batteryBar{
+    position: relative;
+    left: -4px;
+}
+
+.cameraTerminalText{
+    margin-top: 8px;
+    opacity: 60%;
+    color: var(--color-secondary);
+    font-weight: bold;
+    font-size: 4px;
+    filter: drop-shadow(-2px 0px 1px var(--drop-shadow-secondary));
+}
+
+/** TOP RIGHT DATA **/
+.lykatech{
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 8px;
+    filter: drop-shadow(3px 0px 1px var(--drop-shadow-primary))
+}
+
+.lykatechVersion{
+    opacity: 60%;
+    font-weight: bold;
+    font-size: 6px;
+    filter: drop-shadow(3px 0px 1px var(--drop-shadow-white))
+}
+
+.lykatechSpecs{
+    margin-top: 4px;
+    opacity: 60%;
+    font-weight: bold;
+    font-size: 6px;
+    filter: drop-shadow(3px 0px 1px var(--drop-shadow-white))
+}
+
+.gridAccessWrapper{
+    opacity: 60%;
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    padding: 2px 6px;
+    width: fit-content;
+    filter: drop-shadow(3px 0px 1px var(--drop-shadow-white))
+}
+
+.gridAccess{
+    font-size: 6px;
+}
+
+/** BOTTOM LEFT **/
+.weatherData{
+    font-weight: bold;
+    font-size: 8px;
+    filter: drop-shadow(-3px 0px 1px var(--drop-shadow-white))
+}
+
+/** BOTTOM RIGHT **/
+.cameraAngle{
+    opacity: 60%;
+    font-weight: bold;
+    font-size: 8px;
+    filter: drop-shadow(3px 0px 1px var(--drop-shadow-white))
+}
+
+/** TARGET **/
 .targetContainer{
     position: absolute;
     width: fit-content;
@@ -28,7 +233,10 @@
 }
 
 .targetText{
+    opacity: 60%;
+    font-weight: bold;
     font-size: clamp(0.5rem, 0.4669rem + 0.1765vw, 0.6875rem);
+    filter: drop-shadow(3px 0px 2px var(--drop-shadow-white))
 }
 
 .targetImage{
@@ -36,16 +244,49 @@
     aspect-ratio: 1;
 }
 
-.topData{
+.targetVitalsWrapper{
+    opacity: 60%;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    filter: drop-shadow(3px 0px 2px var(--drop-shadow-white))
+}
+
+.targetVitalsTitleWrapper{
+    padding: 2px 6px;
+    border: 1px solid white;
+}
+
+.targetVitalsTitleWrapper > p{
+    font-size: 8px;
+}
+
+.topLeftData{
     position: absolute;
     top: 2%;
     left: 2%;
 }
 
-.bottomData{
+.topRightData{
+    position: absolute;
+    top: 2%;
+    right: 7%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.bottomLeftData{
     position: absolute;
     bottom: 20px;
     left: 2%;
+}
+
+.bottomRightData{
+    position: absolute;
+    bottom: 8%;
+    right: 7%;
 }
 
 .linesContainer{
@@ -63,21 +304,171 @@
 .bgElement__vertical{
     position: absolute;
     transform:scaleY(90%);
-    right: 0;
+    transform: scaleX(50%);
+    right: -5px;
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-
+.topRightData{
+    right: 4%;
+}
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+.bgElement__vertical{
+    transform: unset;
+    right: -0px;
+}
 
+.reticle_subWrapper{
+    width: 60%;
+    height: 70%;
+}
+
+.reticle_circWrapper{
+    width: unset;
+}
+
+.reticle_circ{
+    width: unset;
+}
+
+.remoteAccess_wrapper{
+    left: calc(50% - 300px);
+}
+
+.circle_nums{
+    left: calc(50% - 200px);
+    transform: translateX(50%);
+}
+
+.circle_serial{
+    bottom: calc(50% - 230px);
+}
+
+/** TOP LEFT **/
+.time{
+    font-family: var(--font-orbitron);
+    font-size: 12px;
+    color: var(--color-bg);
+}
+
+.securityContainer{
+    margin-top: 6px;
+    opacity: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    filter: drop-shadow(-3px 0px 1px var(--drop-shadow-white));
+}
+
+.securitySubText{
+    font-weight: bold;
+    font-size: 6px;
+}
+
+.securityTextContainer{
+    display: flex;
+    width: fit-content;
+    padding: 2px 6px;
+    border: 1px solid white;
+}
+
+.securityContainer > p{
+    color: white;
+}
+
+.recording{
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 12px;
+    filter: drop-shadow(-3px 0 1px var(--drop-shadow-primary));
+}
+
+.cameraSettings{
+    opacity: 60%;
+    font-weight: bold;
+    font-size: 12px;
+    filter: drop-shadow(-2px 0px 1px var(--drop-shadow-white));
+}
+
+.batteryBar{
+    position: relative;
+    left: -4px;
+}
+
+.cameraTerminalText{
+    margin-top: 8px;
+    opacity: 60%;
+    color: var(--color-secondary);
+    font-weight: bold;
+    font-size: 6px;
+    filter: drop-shadow(-2px 0px 1px var(--drop-shadow-secondary));
+}
+
+/** TOP RIGHT DATA **/
+.lykatech{
+    font-size: 12px;
+}
+
+.lykatechVersion{
+    font-size: 10px;
+}
+
+.lykatechSpecs{
+    font-size: 8px;
+}
+
+.gridAccessWrapper{
+    margin-top: 8px;
+}
+
+.gridAccess{
+    font-size: 8px;
+}
+
+/** BOTTOM LEFT **/
+.weatherData{
+    font-size: 12px;
+}
+
+/** BOTTOM RIGHT **/
+.cameraAngle{
+    font-size: 12px;
+}
+
+/** TARGET **/
+
+.targetVitalsTitleWrapper > p{
+    font-size: 12px;
+}
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
+    .reticle_subWrapper{
+        width: 60%;
+        height: 80%;
+    }
+
+    .reticle_circ{
+        height: 100%;
+    }
+
+    .remoteAccess_wrapper{
+        left: calc(50% - 300px);
+    }
+
+    .circle_nums{
+        left: calc(50% - 230px);
+        transform: translateX(50%);
+    }
+
+    .circle_serial{
+        bottom: calc(50% - 260px);
+    }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */

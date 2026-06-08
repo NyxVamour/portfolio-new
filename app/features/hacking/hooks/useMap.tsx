@@ -83,6 +83,8 @@ export default function useMap(
 
     function colorCurrentNode(tl: gsap.core.Timeline) {
         if (!enterBtnRef.current) return;
+        const currentNode = nodes[position];
+        if (!currentNode) return;
 
         const currentNodeGlow = document.getElementById(position);
         const filledShape = currentNodeGlow?.querySelector(
@@ -94,7 +96,7 @@ export default function useMap(
         );
         const filledTextShape = currentTextWrapper?.querySelector("path[fill]");
         const enterBtn = enterBtnRef.current;
-        const hasEnterID = nodes[position].enterID;
+        const hasEnterID = currentNode.enterID;
 
         if (filledShape) {
             tl.to(
@@ -150,16 +152,19 @@ export default function useMap(
     }
 
     function unColorPreviousNode(tl: gsap.core.Timeline) {
+        const prevNode = nodes[prevPosition];
+        if (!prevNode) return;
+
         const previousNodeGlow = document.getElementById(prevPosition);
         const prevFilledShape = previousNodeGlow?.querySelector(
             "circle[fill], rect[fill]",
         );
         const prevTextWrapper = document.getElementById(
-            `${nodes[prevPosition].textWrapperID}`,
+            `${prevNode.textWrapperID}`,
         );
         const filledTextShape = prevTextWrapper?.querySelector("path[fill]");
         const enterBtn = enterBtnRef.current;
-        const prevHasEnterID = nodes[prevPosition].enterID;
+        const prevHasEnterID = prevNode.enterID;
 
         if (prevFilledShape) {
             tl.to(

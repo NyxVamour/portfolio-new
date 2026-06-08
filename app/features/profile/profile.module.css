@@ -12,33 +12,41 @@
 
 .profileMain{
     position: relative;
-    margin: 0 clamp(1rem, 0.478rem + 2.458vw, 2rem);
     overflow-y: scroll;
-    height: calc(100% - 74px);
-    padding-bottom: 120px;
-    padding-right: 16px;
+    height: calc(100% - 75px);
+    display: flex;
+    justify-content: flex-start;
+}
+
+.profileContentWrapper{
+    margin: 0 clamp(1rem, 0.478rem + 2.458vw, 2rem);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 /**** PROFILE CARD ****/
 
 .profileCard{
     display: flex;
-    /* grid-template-columns: 1fr 1fr; */
-    padding-bottom: 76px;
+    padding-bottom: 59px;
+    gap: 20px;
     align-items: center;
-    min-height: 250px;
 }
 
-.mugshotAndDetailsWrapper{
+.portraitWrapper{
     position: relative;
     display: flex;
-    width: 150px;
-    height: 100%;
+    width: clamp(230px, 60%, 300px);
+    aspect-ratio: 2 /3;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 .mugshotWrapper{
-    aspect-ratio: 1 / 1;
-    width: clamp(100px, 90%, 150px);
+    background-color: rgba(255, 255, 255, 0.35);
+    width: 100%;
     height: auto;
     overflow: hidden;
     border: 1px solid white
@@ -47,69 +55,113 @@
 .mugshot{
     object-position: 50% 50%;
     object-fit: cover;
-    width: 100%;
-    height: 100%;
+    width: 100%; 
+    transform: scale(1.2);
 }
 
-.profileCard__detailsWrapper{
-    position: relative;
-}
-
-.profileCard__otherDetails{
+.nameplate_wrapper{
     position: absolute;
-    top: 0;
-    left: 8px;
-    width: 62px;
-    opacity: 50%;
+    background-color: rgba(13, 13, 26, 0.8);
+    border: 1px solid white;
     font-family: var(--font-orbitron);
-    font-size: clamp(0.25rem, 0.211rem + 0.182vw, 0.375rem);
+    padding: 3px;
+    margin-bottom: 8px;
 }
 
-.profileCard__otherDetails > *{
-    line-height: 1;
+.nameplate_label{
+    font-size: 10px;
 }
 
-.profileCard__details{
+.nameplate_name{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/** mugshot details **/
+.mugDetails{
     font-family: var(--font-orbitron);
+    line-height: normal;
+    opacity: 60%;
+    user-select: none;
 }
 
-.profileCard__details > *{
-    line-height: 1;
+.mD_awesomenessWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    margin-bottom: 4px;
 }
 
-.profileCard__name{
-    font-size: clamp(1.25rem, 0.941rem + 1.455vw, 2.25rem);
-    font-weight: 700;
+.mD_awesomeness{
+    font-size: 6px;
+    font-weight: bold;
 }
 
-.profileCard__title{
-    color: var(--color-secondary);
+.mD_history{
+    font-size: 8px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
-.profileCard__powerLvlWrapper{
-    position: absolute;
-    bottom: 0;
-    left: 8px;
-    opacity: 50%;
-    font-family: var(--font-orbitron);
-
+.mD_prime{
+    font-size: 4px;
+    font-weight: bold;
+    margin-bottom: 7px;
 }
 
-.profileCard__powerLvlWrapper > *{
-    line-height: 1;
+.mD_threatWrapper{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 7px;
 }
 
-.profileCard__powerLvlTitle{
-    font-size: clamp(0.5rem, 0.461rem + 0.182vw, 0.625rem);
+.mD_threatLevel{
+    font-size: 8px;
 }
 
-.profileCard__powerLvlResult{
-    width: fit-content;
+.mD_threatResultWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--color-secondary);
     color: var(--color-bg);
-    font-size: clamp(0.625rem, 0.548rem + 0.364vw, 0.875rem);
     padding: 0 8px;
-    text-wrap: nowrap;
+    width: fit-content;
+}
+
+.mD_threatResult{
+    font-size: 10px;
+}
+
+
+.mD_socialBattery{
+    font-size: 4px;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.mD_attentionSpanWrapper,
+.mD_powerLevelWrapper
+{
+    display: flex;
+    flex-direction: column;
+    font-size: 4px;
+    font-weight: bold;
+    gap: 2px;
+    margin-bottom: 7px;
+}
+
+.mD_attentionSpanBar{
+    background-color: white;
+    width: 100%;
+    height: 3px;
+}
+
+.mD_powerLevelBar{
+    background-color: white;
+    width: 70%;
+    height: 3px;
 }
 
 /**** PROFILE SECTIONS ********/
@@ -117,32 +169,35 @@
     display: flex;
     flex-direction: column;
     gap: 24px ;
-    height: 100%;
+    height: fit-content;
+    padding-bottom: 120px;
+}
+
+.profileSection__skills{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
 .profileSection__bulletWrapper{
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
 }
 
 .profileSection__subTitle{
-    border-left: 4px solid var(--color-secondary);
-    padding-left: 12px;
+    line-height: normal;
     color: var(--color-secondary);
     /* margin-bottom: 8px; */
 }
 
-.profileSection__iconWrapper{
-    display: flex;
-    gap: 10px;
+.profileSection__ul{
+    list-style-type: disc;
+    margin-left: 12px;
 }
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-    .mugshotAndDetailsWrapper{
-        width: 150px;
-    }
     .mugshotWrapper{
         aspect-ratio: 2/3;
     }
@@ -151,8 +206,9 @@
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     .profileContentWrapper{
-        display: flex;
-        justify-content: center;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 24px;
     }
 
     .profileMain{
@@ -160,47 +216,25 @@
     }
 
     .profileCard{
-        width: 320px;
+        width: 50%;
         height: fit-content;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-    }
-
-    .profileCard__powerLvlWrapper{
-        top: 20%;
-    }
-
-    .profileCard__details{
-        display: flex;
-        flex-direction: column-reverse;
     }
 
     .profileSectionsWrapper{
+        width: 50%;
         margin-bottom: 0px;
     }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-    .profileMain{
-        padding-right: 0;
-    }
-    
+
     .profileCard{
-        width: 40%;
-    }
-
-    .mugshotAndDetailsWrapper{
-        width: fit-content;
-    }
-
-    .mugshotWrapper{
-        width: 250px;
+        width: calc(5/12*100%);
     }
 
     .profileSectionsWrapper{
-        width: calc(5/12*100%);
+        width: 60%;
     }
 
 
@@ -209,9 +243,14 @@
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     .profileMain{
-        max-width: 1200px;
-        margin: 0 auto;
+        justify-content: center;
     }
+
+    .profileContentWrapper{
+        max-width: 1200px;
+    }
+
+
 }
 
 /* XX-Large devices (larger desktops, 1400px and up) */

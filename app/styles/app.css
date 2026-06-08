@@ -8,9 +8,14 @@
   --color-primary--darker: #400D0D;
   --color-primary--darkest: #1F0909;
   --color-secondary: #FFD50B;
+  --color-secondary--faded: #E3C15B;
   --color-secondary--darker: #282204;
   --color-tertiary: #394751;
   --color-bg: #0D0D1A;
+  --drop-shadow-primary: rgba(189, 74, 74, 0.8);
+  --drop-shadow-secondary: rgba(215, 213, 11, 0.8);
+  --drop-shadow-white: rgba(255, 255, 255, 0.8);
+  --drop-shadow-green: rgba(74, 255, 50, 0.8);
 }
 
 html,

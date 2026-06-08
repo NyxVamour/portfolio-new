@@ -13,19 +13,24 @@ export default function SubPageHeader({
     buttonRef?: React.Ref<HTMLButtonElement>;
 }) {
     return (
-        <header className={`${styles.header}`}>
-            <div className={`${styles.whiteDetailWrapper}`}>
-                <p className={`${styles.altHeader}`}>{altHeader}</p>
-                <WhiteDetail></WhiteDetail>
-                <p className={`${styles.dataText}`}>DATA EXTRACTED</p>
-            </div>
-            <div className={`${styles.redDetailRow}`}>
-                <div className={`${styles.redDetailLeftWrapper}`}>
-                    <h1 className={`${styles.title}`}>{title}</h1>
-                    <RedDetail></RedDetail>
+        <div className={`${styles.headerWrapper}`}>
+            <header className={`${styles.header}`}>
+                <div className={`${styles.leftSide}`}>
+                    <p className={`${styles.accessingData}`}>ACCESSING DATA</p>
+                    <div className={`${styles.titleWrapper}`}>
+                        <h1 className={`${styles.title}`}>{title}</h1>
+                        <p className={`${styles.titleUIEl}`}>XMHJK-984021</p>
+                    </div>
                 </div>
-                <CloseButton ref={buttonRef}></CloseButton>
-            </div>
-        </header>
+                <div className={`${styles.rightSide}`}>
+                    <p className={`${styles.rightSideUIEl}`}>
+                        session cache cleared on exit
+                        <br />
+                        AUTHORIZED EXIT ONLY
+                    </p>
+                    <CloseButton ref={buttonRef}></CloseButton>
+                </div>
+            </header>
+        </div>
     );
 }

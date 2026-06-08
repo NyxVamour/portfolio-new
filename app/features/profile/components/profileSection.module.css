@@ -1,11 +1,19 @@
+.profileSection{
+    background-color: var(--color-bg);
+}
+
 .header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: 1px solid white;
+    border-top: 8px solid white;
+    width: 100%;
+    padding: 8px 12px;
+    line-height: normal;
 }
 
 .contentWrapper{
-    background-color: var(--color-bg);
     border: 1px solid white;
     padding: 16px 16px 28px 16px;
     gap: 16px;
@@ -17,10 +25,10 @@
     font-weight: 700;
 }
 
-.loaded{
-    background-color: var(--color-primary);
-    color: var(--color-bg);
-    height: fit-content;
-    font-size: 6px;
-    padding: 0 2px;
+.details_wrapper{
+    user-select: none;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    font-size: 4px;
 }
