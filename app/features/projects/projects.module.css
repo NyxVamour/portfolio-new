@@ -50,6 +50,7 @@
     display: flex;
     width: fit-content;
     height: 32px;
+    min-height: 32px;
     background-color: var(--color-bg);
     border: 1px solid white;
     filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.5));
@@ -59,12 +60,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
 }
 
 .categories__button{
     padding: 0 16px;
     height: 100%;
     cursor: pointer;
+    text-wrap: nowrap;
+    line-height: 150%;
 }
 
 .categories__button:hover{
