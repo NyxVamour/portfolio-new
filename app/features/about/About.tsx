@@ -19,12 +19,12 @@ export default function About({ aboutRef, closeAboutBtnRef }: AboutProps) {
                 altHeader={"ABOUT PAGE OF CHARLIZE SAN GABRIEL"}
             ></SubPageHeader>
             <main className={`${styles.aboutMain}`}>
-                <TlDetails></TlDetails>
-                <div className={`${styles.aboutMainContentWrapper}`}>
-                    <figure className={`${styles.portraitWrapper}`}>
+                <div className={`${styles.aboutContentWrapper}`}>
+                    <figure className={`${styles.collage_wrapper}`}>
                         <img
-                            src="/images/cowgirl.png"
-                            className={`${styles.portrait}`}
+                            src="/images/aboutCollage.png"
+                            alt="Photo collage of Charlize"
+                            className={`${styles.collage}`}
                         ></img>
                     </figure>
                     <div className={`${styles.contentWrapper}`}>
@@ -51,11 +51,13 @@ export default function About({ aboutRef, closeAboutBtnRef }: AboutProps) {
                                     meeting point of mixing logical thinking and
                                     art.
                                 </p>
+                                <br />
                                 <p>
                                     When I’m not working, I am watching a lot of
                                     movies and tv shows, playing video games,
                                     and making my own projects!
                                 </p>
+                                <br />
                                 <figure className="">
                                     <iframe
                                         className={`${stylesProfile.videoFrame}`}
