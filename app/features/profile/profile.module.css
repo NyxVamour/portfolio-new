@@ -34,7 +34,7 @@
 .portraitWrapper{
     position: relative;
     display: flex;
-    width: clamp(200px, 60%, 300px);
+    width: clamp(230px, 60%, 300px);
     aspect-ratio: 2 /3;
     display: flex;
     justify-content: center;
