@@ -1,7 +1,6 @@
 export type projectsDataProps = {
     id: number;
     title: string;
-    url: string;
     description: string;
     imgSrc: string;
     link: string;
