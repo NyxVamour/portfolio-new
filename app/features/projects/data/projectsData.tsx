@@ -1,12 +1,16 @@
-export type projectsDataProps = {
+export type ProjectDataProps = {
     id: number;
     title: string;
     description: string;
     imgSrc: string;
     link: string;
     stack: string[];
+    year: number;
+    type: string;
     category: string;
-}[];
+};
+
+export type ProjectsDataProps = ProjectDataProps[];
 
 export const projectsData = [
     {
@@ -26,6 +30,8 @@ export const projectsData = [
             "Photo Sphere Viewer",
             "GSAP",
         ],
+        year: 2025,
+        type: "Contract & Project",
         category: "Web App",
     },
     {
@@ -36,6 +42,8 @@ export const projectsData = [
         imgSrc: "portfolio02.png",
         link: "https://urbansproutsacademy.charlizesangabriel.ca/",
         stack: ["HTML", "CSS", "JavaScript", "GSAP", "Canvas"],
+        year: 2025,
+        type: "Co-op",
         category: "Game",
     },
     {
@@ -46,6 +54,8 @@ export const projectsData = [
         imgSrc: "portfolio06.png",
         link: "https://goober.charlizesangabriel.ca/",
         stack: ["HTML", "CSS", "JavaScript", "GSAP"],
+        year: 2024,
+        type: "School Project",
         category: "Game",
     },
     {
@@ -56,6 +66,8 @@ export const projectsData = [
         imgSrc: "portfolio07.png",
         link: "https://happyhunting.charlizesangabriel.ca/",
         stack: ["HTML", "CSS", "JavaScript", "GSAP", "Tone.js"],
+        year: 2024,
+        type: "School Project",
         category: "Game",
     },
     {
@@ -74,6 +86,8 @@ export const projectsData = [
             "MySQL",
             "Foundation.js",
         ],
+        year: 2024,
+        type: "School Project",
         category: "Website",
     },
     {
@@ -84,6 +98,8 @@ export const projectsData = [
         imgSrc: "portfolio08.png",
         link: "https://boardhoard.charlizesangabriel.ca/ecommerce-100891054/",
         stack: ["HTML", "CSS", "WordPress", "PHP", "WooCommerce"],
+        year: 2024,
+        type: "School Project",
         category: "Website",
     },
     {
@@ -94,6 +110,8 @@ export const projectsData = [
         imgSrc: "portfolio05.png",
         link: "https://yappee.charlizesangabriel.ca/",
         stack: ["HTML", "CSS", "JavaScript", "Next.js"],
+        year: 2024,
+        type: "Project",
         category: "Game",
     },
     {
@@ -104,6 +122,8 @@ export const projectsData = [
         imgSrc: "portfolio09.png",
         link: "https://communitydb.charlizesangabriel.ca/",
         stack: ["HTML", "CSS", "JavaScript", "PHP"],
+        year: 2024,
+        type: "School Project",
         category: "Website",
     },
 ];
