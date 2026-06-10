@@ -14,7 +14,7 @@ export default function Subpage({
 }: SubpageProps) {
     return (
         <div className={`${styles.subpageWrapper}`}>
-            <div className={`${styles.subpageContentWrapper}`}>
+            <div className={`${styles.headerWrapper}`}>
                 <header className={`${styles.header}`}>
                     <button className={`${styles.backBtn}`}>
                         <div className={`${styles.backBtnHover}`}></div>
@@ -32,11 +32,14 @@ export default function Subpage({
                         </p>
                     </div>
                 </header>
-                <main>
+            </div>
+
+            <main className={`${styles.subpageMain}`}>
+                <div className={`${styles.subpageMainContentWrapper}`}>
                     <Summary />
                     <EdBroadbent />
-                </main>
-            </div>
+                </div>
+            </main>
         </div>
     );
 }
