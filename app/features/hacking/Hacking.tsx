@@ -11,13 +11,9 @@ import { useState } from "react";
 
 type HackingProps = {
     pageRefs: pageRefsProps;
-    setSelectedProjectID: React.Dispatch<React.SetStateAction<number>>;
 };
 
-export default function Hacking({
-    pageRefs,
-    setSelectedProjectID,
-}: HackingProps) {
+export default function Hacking({ pageRefs }: HackingProps) {
     const { hackingRef, profileRef, aboutRef, hackingWindowRef } = pageRefs;
     const [isTouch, setIsTouch] = useState(false);
 
@@ -33,7 +29,6 @@ export default function Hacking({
             >
                 <InteractiveNavigation
                     pageRefs={pageRefs}
-                    setSelectedProjectID={setSelectedProjectID}
                     setIsTouch={setIsTouch}
                 ></InteractiveNavigation>
                 <div className={`${styles.hackingUILeftWrapper}`}>

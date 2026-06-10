@@ -19,7 +19,6 @@ export type pageRefsProps = {
 };
 
 export default function MasterLayout() {
-    const [selectedProjectID, setSelectedProjectID] = useState(0);
     const backgroundLayerRef = useRef<HTMLDivElement>(null);
     const hackingRef = useRef<HTMLDivElement>(null);
     const profileRef = useRef<HTMLDivElement>(null);
@@ -50,10 +49,7 @@ export default function MasterLayout() {
                 <div className={styles.vignette}></div>
                 <MainBGElements></MainBGElements>
             </div>
-            <Hacking
-                pageRefs={pageRefs}
-                setSelectedProjectID={setSelectedProjectID}
-            />
+            <Hacking pageRefs={pageRefs} />
             <Profile
                 profileRef={profileRef}
                 closeProfileBtnRef={closeProfileBtnRef}

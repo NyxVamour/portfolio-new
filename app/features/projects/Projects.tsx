@@ -12,8 +12,6 @@ import gsap from "~/client/gsapClient";
 type ProjectsProps = {
     projectsRef?: React.Ref<HTMLDivElement>;
     closeProjectsBtnRef?: React.Ref<HTMLButtonElement>;
-    selectedProjectID: number;
-    setSelectedProjectID: React.Dispatch<React.SetStateAction<number>>;
 };
 
 export type windowRefsProps = {
@@ -30,8 +28,6 @@ export type windowRefsProps = {
 export default function Projects({
     projectsRef,
     closeProjectsBtnRef,
-    selectedProjectID,
-    setSelectedProjectID,
 }: ProjectsProps) {
     const [projectInfo, setProjectInfo] = useState<projectsDataProps[number]>();
     const [finishedPageFirstLoad, setFinishedPageFirstLoad] = useState(false);
