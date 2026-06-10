@@ -8,6 +8,7 @@ export default function Summary() {
                 <img
                     className={`${styles.summary__img}`}
                     src="/images/portfolio01.png"
+                    alt="Portfolio img"
                 ></img>
             </figure>
             <div className={`${styles.informationFrame}`}>
