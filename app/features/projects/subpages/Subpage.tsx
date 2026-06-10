@@ -43,9 +43,9 @@ export default function Subpage({
                                 <p className={`${styles.mainInfo__category}`}>
                                     Web App
                                 </p>
-                                <p className={`${styles.mainInfo__title}`}>
+                                <h1 className={`${styles.mainInfo__title}`}>
                                     Ed Broadbent Waterfront Park Pocket Guide
-                                </p>
+                                </h1>
                                 <Link
                                     className={`${styles.mainInfo__btn}`}
                                     to={"#"}
