@@ -135,7 +135,6 @@ export default function Projects({
                                 <ProjectCard
                                     key={index}
                                     title={project.title}
-                                    url={project.url}
                                     imgSrc={project.imgSrc}
                                     link={project.link}
                                     category={project.category}

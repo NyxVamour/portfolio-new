@@ -2,7 +2,6 @@ import styles from "./projectCard.module.css";
 
 type ProjectCardProps = {
     title: string;
-    url: string;
     imgSrc: string;
     link: string;
     category: string;
@@ -11,7 +10,6 @@ type ProjectCardProps = {
 
 export default function ProjectCard({
     title,
-    url,
     imgSrc,
     link,
     category,
