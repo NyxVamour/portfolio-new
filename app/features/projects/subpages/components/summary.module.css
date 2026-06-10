@@ -58,18 +58,16 @@
 .addInfo__wrapper{
     display: flex;
     flex-direction: column;
-    gap: 4px;
 }
 
 .addInfo__title{
     color: var(--color-secondary);
-    line-height: normal;
 }
 
 .addInfoLeft{
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 24px;
 }
 
 /* Small devices (landscape phones, 576px and up) */
