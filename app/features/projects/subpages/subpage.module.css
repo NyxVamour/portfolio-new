@@ -9,6 +9,7 @@
     margin: 0 auto;
     overflow: hidden;
     background-color: var(--color-bg);
+    border: 1px solid white;
 }
 
 .subpageContentWrapper{
@@ -21,9 +22,10 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: fit-content;
+    height: 54px;
     padding: 7px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    margin-bottom: 20px;
 }
 
 /** Back Button **/
@@ -74,4 +76,73 @@
 
 .header__etc{
     font-size: 4px;
+}
+
+/**** SUMMARY ****/
+.summary{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.informationFrame{
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+/*** MAIN INFO ***/
+.mainInfo{
+    display: flex;
+    flex-direction: column;
+}
+
+.mainInfo__category{
+    color: var(--color-secondary);
+}
+
+.mainInfo__title{
+    font-family: var(--font-orbitron);
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: normal;
+    margin-bottom: 16px;
+}
+
+.mainInfo__btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    background-color: var(--color-primary--darkest);
+    border: 1px solid var(--color-primary);
+    padding: 8px 12px;
+    font-weight: bold;
+    filter: drop-shadow(0 0 4px var(--color-primary));
+}
+
+/** Additional Info **/
+.addInfo{
+    display: flex;
+    gap: 28px;
+}
+
+.addInfo__wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.addInfo__title{
+    color: var(--color-secondary);
+    line-height: normal;
+}
+
+.addInfoLeft{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
 }
