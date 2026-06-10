@@ -1,0 +1,37 @@
+.toc{
+    margin-bottom: 64px;
+}
+
+.toc__link{
+    color: var(--color-primary--brighter);
+    text-decoration: underline;
+}
+
+/*** BODY **/
+.body{
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    padding-bottom: 120px;
+}
+
+.title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: normal;
+    margin-bottom: 20px;
+}
+
+.sectionPar{
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.subTitle{
+    font-weight: bold;
+}
+
+figcaption{
+    font-style: italic;
+}
