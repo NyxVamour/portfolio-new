@@ -18,7 +18,16 @@ export const projectsData = [
             "Working with TeachingCity Oshawa, we made an interactive map of the Ed Broadbent Waterfront Park in Oshawa. Features different points of interest and information about them.",
         imgSrc: "portfolio01.png",
         link: "https://dccityprojects.github.io/Ed-Broadbent-Waterfront-Park/",
-        stack: ["HTML", "CSS", "JavaScript", "GSAP", "Next.js", "Leaflet"],
+        stack: [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React",
+            "Next.js",
+            "Leaflet",
+            "Photo Sphere Viewer",
+            "GSAP",
+        ],
         category: "Web App",
     },
     {
