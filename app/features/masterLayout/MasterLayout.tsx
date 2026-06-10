@@ -5,6 +5,8 @@ import Profile from "../profile/Profile";
 import MainBGElements from "./components/MainBGElements";
 import styles from "./masterLayout.module.css";
 import Projects from "../projects/Projects";
+import Subpage from "../projects/subpages/Subpage";
+import type { ProjectDataProps } from "../projects/data/projectsData";
 
 export type pageRefsProps = {
     backgroundLayerRef: React.RefObject<HTMLDivElement | null>;
@@ -12,32 +14,39 @@ export type pageRefsProps = {
     profileRef: React.RefObject<HTMLDivElement | null>;
     aboutRef: React.RefObject<HTMLDivElement | null>;
     projectsRef: React.RefObject<HTMLDivElement | null>;
+    subpageRef: React.RefObject<HTMLDivElement | null>;
     hackingWindowRef: React.RefObject<HTMLElement | null>;
     closeProfileBtnRef: React.RefObject<HTMLButtonElement | null>;
     closeAboutBtnRef: React.RefObject<HTMLButtonElement | null>;
     closeProjectsBtnRef: React.RefObject<HTMLButtonElement | null>;
+    closeSubpageBtnRef: React.RefObject<HTMLButtonElement | null>;
 };
 
 export default function MasterLayout() {
+    const [projectInfo, setProjectInfo] = useState<ProjectDataProps>();
     const backgroundLayerRef = useRef<HTMLDivElement>(null);
     const hackingRef = useRef<HTMLDivElement>(null);
     const profileRef = useRef<HTMLDivElement>(null);
     const aboutRef = useRef<HTMLDivElement>(null);
     const projectsRef = useRef<HTMLDivElement>(null);
+    const subpageRef = useRef<HTMLDivElement>(null);
     const hackingWindowRef = useRef<HTMLElement>(null);
     const closeProfileBtnRef = useRef<HTMLButtonElement>(null);
     const closeAboutBtnRef = useRef<HTMLButtonElement>(null);
     const closeProjectsBtnRef = useRef<HTMLButtonElement>(null);
+    const closeSubpageBtnRef = useRef<HTMLButtonElement>(null);
     const pageRefs: pageRefsProps = {
         backgroundLayerRef,
         hackingRef,
         profileRef,
         aboutRef,
         projectsRef,
+        subpageRef,
         hackingWindowRef,
         closeProfileBtnRef,
         closeAboutBtnRef,
         closeProjectsBtnRef,
+        closeSubpageBtnRef,
     };
 
     return (
@@ -58,8 +67,13 @@ export default function MasterLayout() {
             <Projects
                 projectsRef={projectsRef}
                 closeProjectsBtnRef={closeProjectsBtnRef}
-                selectedProjectID={selectedProjectID}
-                setSelectedProjectID={setSelectedProjectID}
+                pageRefs={pageRefs}
+                setProjectInfo={setProjectInfo}
+            />
+            <Subpage
+                subpageRef={subpageRef}
+                closeSubpageBtnRef={closeSubpageBtnRef}
+                projectInfo={projectInfo}
             />
         </div>
     );

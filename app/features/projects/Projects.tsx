@@ -4,14 +4,20 @@ import SubPageHeader from "../components/subpageHeader/SubpageHeader";
 import TlDetails from "../components/TlDetails";
 import ProjectCard from "./components/ProjectCard";
 import ProjectWindow from "./components/ProjectWindow";
-import { projectsData, type projectsDataProps } from "./data/projectsData";
+import { projectsData, type ProjectDataProps } from "./data/projectsData";
 import styles from "./projects.module.css";
 import { useGSAP } from "@gsap/react";
 import gsap from "~/client/gsapClient";
+import useChangeSubpage from "./hooks/useChangeSubpage";
+import type { pageRefsProps } from "../masterLayout/MasterLayout";
 
 type ProjectsProps = {
     projectsRef?: React.Ref<HTMLDivElement>;
     closeProjectsBtnRef?: React.Ref<HTMLButtonElement>;
+    pageRefs: pageRefsProps;
+    setProjectInfo: React.Dispatch<
+        React.SetStateAction<ProjectDataProps | undefined>
+    >;
 };
 
 export type windowRefsProps = {
@@ -28,8 +34,10 @@ export type windowRefsProps = {
 export default function Projects({
     projectsRef,
     closeProjectsBtnRef,
+    pageRefs,
+    setProjectInfo,
 }: ProjectsProps) {
-    const [projectInfo, setProjectInfo] = useState<projectsDataProps[number]>();
+    const [selectedProjectID, setSelectedProjectID] = useState(0);
     const [finishedPageFirstLoad, setFinishedPageFirstLoad] = useState(false);
     const projectsUlRef = useRef(null);
     const projectWindowRef = useRef(null);
@@ -54,6 +62,13 @@ export default function Projects({
 
     const [selectedCategory, setSelectedCategory] = useState("All");
 
+    useChangeSubpage({
+        selectedProjectID,
+        setSelectedProjectID,
+        setProjectInfo,
+        pageRefs,
+    });
+
     const filteredItems =
         selectedCategory === "All"
             ? projectsData
@@ -63,6 +78,10 @@ export default function Projects({
 
     function changeCategory(category: string) {
         setSelectedCategory(category);
+    }
+
+    function handleClick(project: number) {
+        setSelectedProjectID(project);
     }
 
     return (
@@ -131,9 +150,11 @@ export default function Projects({
                                 <ProjectCard
                                     key={index}
                                     title={project.title}
+                                    id={project.id}
                                     imgSrc={project.imgSrc}
                                     link={project.link}
                                     category={project.category}
+                                    onClick={handleClick}
                                 />
                             ))}
                         </ul>

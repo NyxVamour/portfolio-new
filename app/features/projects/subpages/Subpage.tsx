@@ -3,20 +3,33 @@ import styles from "./subpage.module.css";
 import IconBackArrow from "~/features/components/icons/IconBackArrow";
 import Summary from "./components/Summary";
 import EdBroadbent from "./projects/EdBroadbent";
+import { useEffect, useRef } from "react";
+import type { ProjectDataProps } from "../data/projectsData";
 
 type SubpageProps = {
     subpageRef?: React.Ref<HTMLDivElement>;
     closeSubpageBtnRef?: React.Ref<HTMLButtonElement>;
+    projectInfo?: ProjectDataProps;
 };
+
 export default function Subpage({
     subpageRef,
     closeSubpageBtnRef,
+    projectInfo,
 }: SubpageProps) {
+    const subpageWindowRef = useRef(null);
+
+    useEffect(() => {
+        console.log(projectInfo);
+    }, [projectInfo]);
     return (
-        <div className={`${styles.subpageWrapper}`}>
+        <div ref={subpageRef} className={`${styles.subpageWrapper}`}>
             <div className={`${styles.headerWrapper}`}>
                 <header className={`${styles.header}`}>
-                    <button className={`${styles.backBtn}`}>
+                    <button
+                        ref={closeSubpageBtnRef}
+                        className={`${styles.backBtn}`}
+                    >
                         <div className={`${styles.backBtnHover}`}></div>
                         <IconBackArrow className={styles.backArrow} />
                     </button>
@@ -36,7 +49,7 @@ export default function Subpage({
 
             <main className={`${styles.subpageMain}`}>
                 <div className={`${styles.subpageMainContentWrapper}`}>
-                    <Summary />
+                    <Summary projectInfo={projectInfo} />
                     <EdBroadbent />
                 </div>
             </main>
