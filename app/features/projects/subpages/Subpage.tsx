@@ -6,6 +6,7 @@ import EdBroadbent from "./projects/EdBroadbent";
 import { useEffect, useRef } from "react";
 import type { ProjectDataProps } from "../data/projectsData";
 import type { pageRefsProps } from "~/features/masterLayout/MasterLayout";
+import SubpageBody from "./components/SubpageBody";
 
 type SubpageProps = {
     pageRefs: pageRefsProps;
@@ -52,7 +53,7 @@ export default function Subpage({ pageRefs, projectInfo }: SubpageProps) {
             <main ref={subpageMainRef} className={`${styles.subpageMain}`}>
                 <div className={`${styles.subpageMainContentWrapper}`}>
                     <Summary projectInfo={projectInfo} />
-                    <EdBroadbent />
+                    <SubpageBody projectInfo={projectInfo} />
                     <div className={`${styles.scrollBtnWrapper}`}>
                         <button
                             onClick={handleClickScroll}
