@@ -8,7 +8,7 @@ export default function IconScrollVer() {
             xmlns="http://www.w3.org/2000/svg"
         >
             <rect width="30" height="30" fill="#1F0909" />
-            <g clip-path="url(#clip0_2703_375)">
+            <g clipPath="url(#clip0_2703_375)">
                 <g filter="url(#filter0_d_2703_375)">
                     <path
                         d="M4.99365 8.26366L5.8118 8.98363L7.43719 7.14007L7.43719 23.2794L5.8118 21.4467L4.99365 22.1694L7.94717 25.4966L10.9689 22.0604L10.1507 21.3404L8.52805 23.184L8.52805 7.04735L10.1534 8.87727L10.9689 8.15457L8.01807 4.82744L4.99365 8.26366Z"
