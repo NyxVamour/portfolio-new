@@ -57,6 +57,7 @@
 }
 
 .categories__li{
+    background-color: var(--color-bg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,7 +65,7 @@
 }
 
 .categories__button{
-    padding: 0 16px;
+    padding: 0 12px;
     height: 100%;
     cursor: pointer;
     text-wrap: nowrap;
