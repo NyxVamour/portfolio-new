@@ -80,6 +80,10 @@
     color: var(--color-secondary);
 }
 
+.categories__buttonActive:hover{
+    color: var(--color-bg);
+}
+
 /** PROJECTS WRAPPER **/
 .projectsSection{
     display: flex;
