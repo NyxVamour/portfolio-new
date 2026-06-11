@@ -1,42 +1,18 @@
+import ToC from "../components/ToC";
+import type { ToCHeader } from "../components/ToC";
 import styles from "./project.module.css";
 
 export default function EdBroadbent() {
+    const tocHeaders: ToCHeader[] = [
+        { title: "Project Purpose and Goal", id: "projectPurpose" },
+        { title: "Web Stack and Explanation", id: "webStack" },
+        { title: "Problems and Thought Process", id: "problemsAndThought" },
+        { title: "Lessons Learned", id: "lessonsLearned" },
+    ];
+
     return (
         <section>
-            <section className={`${styles.toc}`}>
-                <h2 className={`${styles.toc__title}`}>Contents</h2>
-                <ol className={`${styles.toc__ol}`}>
-                    <li className={`${styles.toc__li}`}>
-                        <a
-                            href="#projectPurpose"
-                            className={`${styles.toc__link}`}
-                        >
-                            Project Purpose and Goal
-                        </a>
-                    </li>
-                    <li className={`${styles.toc__li}`}>
-                        <a href="#webStack" className={`${styles.toc__link}`}>
-                            Web Stack and Explanation
-                        </a>
-                    </li>
-                    <li className={`${styles.toc__li}`}>
-                        <a
-                            href="#problemsAndThought"
-                            className={`${styles.toc__link}`}
-                        >
-                            Problems and Thought Process
-                        </a>
-                    </li>
-                    <li className={`${styles.toc__li}`}>
-                        <a
-                            href="#lessonsLearned"
-                            className={`${styles.toc__link}`}
-                        >
-                            Lessons Learned
-                        </a>
-                    </li>
-                </ol>
-            </section>
+            <ToC tocHeaders={tocHeaders} />
             <section className={`${styles.body}`}>
                 <section>
                     <h2 id="projectPurpose" className={`${styles.title}`}>
