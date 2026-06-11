@@ -29,10 +29,26 @@
 .sectionPar{
     display: flex;
     flex-direction: column;
-    gap: 28px;
+}
+
+.sectionPar > p{
+    margin-bottom: 28px;
+}
+
+.sectionPar > figure{
+    margin-bottom: 28px;
+}
+
+.sectionPar ol{
+    margin-left: 40px;
+}
+
+.sectionPar ol li{
+    list-style: decimal;
 }
 
 .subTitle{
+    font-size: 1.25rem;
     font-weight: bold;
 }
 
