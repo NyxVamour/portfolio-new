@@ -109,6 +109,7 @@
     padding: 8px 12px;
     background-color: var(--color-secondary--darker);
     border: 1px solid var(--color-secondary);
+    filter: drop-shadow(0 0 4px var(--color-secondary));
     transition: 0.2s;
 }
 
