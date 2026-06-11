@@ -73,12 +73,7 @@ export default function MasterLayout() {
                 pageRefs={pageRefs}
                 setProjectInfo={setProjectInfo}
             />
-            <Subpage
-                subpageRef={subpageRef}
-                closeSubpageBtnRef={closeSubpageBtnRef}
-                subpageMainRef={subpageMainRef}
-                projectInfo={projectInfo}
-            />
+            <Subpage pageRefs={pageRefs} projectInfo={projectInfo} />
         </div>
     );
 }

@@ -5,25 +5,25 @@ import Summary from "./components/Summary";
 import EdBroadbent from "./projects/EdBroadbent";
 import { useEffect, useRef } from "react";
 import type { ProjectDataProps } from "../data/projectsData";
+import type { pageRefsProps } from "~/features/masterLayout/MasterLayout";
 
 type SubpageProps = {
-    subpageRef?: React.Ref<HTMLDivElement>;
-    closeSubpageBtnRef?: React.Ref<HTMLButtonElement>;
+    pageRefs: pageRefsProps;
     projectInfo?: ProjectDataProps;
-    subpageMainRef?: React.Ref<HTMLDivElement>;
 };
 
-export default function Subpage({
-    subpageRef,
-    closeSubpageBtnRef,
-    projectInfo,
-    subpageMainRef,
-}: SubpageProps) {
-    const subpageWindowRef = useRef(null);
+export default function Subpage({ pageRefs, projectInfo }: SubpageProps) {
+    const { subpageRef, closeSubpageBtnRef, subpageMainRef } = pageRefs;
 
     useEffect(() => {
         console.log(projectInfo);
     }, [projectInfo]);
+
+    function handleClickScroll() {
+        if (!subpageMainRef.current) return;
+        subpageMainRef.current.scrollTop = 0;
+    }
+
     return (
         <div ref={subpageRef} className={`${styles.subpageWrapper}`}>
             <div className={`${styles.headerWrapper}`}>
@@ -53,6 +53,14 @@ export default function Subpage({
                 <div className={`${styles.subpageMainContentWrapper}`}>
                     <Summary projectInfo={projectInfo} />
                     <EdBroadbent />
+                    <div className={`${styles.scrollBtnWrapper}`}>
+                        <button
+                            onClick={handleClickScroll}
+                            className={`${styles.scrollTopBtn}`}
+                        >
+                            Scroll to Top
+                        </button>
+                    </div>
                 </div>
             </main>
         </div>
