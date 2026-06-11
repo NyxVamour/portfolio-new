@@ -15,6 +15,7 @@ export type pageRefsProps = {
     aboutRef: React.RefObject<HTMLDivElement | null>;
     projectsRef: React.RefObject<HTMLDivElement | null>;
     subpageRef: React.RefObject<HTMLDivElement | null>;
+    subpageMainRef: React.RefObject<HTMLDivElement | null>;
     hackingWindowRef: React.RefObject<HTMLElement | null>;
     closeProfileBtnRef: React.RefObject<HTMLButtonElement | null>;
     closeAboutBtnRef: React.RefObject<HTMLButtonElement | null>;
@@ -30,6 +31,7 @@ export default function MasterLayout() {
     const aboutRef = useRef<HTMLDivElement>(null);
     const projectsRef = useRef<HTMLDivElement>(null);
     const subpageRef = useRef<HTMLDivElement>(null);
+    const subpageMainRef = useRef<HTMLDivElement>(null);
     const hackingWindowRef = useRef<HTMLElement>(null);
     const closeProfileBtnRef = useRef<HTMLButtonElement>(null);
     const closeAboutBtnRef = useRef<HTMLButtonElement>(null);
@@ -42,6 +44,7 @@ export default function MasterLayout() {
         aboutRef,
         projectsRef,
         subpageRef,
+        subpageMainRef,
         hackingWindowRef,
         closeProfileBtnRef,
         closeAboutBtnRef,
@@ -73,6 +76,7 @@ export default function MasterLayout() {
             <Subpage
                 subpageRef={subpageRef}
                 closeSubpageBtnRef={closeSubpageBtnRef}
+                subpageMainRef={subpageMainRef}
                 projectInfo={projectInfo}
             />
         </div>

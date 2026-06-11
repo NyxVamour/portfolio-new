@@ -10,12 +10,14 @@ type SubpageProps = {
     subpageRef?: React.Ref<HTMLDivElement>;
     closeSubpageBtnRef?: React.Ref<HTMLButtonElement>;
     projectInfo?: ProjectDataProps;
+    subpageMainRef?: React.Ref<HTMLDivElement>;
 };
 
 export default function Subpage({
     subpageRef,
     closeSubpageBtnRef,
     projectInfo,
+    subpageMainRef,
 }: SubpageProps) {
     const subpageWindowRef = useRef(null);
 
@@ -47,7 +49,7 @@ export default function Subpage({
                 </header>
             </div>
 
-            <main className={`${styles.subpageMain}`}>
+            <main ref={subpageMainRef} className={`${styles.subpageMain}`}>
                 <div className={`${styles.subpageMainContentWrapper}`}>
                     <Summary projectInfo={projectInfo} />
                     <EdBroadbent />

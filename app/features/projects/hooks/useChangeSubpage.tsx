@@ -19,7 +19,7 @@ export default function useChangeSubpage({
     setProjectInfo,
     pageRefs,
 }: useChangeSubpageProps) {
-    const { subpageRef, closeSubpageBtnRef } = pageRefs;
+    const { subpageRef, closeSubpageBtnRef, subpageMainRef } = pageRefs;
     const [isSubpageOpen, setIsSubpageOpen] = useState(false);
 
     gsap.registerPlugin(useGSAP);
@@ -38,6 +38,10 @@ export default function useChangeSubpage({
     function closeSubpage(tl: gsap.core.Timeline) {
         tl.to(subpageRef.current, {
             autoAlpha: 0,
+            onComplete: () => {
+                if (!subpageMainRef.current) return;
+                subpageMainRef.current.scrollTop = 0;
+            },
         });
     }
 
@@ -59,6 +63,7 @@ export default function useChangeSubpage({
 
     useGSAP(() => {
         const tl = gsap.timeline();
+
         switch (isSubpageOpen) {
             case true:
                 closeSubpage(tl);
