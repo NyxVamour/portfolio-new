@@ -24,12 +24,14 @@ export default function Summary({ projectInfo }: SummaryProps) {
                     <h1 className={`${styles.mainInfo__title}`}>
                         {projectInfo?.title}
                     </h1>
-                    <Link
+                    <a
                         className={`${styles.mainInfo__btn}`}
-                        to={projectInfo?.link ? projectInfo?.link : "#"}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        href={projectInfo?.link ? projectInfo?.link : "#"}
                     >
                         Visit Site
-                    </Link>
+                    </a>
                 </div>
                 <div className={`${styles.addInfo}`}>
                     <div className={`${styles.addInfoLeft}`}>
