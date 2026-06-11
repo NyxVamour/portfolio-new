@@ -1,6 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "~/client/gsapClient";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import type { pageRefsProps } from "~/features/masterLayout/MasterLayout";
 import { projectsData, type ProjectDataProps } from "../data/projectsData";
 
@@ -20,6 +20,7 @@ export default function useChangeSubpage({
     pageRefs,
 }: useChangeSubpageProps) {
     const { subpageRef, closeSubpageBtnRef } = pageRefs;
+    const [isSubpageOpen, setIsSubpageOpen] = useState(false);
 
     gsap.registerPlugin(useGSAP);
 
@@ -31,6 +32,12 @@ export default function useChangeSubpage({
     function openSubpage(tl: gsap.core.Timeline) {
         tl.to(subpageRef.current, {
             autoAlpha: 1,
+        });
+    }
+
+    function closeSubpage(tl: gsap.core.Timeline) {
+        tl.to(subpageRef.current, {
+            autoAlpha: 0,
         });
     }
 
@@ -52,11 +59,19 @@ export default function useChangeSubpage({
 
     useGSAP(() => {
         const tl = gsap.timeline();
-        changeInfo();
-        openSubpage(tl);
-    }, [selectedProjectID]);
-
-    useEffect(() => {
-        console.log(selectedProjectID);
+        switch (isSubpageOpen) {
+            case true:
+                closeSubpage(tl);
+                setIsSubpageOpen(false);
+                break;
+            case false:
+                if (!selectedProjectID) return;
+                changeInfo();
+                openSubpage(tl);
+                setIsSubpageOpen(true);
+                break;
+            default:
+                break;
+        }
     }, [selectedProjectID]);
 }

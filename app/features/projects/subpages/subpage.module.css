@@ -1,7 +1,7 @@
 .subpageWrapper{
     position: absolute;
-    /* opacity: 0;
-    visibility: hidden; */
+    opacity: 0;
+    visibility: hidden;
     top: 0;
     z-index: 10;
     width: 100%;
