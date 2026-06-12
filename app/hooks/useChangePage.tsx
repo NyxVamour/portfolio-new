@@ -102,8 +102,7 @@ export default function useChangePage(
         projectCategoriesRef: React.RefObject<HTMLUListElement | null>,
     ) {
         const categs = projectCategoriesRef.current;
-        // if (!projectItemRefs.current) return;
-        console.log(categs);
+
         tl.fromTo(categs, { x: -15 }, { duration: 0.5, x: 0 }, "1.2").fromTo(
             categs,
             { autoAlpha: 0 },
@@ -163,7 +162,6 @@ export default function useChangePage(
         switch (currentPage) {
             case "home":
                 const currentRef = getCurrentRef(previousPage);
-                console.log(currentRef);
                 if (currentRef) {
                     closePage(tl, currentRef);
                     openHome(tl);
