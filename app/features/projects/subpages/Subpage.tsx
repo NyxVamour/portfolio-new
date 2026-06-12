@@ -1,9 +1,6 @@
-import { Link } from "react-router";
 import styles from "./subpage.module.css";
 import IconBackArrow from "~/features/components/icons/IconBackArrow";
 import Summary from "./components/Summary";
-import EdBroadbent from "./projects/EdBroadbent";
-import { useEffect, useRef } from "react";
 import type { ProjectDataProps } from "../data/projectsData";
 import type { pageRefsProps } from "~/features/masterLayout/MasterLayout";
 import SubpageBody from "./components/SubpageBody";
@@ -24,10 +21,6 @@ export default function Subpage({ pageRefs, projectInfo }: SubpageProps) {
         projectHeaderText2Ref,
         subpageBodyRef,
     } = pageRefs;
-
-    useEffect(() => {
-        console.log(projectInfo);
-    }, [projectInfo]);
 
     function handleClickScroll() {
         if (!subpageMainRef.current) return;
