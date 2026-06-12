@@ -16,6 +16,7 @@ export default function useChangePage(
         aboutRef,
         projectsRef,
         hackingWindowRef,
+        pageHeaderRef,
         closeProfileBtnRef,
         closeAboutBtnRef,
         closeProjectsBtnRef,
@@ -43,15 +44,38 @@ export default function useChangePage(
             | React.RefObject<HTMLDivElement | null>
             | React.RefObject<HTMLElement | null>,
     ) {
-        tl.to(pageRef.current, {
+        const page = pageRef.current;
+        const bg = backgroundLayerRef.current;
+        const header = pageHeaderRef.current;
+
+        tl.to(page, {
+            duration: 0.2,
             autoAlpha: 1,
-        }).to(
-            backgroundLayerRef.current,
-            {
-                filter: "blur(8px)",
-            },
-            "<",
-        );
+        })
+            .to(
+                bg,
+                {
+                    duration: 0.2,
+                    filter: "blur(8px)",
+                },
+                "<",
+            )
+            .fromTo(
+                header,
+                { scaleX: 0 },
+                {
+                    duration: 0.4,
+                    transformOrigin: "left center",
+                    scaleX: 1,
+                },
+                ">0.2",
+            )
+            .fromTo(
+                header,
+                { autoAlpha: 0 },
+                { duration: 0.3, repeat: 2, autoAlpha: 1, ease: "none" },
+                "<",
+            );
         // .set("._blurLayer_loggy_1", {
         //     backdropFilter: "blur(8px)",
         // });

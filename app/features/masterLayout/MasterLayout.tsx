@@ -17,6 +17,7 @@ export type pageRefsProps = {
     subpageRef: React.RefObject<HTMLDivElement | null>;
     subpageMainRef: React.RefObject<HTMLDivElement | null>;
     hackingWindowRef: React.RefObject<HTMLElement | null>;
+    pageHeaderRef: React.RefObject<HTMLDivElement | null>;
     closeProfileBtnRef: React.RefObject<HTMLButtonElement | null>;
     closeAboutBtnRef: React.RefObject<HTMLButtonElement | null>;
     closeProjectsBtnRef: React.RefObject<HTMLButtonElement | null>;
@@ -39,6 +40,7 @@ export default function MasterLayout() {
     const subpageRef = useRef<HTMLDivElement>(null);
     const subpageMainRef = useRef<HTMLDivElement>(null);
     const hackingWindowRef = useRef<HTMLElement>(null);
+    const pageHeaderRef = useRef<HTMLDivElement>(null);
     const closeProfileBtnRef = useRef<HTMLButtonElement>(null);
     const closeAboutBtnRef = useRef<HTMLButtonElement>(null);
     const closeProjectsBtnRef = useRef<HTMLButtonElement>(null);
@@ -58,6 +60,7 @@ export default function MasterLayout() {
         subpageRef,
         subpageMainRef,
         hackingWindowRef,
+        pageHeaderRef,
         closeProfileBtnRef,
         closeAboutBtnRef,
         closeProjectsBtnRef,
@@ -80,17 +83,9 @@ export default function MasterLayout() {
                 <MainBGElements></MainBGElements>
             </div>
             <Hacking pageRefs={pageRefs} />
-            <Profile
-                profileRef={profileRef}
-                closeProfileBtnRef={closeProfileBtnRef}
-            />
-            <About aboutRef={aboutRef} closeAboutBtnRef={closeAboutBtnRef} />
-            <Projects
-                projectsRef={projectsRef}
-                closeProjectsBtnRef={closeProjectsBtnRef}
-                pageRefs={pageRefs}
-                setProjectInfo={setProjectInfo}
-            />
+            <Profile pageRefs={pageRefs} />
+            <About pageRefs={pageRefs} />
+            <Projects pageRefs={pageRefs} setProjectInfo={setProjectInfo} />
             <Subpage pageRefs={pageRefs} projectInfo={projectInfo} />
         </div>
     );

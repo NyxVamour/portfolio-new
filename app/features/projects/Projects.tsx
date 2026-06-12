@@ -12,8 +12,6 @@ import useChangeSubpage from "./hooks/useChangeSubpage";
 import type { pageRefsProps } from "../masterLayout/MasterLayout";
 
 type ProjectsProps = {
-    projectsRef?: React.Ref<HTMLDivElement>;
-    closeProjectsBtnRef?: React.Ref<HTMLButtonElement>;
     pageRefs: pageRefsProps;
     setProjectInfo: React.Dispatch<
         React.SetStateAction<ProjectDataProps | undefined>
@@ -31,12 +29,7 @@ export type windowRefsProps = {
     caseStudyRef: React.RefObject<HTMLDivElement | null>;
 };
 
-export default function Projects({
-    projectsRef,
-    closeProjectsBtnRef,
-    pageRefs,
-    setProjectInfo,
-}: ProjectsProps) {
+export default function Projects({ pageRefs, setProjectInfo }: ProjectsProps) {
     const [selectedProjectID, setSelectedProjectID] = useState(0);
     const [finishedPageFirstLoad, setFinishedPageFirstLoad] = useState(false);
     const projectsUlRef = useRef(null);
@@ -48,6 +41,8 @@ export default function Projects({
     const linkRef = useRef(null);
     const titleRef = useRef(null);
     const caseStudyRef = useRef(null);
+
+    const { projectsRef, closeProjectsBtnRef } = pageRefs;
 
     const windowRefs: windowRefsProps = {
         projectWindowRef,
@@ -88,6 +83,7 @@ export default function Projects({
         <div ref={projectsRef} className={`${styles.projectsWrapper}`}>
             <BlurLayer></BlurLayer>
             <SubPageHeader
+                pageRefs={pageRefs}
                 buttonRef={closeProjectsBtnRef}
                 title={"PROJECTS"}
                 altHeader="PROJECTS PAGE OF CHARLIZE SAN GABRIEL"

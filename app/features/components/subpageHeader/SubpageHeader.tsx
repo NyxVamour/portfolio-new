@@ -1,19 +1,26 @@
+import type { pageRefsProps } from "~/features/masterLayout/MasterLayout";
 import CloseButton from "../CloseButton";
 import RedDetail from "./RedDetail";
 import styles from "./subpageHeader.module.css";
 import WhiteDetail from "./WhiteDetail";
 
-export default function SubPageHeader({
-    title,
-    altHeader,
-    buttonRef,
-}: {
+type SubpageHeaderProps = {
+    pageRefs: pageRefsProps;
     title: string;
     altHeader: string;
     buttonRef?: React.Ref<HTMLButtonElement>;
-}) {
+};
+
+export default function SubPageHeader({
+    pageRefs,
+    title,
+    altHeader,
+    buttonRef,
+}: SubpageHeaderProps) {
+    const { pageHeaderRef } = pageRefs;
+
     return (
-        <div className={`${styles.headerWrapper}`}>
+        <div ref={pageHeaderRef} className={`${styles.headerWrapper}`}>
             <header className={`${styles.header}`}>
                 <div className={`${styles.leftSide}`}>
                     <p className={`${styles.accessingData}`}>ACCESSING DATA</p>
