@@ -14,7 +14,16 @@ type SubpageProps = {
 };
 
 export default function Subpage({ pageRefs, projectInfo }: SubpageProps) {
-    const { subpageRef, closeSubpageBtnRef, subpageMainRef } = pageRefs;
+    const {
+        subpageRef,
+        closeSubpageBtnRef,
+        subpageMainRef,
+        subpageHeaderRef,
+        subpageHeaderTextGrpRef,
+        subpageHeaderText1Ref,
+        subpageHeaderText2Ref,
+        subpageBodyRef,
+    } = pageRefs;
 
     useEffect(() => {
         console.log(projectInfo);
@@ -28,7 +37,7 @@ export default function Subpage({ pageRefs, projectInfo }: SubpageProps) {
     return (
         <div ref={subpageRef} className={`${styles.subpageWrapper}`}>
             <div className={`${styles.headerWrapper}`}>
-                <header className={`${styles.header}`}>
+                <header ref={subpageHeaderRef} className={`${styles.header}`}>
                     <button
                         ref={closeSubpageBtnRef}
                         className={`${styles.backBtn}`}
@@ -36,14 +45,22 @@ export default function Subpage({ pageRefs, projectInfo }: SubpageProps) {
                         <div className={`${styles.backBtnHover}`}></div>
                         <IconBackArrow className={styles.backArrow} />
                     </button>
-                    <div className={`${styles.header__textWrapper}`}>
-                        <p className={`${styles.header__hacked}`}>
+                    <div
+                        ref={subpageHeaderTextGrpRef}
+                        className={`${styles.header__textWrapper}`}
+                    >
+                        <p
+                            ref={subpageHeaderText1Ref}
+                            className={`${styles.header__hacked}`}
+                        >
                             PROJECT HACKED
                         </p>
-                        <p className={`${styles.header__etc}`}>
+                        <p
+                            ref={subpageHeaderText2Ref}
+                            className={`${styles.header__etc}`}
+                        >
                             0100111 000 10100 100010111
-                        </p>
-                        <p className={`${styles.header__etc}`}>
+                            <br />
                             NZ46 - 84137 ZAN86AASDN LOG-41: AZ
                         </p>
                     </div>
@@ -52,8 +69,11 @@ export default function Subpage({ pageRefs, projectInfo }: SubpageProps) {
 
             <main ref={subpageMainRef} className={`${styles.subpageMain}`}>
                 <div className={`${styles.subpageMainContentWrapper}`}>
-                    <Summary projectInfo={projectInfo} />
-                    <SubpageBody projectInfo={projectInfo} />
+                    <Summary pageRefs={pageRefs} projectInfo={projectInfo} />
+                    <div ref={subpageBodyRef}>
+                        <SubpageBody projectInfo={projectInfo} />
+                    </div>
+
                     <div className={`${styles.scrollBtnWrapper}`}>
                         <button
                             onClick={handleClickScroll}

@@ -19,7 +19,17 @@ export default function useChangeSubpage({
     setProjectInfo,
     pageRefs,
 }: useChangeSubpageProps) {
-    const { subpageRef, closeSubpageBtnRef, subpageMainRef } = pageRefs;
+    const {
+        subpageRef,
+        closeSubpageBtnRef,
+        subpageMainRef,
+        subpageHeaderRef,
+        subpageHeaderTextGrpRef,
+        subpageHeaderText1Ref,
+        subpageHeaderText2Ref,
+        summaryRef,
+        subpageBodyRef,
+    } = pageRefs;
     const [isSubpageOpen, setIsSubpageOpen] = useState(false);
 
     gsap.registerPlugin(useGSAP);
@@ -30,19 +40,160 @@ export default function useChangeSubpage({
     }
 
     function openSubpage(tl: gsap.core.Timeline) {
-        tl.to(subpageRef.current, {
-            autoAlpha: 1,
-        });
+        const subpage = subpageRef.current;
+        const header = subpageHeaderRef.current;
+        const headerTextGrp = subpageHeaderTextGrpRef.current;
+        const headerText1 = subpageHeaderText1Ref.current;
+        const headerText2 = subpageHeaderText2Ref.current;
+        const headerBtn = closeSubpageBtnRef.current;
+        const summary = summaryRef.current;
+        const body = subpageBodyRef.current;
+
+        tl.fromTo(
+            subpage,
+            { scaleX: 0, autoAlpha: 0 },
+            {
+                duration: 0.3,
+                scaleX: 1,
+                autoAlpha: 1,
+            },
+            "0",
+        )
+            .fromTo(
+                header,
+                { scaleX: 0, autoAlpha: 0 },
+                {
+                    duration: 0.3,
+                    scaleX: 1,
+                    autoAlpha: 1,
+                },
+            )
+            .fromTo(
+                headerBtn,
+                {
+                    x: -15,
+                    autoAlpha: 0,
+                },
+                {
+                    duration: 0.3,
+                    x: 0,
+                    autoAlpha: 1,
+                    ease: "none",
+                },
+                ">0.2",
+            )
+            .fromTo(
+                headerTextGrp,
+                { scaleY: 0 },
+                {
+                    duration: 0.2,
+                    transformOrigin: "center center",
+                    scaleY: 1,
+                },
+                "0.7",
+            )
+            .fromTo(
+                [headerText1, headerText2],
+                { x: 20, autoAlpha: 0 },
+                {
+                    duration: 0.3,
+                    x: 0,
+                    ease: "none",
+                },
+            )
+            .to(
+                [headerText1, headerText2],
+                {
+                    duration: 0.4,
+                    autoAlpha: 1,
+                },
+                "<",
+            )
+            .fromTo(
+                headerText1,
+                { text: "|" },
+                { duration: 0.6, text: "PROJECT HACKED" },
+                ">-0.2",
+            )
+            .fromTo(
+                [summary, body],
+                { x: -15, autoAlpha: 0 },
+                {
+                    duration: 0.3,
+                    x: 0,
+                },
+                "1",
+            )
+            .to(
+                [summary, body],
+                {
+                    duration: 0.5,
+                    autoAlpha: 1,
+                },
+                "<",
+            );
     }
 
     function closeSubpage(tl: gsap.core.Timeline) {
-        tl.to(subpageRef.current, {
-            autoAlpha: 0,
-            onComplete: () => {
-                if (!subpageMainRef.current) return;
-                subpageMainRef.current.scrollTop = 0;
+        const subpage = subpageRef.current;
+        const header = subpageHeaderRef.current;
+        const headerTextGrp = subpageHeaderTextGrpRef.current;
+        const headerText1 = subpageHeaderText1Ref.current;
+        const headerText2 = subpageHeaderText2Ref.current;
+        const headerBtn = closeSubpageBtnRef.current;
+        const summary = summaryRef.current;
+        const body = subpageBodyRef.current;
+
+        tl.to(
+            [summary, body],
+            {
+                duration: 0.3,
+                x: -15,
+                autoAlpha: 0,
             },
-        });
+            "0",
+        )
+            .to(
+                [headerText1, headerText2],
+                {
+                    duration: 0.1,
+                    autoAlpha: 0,
+                },
+                "<",
+            )
+            .to(
+                headerBtn,
+                {
+                    duration: 0.2,
+                    x: -15,
+                    autoAlpha: 0,
+                },
+                "<",
+            )
+            .to(
+                headerTextGrp,
+                {
+                    duration: 0.2,
+                    scaleY: 0,
+                },
+                ">-0.1",
+            )
+            .to(header, {
+                duration: 0.3,
+                scaleX: 0,
+            })
+            .to(subpageRef.current, {
+                scaleX: 0,
+                duration: 0.2,
+            })
+            .to(subpageRef.current, {
+                duration: 0.4,
+                autoAlpha: 0,
+                onComplete: () => {
+                    if (!subpageMainRef.current) return;
+                    subpageMainRef.current.scrollTop = 0;
+                },
+            });
     }
 
     useEffect(() => {

@@ -1,14 +1,18 @@
 import { Link } from "react-router";
 import styles from "./summary.module.css";
 import type { ProjectDataProps } from "../../data/projectsData";
+import type { pageRefsProps } from "~/features/masterLayout/MasterLayout";
 
 type SummaryProps = {
+    pageRefs: pageRefsProps;
     projectInfo?: ProjectDataProps;
 };
 
-export default function Summary({ projectInfo }: SummaryProps) {
+export default function Summary({ pageRefs, projectInfo }: SummaryProps) {
+    const { summaryRef } = pageRefs;
+
     return (
-        <section className={`${styles.summary}`}>
+        <section ref={summaryRef} className={`${styles.summary}`}>
             <figure className={`${styles.summary__figure}`}>
                 <img
                     className={`${styles.summary__img}`}
