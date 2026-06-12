@@ -9,7 +9,7 @@
     margin: 0 auto;
     overflow: hidden;
     background-color: var(--color-bg);
-    border: 1px solid white;
+    border: 2px solid white;
 }
 
 /** HEADER * */
