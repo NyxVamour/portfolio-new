@@ -195,22 +195,21 @@ export default function UrbanSprouts() {
                             the first game I started with.
                         </p>
                         <h3 className={`${styles.subTitle}`}>Kitchen Quest</h3>
-                        <p>
+                        <p className={`${styles.issuesP}`}>
                             The main issues were
-                            <ol>
-                                <li>Length of the level</li>
-                                <li>
-                                    Have recipes that are flexible to teach kids
-                                    about different ways to make one dish
-                                </li>
-                                <li>
-                                    Show the recipes before playing so they can
-                                    prepare
-                                </li>
-                                <li>No difficulty settings</li>
-                            </ol>
                         </p>
-
+                        <ol className={`${styles.issuesList}`}>
+                            <li>Length of the level</li>
+                            <li>
+                                Have recipes that are flexible to teach kids
+                                about different ways to make one dish
+                            </li>
+                            <li>
+                                Show the recipes before playing so they can
+                                prepare
+                            </li>
+                            <li>No difficulty settings</li>
+                        </ol>
                         <h3 className={`${styles.subTitle}`}>Harvest Time</h3>
                         <p>
                             I wanted to capitalize on the sorting part instead

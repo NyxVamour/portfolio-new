@@ -55,3 +55,12 @@
 figcaption{
     font-style: italic;
 }
+
+/** for urban sprouts **/
+.issuesP{
+    margin-bottom: 0 !important;
+}
+
+.issuesList{
+    margin-bottom: 28px;
+}
