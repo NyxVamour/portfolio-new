@@ -9,6 +9,7 @@ type SubpageHeaderProps = {
     title: string;
     altHeader: string;
     buttonRef?: React.Ref<HTMLButtonElement>;
+    setSelectedCategory?: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export default function SubPageHeader({
@@ -16,8 +17,16 @@ export default function SubPageHeader({
     title,
     altHeader,
     buttonRef,
+    setSelectedCategory,
 }: SubpageHeaderProps) {
     const { pageHeaderRef } = pageRefs;
+
+    function clearProjectCategory() {
+        if (!setSelectedCategory) return;
+        setTimeout(() => {
+            setSelectedCategory("All");
+        }, 1500);
+    }
 
     return (
         <div ref={pageHeaderRef} className={`${styles.headerWrapper}`}>
@@ -35,7 +44,10 @@ export default function SubPageHeader({
                         <br />
                         AUTHORIZED EXIT ONLY
                     </p>
-                    <CloseButton ref={buttonRef}></CloseButton>
+                    <CloseButton
+                        onClick={clearProjectCategory}
+                        ref={buttonRef}
+                    ></CloseButton>
                 </div>
             </header>
         </div>

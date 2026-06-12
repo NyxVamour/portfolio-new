@@ -92,6 +92,7 @@ export default function Projects({ pageRefs, setProjectInfo }: ProjectsProps) {
                 buttonRef={closeProjectsBtnRef}
                 title={"PROJECTS"}
                 altHeader="PROJECTS PAGE OF CHARLIZE SAN GABRIEL"
+                setSelectedCategory={setSelectedCategory}
             ></SubPageHeader>
             <main className={`${styles.projectsMain}`}>
                 <section className={`${styles.projectsMainContentWrapper}`}>
