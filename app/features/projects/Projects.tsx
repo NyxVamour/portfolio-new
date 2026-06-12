@@ -42,7 +42,12 @@ export default function Projects({ pageRefs, setProjectInfo }: ProjectsProps) {
     const titleRef = useRef(null);
     const caseStudyRef = useRef(null);
 
-    const { projectsRef, closeProjectsBtnRef } = pageRefs;
+    const {
+        projectsRef,
+        closeProjectsBtnRef,
+        projectCategoriesRef,
+        projectItemRefs,
+    } = pageRefs;
 
     const windowRefs: windowRefsProps = {
         projectWindowRef,
@@ -90,7 +95,10 @@ export default function Projects({ pageRefs, setProjectInfo }: ProjectsProps) {
             ></SubPageHeader>
             <main className={`${styles.projectsMain}`}>
                 <section className={`${styles.projectsMainContentWrapper}`}>
-                    <ul className={`${styles.categories}`}>
+                    <ul
+                        ref={projectCategoriesRef}
+                        className={`${styles.categories}`}
+                    >
                         <li className={`${styles.categories__li}`}>
                             <button
                                 onClick={() => changeCategory("All")}
@@ -145,6 +153,9 @@ export default function Projects({ pageRefs, setProjectInfo }: ProjectsProps) {
                             {filteredItems.map((project, index) => (
                                 <ProjectCard
                                     key={project.slug}
+                                    ref={(li) => {
+                                        projectItemRefs.current[index] = li;
+                                    }}
                                     title={project.title}
                                     id={project.id}
                                     imgSrc={project.imgSrc}

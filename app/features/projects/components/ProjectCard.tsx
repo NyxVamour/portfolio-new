@@ -1,6 +1,7 @@
 import styles from "./projectCard.module.css";
 
 type ProjectCardProps = {
+    ref: React.Ref<HTMLLIElement>;
     title: string;
     id: number;
     imgSrc: string;
@@ -10,6 +11,7 @@ type ProjectCardProps = {
 };
 
 export default function ProjectCard({
+    ref,
     title,
     id,
     imgSrc,
@@ -18,7 +20,7 @@ export default function ProjectCard({
     onClick,
 }: ProjectCardProps) {
     return (
-        <li>
+        <li ref={ref}>
             <button className={`${styles.card}`} onClick={() => onClick(id)}>
                 <figure className={`${styles.figure}`}>
                     <img

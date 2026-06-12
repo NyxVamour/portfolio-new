@@ -17,6 +17,8 @@ export default function useChangePage(
         projectsRef,
         hackingWindowRef,
         pageHeaderRef,
+        projectCategoriesRef,
+        projectItemRefs,
         closeProfileBtnRef,
         closeAboutBtnRef,
         closeProjectsBtnRef,
@@ -47,7 +49,6 @@ export default function useChangePage(
         const page = pageRef.current;
         const bg = backgroundLayerRef.current;
         const header = pageHeaderRef.current;
-
         tl.to(page, {
             duration: 0.2,
             autoAlpha: 1,
@@ -73,12 +74,9 @@ export default function useChangePage(
             .fromTo(
                 header,
                 { autoAlpha: 0 },
-                { duration: 0.3, repeat: 2, autoAlpha: 1, ease: "none" },
+                { duration: 0.3, autoAlpha: 1, ease: "none" },
                 "<",
             );
-        // .set("._blurLayer_loggy_1", {
-        //     backdropFilter: "blur(8px)",
-        // });
     }
 
     function closePage(
@@ -96,6 +94,33 @@ export default function useChangePage(
             },
             "<",
         );
+    }
+
+    function animateCards(
+        tl: gsap.core.Timeline,
+        projectItemRefs: React.RefObject<(HTMLLIElement | null)[]>,
+        projectCategoriesRef: React.RefObject<HTMLUListElement | null>,
+    ) {
+        const categs = projectCategoriesRef.current;
+        // if (!projectItemRefs.current) return;
+        console.log(categs);
+        tl.fromTo(categs, { x: -15 }, { duration: 0.5, x: 0 }, "1.2").fromTo(
+            categs,
+            { autoAlpha: 0 },
+            { duration: 0.8, autoAlpha: 1 },
+            "<",
+        );
+        projectItemRefs.current.forEach((item, index) => {
+            tl.fromTo(
+                item,
+                {
+                    scale: 1.3,
+                    autoAlpha: 0,
+                },
+                { duration: 0.15, scale: 1, autoAlpha: 1 },
+                1.4 + index * 0.08,
+            );
+        });
     }
 
     function getCurrentRef(currentPage: string) {
@@ -157,6 +182,7 @@ export default function useChangePage(
             case "projects":
                 closeHome(tl);
                 openPage(tl, projectsRef);
+                animateCards(tl, projectItemRefs, projectCategoriesRef);
                 setPreviousPage("projects");
             default:
                 break;

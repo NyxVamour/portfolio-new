@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import About from "../about/About";
 import Hacking from "../hacking/Hacking";
 import Profile from "../profile/Profile";
@@ -18,6 +18,8 @@ export type pageRefsProps = {
     subpageMainRef: React.RefObject<HTMLDivElement | null>;
     hackingWindowRef: React.RefObject<HTMLElement | null>;
     pageHeaderRef: React.RefObject<HTMLDivElement | null>;
+    projectCategoriesRef: React.RefObject<HTMLUListElement | null>;
+    projectItemRefs: React.RefObject<(HTMLLIElement | null)[]>;
     closeProfileBtnRef: React.RefObject<HTMLButtonElement | null>;
     closeAboutBtnRef: React.RefObject<HTMLButtonElement | null>;
     closeProjectsBtnRef: React.RefObject<HTMLButtonElement | null>;
@@ -41,6 +43,8 @@ export default function MasterLayout() {
     const subpageMainRef = useRef<HTMLDivElement>(null);
     const hackingWindowRef = useRef<HTMLElement>(null);
     const pageHeaderRef = useRef<HTMLDivElement>(null);
+    const projectCategoriesRef = useRef<HTMLUListElement>(null);
+    const projectItemRefs = useRef<(HTMLLIElement | null)[]>([]);
     const closeProfileBtnRef = useRef<HTMLButtonElement>(null);
     const closeAboutBtnRef = useRef<HTMLButtonElement>(null);
     const closeProjectsBtnRef = useRef<HTMLButtonElement>(null);
@@ -61,6 +65,8 @@ export default function MasterLayout() {
         subpageMainRef,
         hackingWindowRef,
         pageHeaderRef,
+        projectCategoriesRef,
+        projectItemRefs,
         closeProfileBtnRef,
         closeAboutBtnRef,
         closeProjectsBtnRef,
