@@ -1,0 +1,66 @@
+.toc{
+    margin-bottom: 64px;
+}
+
+.toc__link{
+    color: var(--color-primary--brighter);
+    text-decoration: underline;
+}
+
+.toc__link:hover{
+    color: var(--color-secondary);
+}
+
+/*** BODY **/
+.body{
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    padding-bottom: 80px;
+}
+
+.title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: normal;
+    margin-bottom: 20px;
+}
+
+.sectionPar{
+    display: flex;
+    flex-direction: column;
+}
+
+.sectionPar > p{
+    margin-bottom: 28px;
+}
+
+.sectionPar > figure{
+    margin-bottom: 28px;
+}
+
+.sectionPar ol{
+    margin-left: 40px;
+}
+
+.sectionPar ol li{
+    list-style: decimal;
+}
+
+.subTitle{
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+figcaption{
+    font-style: italic;
+}
+
+/** for urban sprouts **/
+.issuesP{
+    margin-bottom: 0 !important;
+}
+
+.issuesList{
+    margin-bottom: 28px;
+}

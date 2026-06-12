@@ -1,19 +1,35 @@
+import type { pageRefsProps } from "~/features/masterLayout/MasterLayout";
 import CloseButton from "../CloseButton";
 import RedDetail from "./RedDetail";
 import styles from "./subpageHeader.module.css";
 import WhiteDetail from "./WhiteDetail";
 
-export default function SubPageHeader({
-    title,
-    altHeader,
-    buttonRef,
-}: {
+type SubpageHeaderProps = {
+    pageRefs: pageRefsProps;
     title: string;
     altHeader: string;
     buttonRef?: React.Ref<HTMLButtonElement>;
-}) {
+    setSelectedCategory?: React.Dispatch<React.SetStateAction<string>>;
+};
+
+export default function SubPageHeader({
+    pageRefs,
+    title,
+    altHeader,
+    buttonRef,
+    setSelectedCategory,
+}: SubpageHeaderProps) {
+    const { pageHeaderRef } = pageRefs;
+
+    function clearProjectCategory() {
+        if (!setSelectedCategory) return;
+        setTimeout(() => {
+            setSelectedCategory("All");
+        }, 1500);
+    }
+
     return (
-        <div className={`${styles.headerWrapper}`}>
+        <div ref={pageHeaderRef} className={`${styles.headerWrapper}`}>
             <header className={`${styles.header}`}>
                 <div className={`${styles.leftSide}`}>
                     <p className={`${styles.accessingData}`}>ACCESSING DATA</p>
@@ -28,7 +44,10 @@ export default function SubPageHeader({
                         <br />
                         AUTHORIZED EXIT ONLY
                     </p>
-                    <CloseButton ref={buttonRef}></CloseButton>
+                    <CloseButton
+                        onClick={clearProjectCategory}
+                        ref={buttonRef}
+                    ></CloseButton>
                 </div>
             </header>
         </div>

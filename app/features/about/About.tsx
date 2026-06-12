@@ -4,16 +4,16 @@ import TlDetails from "../components/TlDetails";
 import ProfileSection from "../profile/components/ProfileSection";
 import styles from "./about.module.css";
 import stylesProfile from "../profile/profile.module.css";
-type AboutProps = {
-    aboutRef?: React.Ref<HTMLDivElement>;
-    closeAboutBtnRef?: React.Ref<HTMLButtonElement>;
-};
+import type { pageRefsProps } from "../masterLayout/MasterLayout";
 
-export default function About({ aboutRef, closeAboutBtnRef }: AboutProps) {
+export default function About({ pageRefs }: { pageRefs: pageRefsProps }) {
+    const { aboutRef, closeAboutBtnRef } = pageRefs;
+
     return (
         <div ref={aboutRef} className={`${styles.aboutWrapper}`}>
             <BlurLayer></BlurLayer>
             <SubPageHeader
+                pageRefs={pageRefs}
                 buttonRef={closeAboutBtnRef}
                 title={"ABOUT"}
                 altHeader={"ABOUT PAGE OF CHARLIZE SAN GABRIEL"}

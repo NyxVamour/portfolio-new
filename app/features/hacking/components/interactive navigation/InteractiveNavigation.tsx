@@ -13,13 +13,11 @@ import EnterBracketR from "~/features/components/buttons/EnterBracketR";
 
 type interactiveNavigationProps = {
     pageRefs: pageRefsProps;
-    setSelectedProjectID: React.Dispatch<React.SetStateAction<number>>;
     setIsTouch: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export default function InteractiveNavigation({
     pageRefs,
-    setSelectedProjectID,
     setIsTouch,
 }: interactiveNavigationProps) {
     const [isMoving, setIsMoving] = useState(false);
@@ -35,7 +33,7 @@ export default function InteractiveNavigation({
         setIsTouch,
     );
     useMap(mapRef, position, prevPosition, setIsMoving, enterBtnRef);
-    useChangePage(currentPage, setCurrentPage, pageRefs, setSelectedProjectID);
+    useChangePage(currentPage, setCurrentPage, pageRefs);
 
     return (
         <section

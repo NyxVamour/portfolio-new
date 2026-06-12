@@ -14,20 +14,16 @@ import IconCSS from "../components/icons/IconCSS";
 import IconPHP from "../components/icons/IconPHP";
 import IconNode from "../components/icons/IconNode";
 import TlDetails from "../components/TlDetails";
+import type { pageRefsProps } from "../masterLayout/MasterLayout";
 
-type ProfileProps = {
-    profileRef?: React.Ref<HTMLDivElement>;
-    closeProfileBtnRef?: React.Ref<HTMLButtonElement>;
-};
+export default function Profile({ pageRefs }: { pageRefs: pageRefsProps }) {
+    const { profileRef, closeProfileBtnRef } = pageRefs;
 
-export default function Profile({
-    profileRef,
-    closeProfileBtnRef,
-}: ProfileProps) {
     return (
         <div ref={profileRef} className={`${styles.profileWrapper}`}>
             <BlurLayer></BlurLayer>
             <SubPageHeader
+                pageRefs={pageRefs}
                 buttonRef={closeProfileBtnRef}
                 title={"PROFILE"}
                 altHeader={"PROFILE PAGE OF CHARLIZE SAN GABRIEL"}

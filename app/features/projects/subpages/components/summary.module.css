@@ -1,0 +1,101 @@
+/**** SUMMARY ****/
+.summary{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.informationFrame{
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+/*** MAIN INFO ***/
+.mainInfo{
+    display: flex;
+    flex-direction: column;
+}
+
+.mainInfo__category{
+    color: var(--color-secondary);
+}
+
+.mainInfo__title{
+    font-family: var(--font-orbitron);
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: normal;
+    margin-bottom: 16px;
+}
+
+.mainInfo__btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    background-color: var(--color-primary--darkest);
+    border: 1px solid var(--color-primary);
+    padding: 8px 12px;
+    font-weight: bold;
+    filter: drop-shadow(0 0 4px var(--color-primary));
+    transition: 0.2s;
+}
+
+.mainInfo__btn:hover{
+    background-color: var(--color-primary);
+}
+
+/** Additional Info **/
+.addInfo{
+    display: flex;
+    gap: 28px;
+}
+
+.addInfo__wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.addInfo__title{
+    color: var(--color-secondary);
+}
+
+.addInfoLeft{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+
+    .mainInfo__title{
+        width: 80%;
+        margin-bottom: 24px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+
+}

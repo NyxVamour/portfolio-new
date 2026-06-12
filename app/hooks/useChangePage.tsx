@@ -7,7 +7,6 @@ export default function useChangePage(
     currentPage: string,
     setCurrentPage: React.Dispatch<React.SetStateAction<string>>,
     pageRefs: pageRefsProps,
-    setSelectedProjectID: React.Dispatch<React.SetStateAction<number>>,
 ) {
     gsap.registerPlugin(useGSAP);
     const {
@@ -17,6 +16,9 @@ export default function useChangePage(
         aboutRef,
         projectsRef,
         hackingWindowRef,
+        pageHeaderRef,
+        projectCategoriesRef,
+        projectItemRefs,
         closeProfileBtnRef,
         closeAboutBtnRef,
         closeProjectsBtnRef,
@@ -35,9 +37,6 @@ export default function useChangePage(
         tl.to(hackingWindowRef.current, {
             scaleX: 1,
             autoAlpha: 1,
-            onComplete: () => {
-                setSelectedProjectID(0);
-            },
         });
     }
 
@@ -47,18 +46,37 @@ export default function useChangePage(
             | React.RefObject<HTMLDivElement | null>
             | React.RefObject<HTMLElement | null>,
     ) {
-        tl.to(pageRef.current, {
+        const page = pageRef.current;
+        const bg = backgroundLayerRef.current;
+        const header = pageHeaderRef.current;
+        tl.to(page, {
+            duration: 0.2,
             autoAlpha: 1,
-        }).to(
-            backgroundLayerRef.current,
-            {
-                filter: "blur(8px)",
-            },
-            "<",
-        );
-        // .set("._blurLayer_loggy_1", {
-        //     backdropFilter: "blur(8px)",
-        // });
+        })
+            .to(
+                bg,
+                {
+                    duration: 0.2,
+                    filter: "blur(8px)",
+                },
+                "<",
+            )
+            .fromTo(
+                header,
+                { scaleX: 0 },
+                {
+                    duration: 0.4,
+                    transformOrigin: "left center",
+                    scaleX: 1,
+                },
+                ">0.2",
+            )
+            .fromTo(
+                header,
+                { autoAlpha: 0 },
+                { duration: 0.3, autoAlpha: 1, ease: "none" },
+                "<",
+            );
     }
 
     function closePage(
@@ -76,6 +94,32 @@ export default function useChangePage(
             },
             "<",
         );
+    }
+
+    function animateCards(
+        tl: gsap.core.Timeline,
+        projectItemRefs: React.RefObject<(HTMLLIElement | null)[]>,
+        projectCategoriesRef: React.RefObject<HTMLUListElement | null>,
+    ) {
+        const categs = projectCategoriesRef.current;
+
+        tl.fromTo(categs, { x: -15 }, { duration: 0.5, x: 0 }, "1.2").fromTo(
+            categs,
+            { autoAlpha: 0 },
+            { duration: 0.8, autoAlpha: 1 },
+            "<",
+        );
+        projectItemRefs.current.forEach((item, index) => {
+            tl.fromTo(
+                item,
+                {
+                    scale: 1.3,
+                    autoAlpha: 0,
+                },
+                { duration: 0.15, scale: 1, autoAlpha: 1 },
+                1.4 + index * 0.08,
+            );
+        });
     }
 
     function getCurrentRef(currentPage: string) {
@@ -118,7 +162,6 @@ export default function useChangePage(
         switch (currentPage) {
             case "home":
                 const currentRef = getCurrentRef(previousPage);
-                console.log(currentRef);
                 if (currentRef) {
                     closePage(tl, currentRef);
                     openHome(tl);
@@ -137,6 +180,7 @@ export default function useChangePage(
             case "projects":
                 closeHome(tl);
                 openPage(tl, projectsRef);
+                animateCards(tl, projectItemRefs, projectCategoriesRef);
                 setPreviousPage("projects");
             default:
                 break;
