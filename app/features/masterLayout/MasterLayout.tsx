@@ -22,10 +22,10 @@ export type pageRefsProps = {
     closeAboutBtnRef: React.RefObject<HTMLButtonElement | null>;
     closeProjectsBtnRef: React.RefObject<HTMLButtonElement | null>;
     closeSubpageBtnRef: React.RefObject<HTMLButtonElement | null>;
-    subpageHeaderRef: React.RefObject<HTMLElement | null>;
-    subpageHeaderTextGrpRef: React.RefObject<HTMLDivElement | null>;
-    subpageHeaderText1Ref: React.RefObject<HTMLParagraphElement | null>;
-    subpageHeaderText2Ref: React.RefObject<HTMLParagraphElement | null>;
+    projectHeaderRef: React.RefObject<HTMLElement | null>;
+    projectHeaderTextGrpRef: React.RefObject<HTMLDivElement | null>;
+    projectHeaderText1Ref: React.RefObject<HTMLParagraphElement | null>;
+    projectHeaderText2Ref: React.RefObject<HTMLParagraphElement | null>;
     summaryRef: React.RefObject<HTMLDivElement | null>;
     subpageBodyRef: React.RefObject<HTMLDivElement | null>;
 };
@@ -45,10 +45,10 @@ export default function MasterLayout() {
     const closeAboutBtnRef = useRef<HTMLButtonElement>(null);
     const closeProjectsBtnRef = useRef<HTMLButtonElement>(null);
     const closeSubpageBtnRef = useRef<HTMLButtonElement>(null);
-    const subpageHeaderRef = useRef<HTMLDivElement>(null);
-    const subpageHeaderTextGrpRef = useRef<HTMLDivElement>(null);
-    const subpageHeaderText1Ref = useRef<HTMLParagraphElement>(null);
-    const subpageHeaderText2Ref = useRef<HTMLParagraphElement>(null);
+    const projectHeaderRef = useRef<HTMLDivElement>(null);
+    const projectHeaderTextGrpRef = useRef<HTMLDivElement>(null);
+    const projectHeaderText1Ref = useRef<HTMLParagraphElement>(null);
+    const projectHeaderText2Ref = useRef<HTMLParagraphElement>(null);
     const summaryRef = useRef<HTMLDivElement>(null);
     const subpageBodyRef = useRef<HTMLDivElement>(null);
     const pageRefs: pageRefsProps = {
@@ -65,10 +65,10 @@ export default function MasterLayout() {
         closeAboutBtnRef,
         closeProjectsBtnRef,
         closeSubpageBtnRef,
-        subpageHeaderRef,
-        subpageHeaderTextGrpRef,
-        subpageHeaderText1Ref,
-        subpageHeaderText2Ref,
+        projectHeaderRef,
+        projectHeaderTextGrpRef,
+        projectHeaderText1Ref,
+        projectHeaderText2Ref,
         summaryRef,
         subpageBodyRef,
     };

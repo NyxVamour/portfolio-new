@@ -23,10 +23,10 @@ export default function useChangeSubpage({
         subpageRef,
         closeSubpageBtnRef,
         subpageMainRef,
-        subpageHeaderRef,
-        subpageHeaderTextGrpRef,
-        subpageHeaderText1Ref,
-        subpageHeaderText2Ref,
+        projectHeaderRef,
+        projectHeaderTextGrpRef,
+        projectHeaderText1Ref,
+        projectHeaderText2Ref,
         summaryRef,
         subpageBodyRef,
     } = pageRefs;
@@ -41,10 +41,10 @@ export default function useChangeSubpage({
 
     function openSubpage(tl: gsap.core.Timeline) {
         const subpage = subpageRef.current;
-        const header = subpageHeaderRef.current;
-        const headerTextGrp = subpageHeaderTextGrpRef.current;
-        const headerText1 = subpageHeaderText1Ref.current;
-        const headerText2 = subpageHeaderText2Ref.current;
+        const header = projectHeaderRef.current;
+        const headerTextGrp = projectHeaderTextGrpRef.current;
+        const headerText1 = projectHeaderText1Ref.current;
+        const headerText2 = projectHeaderText2Ref.current;
         const headerBtn = closeSubpageBtnRef.current;
         const summary = summaryRef.current;
         const body = subpageBodyRef.current;
@@ -146,10 +146,10 @@ export default function useChangeSubpage({
 
     function closeSubpage(tl: gsap.core.Timeline) {
         const subpage = subpageRef.current;
-        const header = subpageHeaderRef.current;
-        const headerTextGrp = subpageHeaderTextGrpRef.current;
-        const headerText1 = subpageHeaderText1Ref.current;
-        const headerText2 = subpageHeaderText2Ref.current;
+        const header = projectHeaderRef.current;
+        const headerTextGrp = projectHeaderTextGrpRef.current;
+        const headerText1 = projectHeaderText1Ref.current;
+        const headerText2 = projectHeaderText2Ref.current;
         const headerBtn = closeSubpageBtnRef.current;
         const summary = summaryRef.current;
         const body = subpageBodyRef.current;

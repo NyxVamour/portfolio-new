@@ -18,10 +18,10 @@ export default function Subpage({ pageRefs, projectInfo }: SubpageProps) {
         subpageRef,
         closeSubpageBtnRef,
         subpageMainRef,
-        subpageHeaderRef,
-        subpageHeaderTextGrpRef,
-        subpageHeaderText1Ref,
-        subpageHeaderText2Ref,
+        projectHeaderRef,
+        projectHeaderTextGrpRef,
+        projectHeaderText1Ref,
+        projectHeaderText2Ref,
         subpageBodyRef,
     } = pageRefs;
 
@@ -37,7 +37,7 @@ export default function Subpage({ pageRefs, projectInfo }: SubpageProps) {
     return (
         <div ref={subpageRef} className={`${styles.subpageWrapper}`}>
             <div className={`${styles.headerWrapper}`}>
-                <header ref={subpageHeaderRef} className={`${styles.header}`}>
+                <header ref={projectHeaderRef} className={`${styles.header}`}>
                     <button
                         ref={closeSubpageBtnRef}
                         className={`${styles.backBtn}`}
@@ -46,17 +46,17 @@ export default function Subpage({ pageRefs, projectInfo }: SubpageProps) {
                         <IconBackArrow className={styles.backArrow} />
                     </button>
                     <div
-                        ref={subpageHeaderTextGrpRef}
+                        ref={projectHeaderTextGrpRef}
                         className={`${styles.header__textWrapper}`}
                     >
                         <p
-                            ref={subpageHeaderText1Ref}
+                            ref={projectHeaderText1Ref}
                             className={`${styles.header__hacked}`}
                         >
                             PROJECT HACKED
                         </p>
                         <p
-                            ref={subpageHeaderText2Ref}
+                            ref={projectHeaderText2Ref}
                             className={`${styles.header__etc}`}
                         >
                             0100111 000 10100 100010111
