@@ -116,6 +116,16 @@ export default function useChangeSubpage({
                 ">-0.2",
             )
             .fromTo(
+                headerText2,
+                { autoAlpha: 0 },
+                {
+                    duration: 0.2,
+                    repeat: 2,
+                    autoAlpha: 1,
+                },
+                " <-0.6",
+            )
+            .fromTo(
                 [summary, body],
                 { x: -15, autoAlpha: 0 },
                 {
