@@ -16,7 +16,9 @@ export default function useChangePage(
         aboutRef,
         projectsRef,
         hackingWindowRef,
-        pageHeaderRef,
+        profileHeaderRef,
+        aboutHeaderRef,
+        projectsHeaderRef,
         projectCategoriesRef,
         projectItemRefs,
         closeProfileBtnRef,
@@ -45,10 +47,11 @@ export default function useChangePage(
         pageRef:
             | React.RefObject<HTMLDivElement | null>
             | React.RefObject<HTMLElement | null>,
+        headerRef: React.RefObject<HTMLDivElement | null>,
     ) {
         const page = pageRef.current;
         const bg = backgroundLayerRef.current;
-        const header = pageHeaderRef.current;
+        const header = headerRef.current;
         tl.to(page, {
             duration: 0.2,
             autoAlpha: 1,
@@ -159,6 +162,8 @@ export default function useChangePage(
 
     useGSAP(() => {
         const tl = gsap.timeline();
+        let headerRef;
+
         switch (currentPage) {
             case "home":
                 const currentRef = getCurrentRef(previousPage);
@@ -169,17 +174,20 @@ export default function useChangePage(
                 break;
             case "profile":
                 closeHome(tl);
-                openPage(tl, profileRef);
+                headerRef = profileHeaderRef;
+                openPage(tl, profileRef, headerRef);
                 setPreviousPage("profile");
                 break;
             case "about":
                 closeHome(tl);
-                openPage(tl, aboutRef);
+                headerRef = aboutHeaderRef;
+                openPage(tl, aboutRef, headerRef);
                 setPreviousPage("about");
                 break;
             case "projects":
                 closeHome(tl);
-                openPage(tl, projectsRef);
+                headerRef = projectsHeaderRef;
+                openPage(tl, projectsRef, headerRef);
                 animateCards(tl, projectItemRefs, projectCategoriesRef);
                 setPreviousPage("projects");
             default:

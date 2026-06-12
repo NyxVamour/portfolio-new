@@ -2,28 +2,16 @@ import SubPageHeader from "../components/subpageHeader/SubpageHeader";
 import styles from "./profile.module.css";
 import BlurLayer from "../components/BlurLayer";
 import ProfileSection from "./components/ProfileSection";
-import IconFigma from "../components/icons/IconFigma";
-import IconAE from "../components/icons/IconAE";
-import IconAI from "../components/icons/IconAI";
-import IconPr from "../components/icons/IconPr";
-import IconPs from "../components/icons/IconPs";
-import IconJs from "../components/icons/IconJs";
-import IconReact from "../components/icons/IconReact";
-import IconHTML from "../components/icons/IconHTML";
-import IconCSS from "../components/icons/IconCSS";
-import IconPHP from "../components/icons/IconPHP";
-import IconNode from "../components/icons/IconNode";
-import TlDetails from "../components/TlDetails";
 import type { pageRefsProps } from "../masterLayout/MasterLayout";
 
 export default function Profile({ pageRefs }: { pageRefs: pageRefsProps }) {
-    const { profileRef, closeProfileBtnRef } = pageRefs;
+    const { profileRef, profileHeaderRef, closeProfileBtnRef } = pageRefs;
 
     return (
         <div ref={profileRef} className={`${styles.profileWrapper}`}>
             <BlurLayer></BlurLayer>
             <SubPageHeader
-                pageRefs={pageRefs}
+                headerRef={profileHeaderRef}
                 buttonRef={closeProfileBtnRef}
                 title={"PROFILE"}
                 altHeader={"PROFILE PAGE OF CHARLIZE SAN GABRIEL"}

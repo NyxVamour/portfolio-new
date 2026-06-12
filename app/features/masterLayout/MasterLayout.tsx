@@ -17,7 +17,9 @@ export type pageRefsProps = {
     subpageRef: React.RefObject<HTMLDivElement | null>;
     subpageMainRef: React.RefObject<HTMLDivElement | null>;
     hackingWindowRef: React.RefObject<HTMLElement | null>;
-    pageHeaderRef: React.RefObject<HTMLDivElement | null>;
+    profileHeaderRef: React.RefObject<HTMLDivElement | null>;
+    aboutHeaderRef: React.RefObject<HTMLDivElement | null>;
+    projectsHeaderRef: React.RefObject<HTMLDivElement | null>;
     projectCategoriesRef: React.RefObject<HTMLUListElement | null>;
     projectItemRefs: React.RefObject<(HTMLLIElement | null)[]>;
     closeProfileBtnRef: React.RefObject<HTMLButtonElement | null>;
@@ -42,7 +44,9 @@ export default function MasterLayout() {
     const subpageRef = useRef<HTMLDivElement>(null);
     const subpageMainRef = useRef<HTMLDivElement>(null);
     const hackingWindowRef = useRef<HTMLElement>(null);
-    const pageHeaderRef = useRef<HTMLDivElement>(null);
+    const profileHeaderRef = useRef<HTMLDivElement>(null);
+    const aboutHeaderRef = useRef<HTMLDivElement>(null);
+    const projectsHeaderRef = useRef<HTMLDivElement>(null);
     const projectCategoriesRef = useRef<HTMLUListElement>(null);
     const projectItemRefs = useRef<(HTMLLIElement | null)[]>([]);
     const closeProfileBtnRef = useRef<HTMLButtonElement>(null);
@@ -64,7 +68,9 @@ export default function MasterLayout() {
         subpageRef,
         subpageMainRef,
         hackingWindowRef,
-        pageHeaderRef,
+        profileHeaderRef,
+        aboutHeaderRef,
+        projectsHeaderRef,
         projectCategoriesRef,
         projectItemRefs,
         closeProfileBtnRef,

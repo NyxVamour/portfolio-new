@@ -44,6 +44,7 @@ export default function Projects({ pageRefs, setProjectInfo }: ProjectsProps) {
 
     const {
         projectsRef,
+        projectsHeaderRef,
         closeProjectsBtnRef,
         projectCategoriesRef,
         projectItemRefs,
@@ -88,7 +89,7 @@ export default function Projects({ pageRefs, setProjectInfo }: ProjectsProps) {
         <div ref={projectsRef} className={`${styles.projectsWrapper}`}>
             <BlurLayer></BlurLayer>
             <SubPageHeader
-                pageRefs={pageRefs}
+                headerRef={projectsHeaderRef}
                 buttonRef={closeProjectsBtnRef}
                 title={"PROJECTS"}
                 altHeader="PROJECTS PAGE OF CHARLIZE SAN GABRIEL"
