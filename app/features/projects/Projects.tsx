@@ -144,7 +144,7 @@ export default function Projects({ pageRefs, setProjectInfo }: ProjectsProps) {
                         <ul className={`${styles.projectsUl}`}>
                             {filteredItems.map((project, index) => (
                                 <ProjectCard
-                                    key={index}
+                                    key={project.slug}
                                     title={project.title}
                                     id={project.id}
                                     imgSrc={project.imgSrc}
