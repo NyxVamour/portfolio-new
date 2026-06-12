@@ -5,7 +5,16 @@ import ProfileSection from "./components/ProfileSection";
 import type { pageRefsProps } from "../masterLayout/MasterLayout";
 
 export default function Profile({ pageRefs }: { pageRefs: pageRefsProps }) {
-    const { profileRef, profileHeaderRef, closeProfileBtnRef } = pageRefs;
+    const {
+        profileRef,
+        profileHeaderRef,
+        closeProfileBtnRef,
+        profilePortraitRef,
+        profileDetailsRef,
+        profileBox1Ref,
+        profileBox2Ref,
+        profileBox3Ref,
+    } = pageRefs;
 
     return (
         <div ref={profileRef} className={`${styles.profileWrapper}`}>
@@ -19,7 +28,10 @@ export default function Profile({ pageRefs }: { pageRefs: pageRefsProps }) {
             <main className={`${styles.profileMain}`}>
                 <div className={`${styles.profileContentWrapper}`}>
                     <section className={`${styles.profileCard}`}>
-                        <div className={`${styles.portraitWrapper}`}>
+                        <div
+                            ref={profilePortraitRef}
+                            className={`${styles.portraitWrapper}`}
+                        >
                             <figure className={`${styles.mugshotWrapper}`}>
                                 <img
                                     src="/images/mugshot-transparent.png"
@@ -36,7 +48,10 @@ export default function Profile({ pageRefs }: { pageRefs: pageRefsProps }) {
                                 </p>
                             </div>
                         </div>
-                        <div className={`${styles.mugDetails}`}>
+                        <div
+                            ref={profileDetailsRef}
+                            className={`${styles.mugDetails}`}
+                        >
                             <div className={`${styles.mD_awesomenessWrapper}`}>
                                 <p className={`${styles.mD_awesomeness}`}>
                                     AWESOMENESS DETECTED
@@ -95,7 +110,10 @@ export default function Profile({ pageRefs }: { pageRefs: pageRefsProps }) {
                         </div>
                     </section>
                     <div className={`${styles.profileSectionsWrapper}`}>
-                        <ProfileSection title="INFORMATION">
+                        <ProfileSection
+                            ref={profileBox1Ref}
+                            title="INFORMATION"
+                        >
                             <div
                                 className={`${styles.profileSection__bulletWrapper}`}
                             >
@@ -137,7 +155,7 @@ export default function Profile({ pageRefs }: { pageRefs: pageRefsProps }) {
                                 </p>
                             </div>
                         </ProfileSection>
-                        <ProfileSection title="SKILLS">
+                        <ProfileSection ref={profileBox2Ref} title="SKILLS">
                             <div className={`${styles.profileSection__skills}`}>
                                 <div
                                     className={`${styles.profileSection__bulletWrapper}`}
@@ -180,7 +198,10 @@ export default function Profile({ pageRefs }: { pageRefs: pageRefsProps }) {
                                 </div>
                             </div>
                         </ProfileSection>
-                        <ProfileSection title="CONTACT INFORMATION">
+                        <ProfileSection
+                            ref={profileBox3Ref}
+                            title="CONTACT INFORMATION"
+                        >
                             <div
                                 className={`${styles.profileSection__bulletWrapper}`}
                             >

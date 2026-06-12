@@ -3,14 +3,16 @@ import styles from "./profileSection.module.css";
 type ProfileSectionProps = {
     title: string;
     children: React.ReactNode;
+    ref: React.RefObject<HTMLDivElement | null>;
 };
 
 export default function ProfileSection({
     title,
     children,
+    ref,
 }: ProfileSectionProps) {
     return (
-        <section className={`${styles.profileSection}`}>
+        <section ref={ref} className={`${styles.profileSection}`}>
             <header className={`${styles.header}`}>
                 <h2 className={`${styles.title}`}>{title}</h2>
                 <div className={`${styles.details_wrapper}`}>

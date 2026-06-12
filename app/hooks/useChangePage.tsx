@@ -15,12 +15,22 @@ export default function useChangePage(
         profileRef,
         aboutRef,
         projectsRef,
+
         hackingWindowRef,
+
+        profilePortraitRef,
+        profileDetailsRef,
+        profileBox1Ref,
+        profileBox2Ref,
+        profileBox3Ref,
+
         profileHeaderRef,
         aboutHeaderRef,
         projectsHeaderRef,
+
         projectCategoriesRef,
         projectItemRefs,
+
         closeProfileBtnRef,
         closeAboutBtnRef,
         closeProjectsBtnRef,
@@ -97,6 +107,43 @@ export default function useChangePage(
             },
             "<",
         );
+    }
+
+    function animateProfile(tl: gsap.core.Timeline) {
+        const portrait = profilePortraitRef.current;
+        const details = profileDetailsRef.current;
+        const box1 = profileBox1Ref.current;
+        const box2 = profileBox2Ref.current;
+        const box3 = profileBox3Ref.current;
+
+        tl.fromTo(
+            portrait,
+            { scaleY: 0, autoAlpha: 0 },
+            { duration: 0.3, scaleY: 1, autoAlpha: 1 },
+        )
+            .fromTo(
+                details,
+                { scaleX: 0 },
+                { scaleX: 1, transformOrigin: "left left" },
+            )
+            .fromTo(
+                box1,
+                { x: -35, autoAlpha: 0 },
+                { duration: 0.4, x: 0, autoAlpha: 1 },
+                "<",
+            )
+            .fromTo(
+                box2,
+                { x: -35, autoAlpha: 0 },
+                { duration: 0.4, x: 0, autoAlpha: 1 },
+                ">-0.1",
+            )
+            .fromTo(
+                box3,
+                { x: -35, autoAlpha: 0 },
+                { duration: 0.4, x: 0, autoAlpha: 1 },
+                ">-0.1",
+            );
     }
 
     function animateCards(
@@ -176,6 +223,7 @@ export default function useChangePage(
                 closeHome(tl);
                 headerRef = profileHeaderRef;
                 openPage(tl, profileRef, headerRef);
+                animateProfile(tl);
                 setPreviousPage("profile");
                 break;
             case "about":
