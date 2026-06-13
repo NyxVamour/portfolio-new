@@ -272,7 +272,7 @@ export default function useChangePage(
             );
     }
 
-    function animateCards(
+    function animateProjects(
         tl: gsap.core.Timeline,
         projectItemRefs: React.RefObject<(HTMLLIElement | null)[]>,
         projectCategoriesRef: React.RefObject<HTMLUListElement | null>,
@@ -364,7 +364,7 @@ export default function useChangePage(
                 closeHome(tl);
                 headerRef = projectsHeaderRef;
                 openPage(tl, projectsRef, headerRef);
-                animateCards(tl, projectItemRefs, projectCategoriesRef);
+                animateProjects(tl, projectItemRefs, projectCategoriesRef);
                 setPreviousPage("projects");
             default:
                 break;
