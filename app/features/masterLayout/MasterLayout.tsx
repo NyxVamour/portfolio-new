@@ -25,6 +25,9 @@ export type pageRefsProps = {
 
     profilePortraitRef: React.RefObject<HTMLDivElement | null>;
     profileDetailsRef: React.RefObject<HTMLDivElement | null>;
+    profileThreatRef: React.RefObject<HTMLDivElement | null>;
+    profileBar1Ref: React.RefObject<HTMLDivElement | null>;
+    profileBar2Ref: React.RefObject<HTMLDivElement | null>;
     profileBox1Ref: React.RefObject<HTMLDivElement | null>;
     profileBox2Ref: React.RefObject<HTMLDivElement | null>;
     profileBox3Ref: React.RefObject<HTMLDivElement | null>;
@@ -64,6 +67,9 @@ export default function MasterLayout() {
 
     const profilePortraitRef = useRef<HTMLDivElement>(null);
     const profileDetailsRef = useRef<HTMLDivElement>(null);
+    const profileThreatRef = useRef<HTMLDivElement>(null);
+    const profileBar1Ref = useRef<HTMLDivElement>(null);
+    const profileBar2Ref = useRef<HTMLDivElement>(null);
     const profileBox1Ref = useRef<HTMLDivElement>(null);
     const profileBox2Ref = useRef<HTMLDivElement>(null);
     const profileBox3Ref = useRef<HTMLDivElement>(null);
@@ -98,6 +104,9 @@ export default function MasterLayout() {
         projectsHeaderRef,
         profilePortraitRef,
         profileDetailsRef,
+        profileThreatRef,
+        profileBar1Ref,
+        profileBar2Ref,
         profileBox1Ref,
         profileBox2Ref,
         profileBox3Ref,

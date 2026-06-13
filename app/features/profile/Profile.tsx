@@ -11,6 +11,9 @@ export default function Profile({ pageRefs }: { pageRefs: pageRefsProps }) {
         closeProfileBtnRef,
         profilePortraitRef,
         profileDetailsRef,
+        profileThreatRef,
+        profileBar1Ref,
+        profileBar2Ref,
         profileBox1Ref,
         profileBox2Ref,
         profileBox3Ref,
@@ -75,6 +78,7 @@ export default function Profile({ pageRefs }: { pageRefs: pageRefsProps }) {
                                     Threat Level:
                                 </p>
                                 <div
+                                    ref={profileThreatRef}
                                     className={`${styles.mD_threatResultWrapper}`}
                                 >
                                     <p className={`${styles.mD_threatResult}`}>
@@ -96,6 +100,7 @@ export default function Profile({ pageRefs }: { pageRefs: pageRefsProps }) {
                                     Attention Span:
                                 </p>
                                 <div
+                                    ref={profileBar1Ref}
                                     className={`${styles.mD_attentionSpanBar}`}
                                 ></div>
                             </div>
@@ -104,6 +109,7 @@ export default function Profile({ pageRefs }: { pageRefs: pageRefsProps }) {
                                     Power Level:
                                 </p>
                                 <div
+                                    ref={profileBar2Ref}
                                     className={`${styles.mD_powerLevelBar}`}
                                 ></div>
                             </div>

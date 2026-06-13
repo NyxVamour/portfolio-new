@@ -20,6 +20,9 @@ export default function useChangePage(
 
         profilePortraitRef,
         profileDetailsRef,
+        profileThreatRef,
+        profileBar1Ref,
+        profileBar2Ref,
         profileBox1Ref,
         profileBox2Ref,
         profileBox3Ref,
@@ -112,6 +115,9 @@ export default function useChangePage(
     function animateProfile(tl: gsap.core.Timeline) {
         const portrait = profilePortraitRef.current;
         const details = profileDetailsRef.current;
+        const threat = profileThreatRef.current;
+        const bar1 = profileBar1Ref.current;
+        const bar2 = profileBar2Ref.current;
         const box1 = profileBox1Ref.current;
         const box2 = profileBox2Ref.current;
         const box3 = profileBox3Ref.current;
@@ -143,6 +149,44 @@ export default function useChangePage(
                 { x: -35, autoAlpha: 0 },
                 { duration: 0.4, x: 0, autoAlpha: 1 },
                 ">-0.1",
+            )
+            .fromTo(
+                bar1,
+                { scaleX: 0 },
+                {
+                    duration: 1.9,
+                    scaleX: 1,
+                    transformOrigin: "left left",
+                    ease: "none",
+                },
+                "1.5",
+            )
+            .fromTo(
+                bar2,
+                { scaleX: 0 },
+                {
+                    duration: 1.5,
+                    scaleX: 1,
+                    transformOrigin: "left left",
+                    ease: "none",
+                },
+                ">-0.8",
+            )
+            .to(threat, { duration: 0, autoAlpha: 0 }, "0")
+            .to(
+                threat,
+                {
+                    duration: 1,
+                    stagger: {
+                        from: "start",
+                        each: 0.5,
+                        repeat: -1,
+                        repeatDelay: 0.5,
+                        yoyo: true,
+                    },
+                    autoAlpha: 1,
+                },
+                "1.5",
             );
     }
 
