@@ -1,7 +1,6 @@
 import InteractiveNavigation from "./components/interactive navigation/InteractiveNavigation";
 import styles from "./hacking.module.css";
 import type { pageRefsProps } from "../masterLayout/MasterLayout";
-
 import { useState } from "react";
 
 type HackingProps = {
@@ -9,13 +8,7 @@ type HackingProps = {
 };
 
 export default function Hacking({ pageRefs }: HackingProps) {
-    const {
-        hackingRef,
-        hackingUITLRef,
-        hackingUITRRef,
-        hackingUIBLRef,
-        hackingWindowRef,
-    } = pageRefs;
+    const { hackingRef, hackingWindowRef } = pageRefs;
     const [isTouch, setIsTouch] = useState(false);
 
     return (
