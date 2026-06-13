@@ -4,6 +4,7 @@ import type { NodeID, Direction } from "../data/navigationNodes";
 
 export function useControls(
     isMoving: boolean,
+    isHome: boolean,
     setCurrentPage: React.Dispatch<React.SetStateAction<string>>,
     hackingWindowRef: React.RefObject<HTMLElement | null>,
     enterBtnRef: React.RefObject<HTMLButtonElement | null>,
@@ -105,7 +106,7 @@ export function useControls(
             }
 
             if (!hackingWindowRef.current) return;
-
+            if (!isHome) return;
             hackingWindowRef.current.addEventListener(
                 "pointerdown",
                 onPointerDown,
@@ -169,6 +170,7 @@ export function useControls(
             }
 
             if (!enterBtnRef.current) return;
+            if (!isHome) return;
             enterBtnRef.current.addEventListener("click", enterPage);
 
             window.addEventListener("keydown", keyDown);
@@ -181,7 +183,14 @@ export function useControls(
                 enterBtnRef.current.removeEventListener("click", enterPage);
             };
         }
-    }, [enterBtnRef, hackingWindowRef, isMoving, isTouchScreen, position]);
+    }, [
+        enterBtnRef,
+        hackingWindowRef,
+        isMoving,
+        isTouchScreen,
+        position,
+        isHome,
+    ]);
 
     return { position, prevPosition };
 }

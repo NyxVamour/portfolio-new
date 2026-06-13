@@ -25,8 +25,10 @@ export default function InteractiveNavigation({
     const mapRef = useRef<SVGSVGElement>(null);
     const enterBtnRef = useRef<HTMLButtonElement>(null);
     const { hackingWindowRef } = pageRefs;
+    const isHome = currentPage === "home";
     const { position, prevPosition } = useControls(
         isMoving,
+        isHome,
         setCurrentPage,
         hackingWindowRef,
         enterBtnRef,
