@@ -7,7 +7,13 @@ import stylesProfile from "../profile/profile.module.css";
 import type { pageRefsProps } from "../masterLayout/MasterLayout";
 
 export default function About({ pageRefs }: { pageRefs: pageRefsProps }) {
-    const { aboutRef, aboutHeaderRef, closeAboutBtnRef } = pageRefs;
+    const {
+        aboutRef,
+        aboutHeaderRef,
+        aboutIMGRef,
+        aboutBox1Ref,
+        closeAboutBtnRef,
+    } = pageRefs;
 
     return (
         <div ref={aboutRef} className={`${styles.aboutWrapper}`}>
@@ -20,7 +26,10 @@ export default function About({ pageRefs }: { pageRefs: pageRefsProps }) {
             ></SubPageHeader>
             <main className={`${styles.aboutMain}`}>
                 <div className={`${styles.aboutContentWrapper}`}>
-                    <figure className={`${styles.collage_wrapper}`}>
+                    <figure
+                        ref={aboutIMGRef}
+                        className={`${styles.collage_wrapper}`}
+                    >
                         <img
                             src="/images/aboutCollage.png"
                             alt="Photo collage of Charlize"
@@ -28,7 +37,10 @@ export default function About({ pageRefs }: { pageRefs: pageRefsProps }) {
                         ></img>
                     </figure>
                     <div className={`${styles.contentWrapper}`}>
-                        <ProfileSection title="CHARLIZE SAN GABRIEL">
+                        <ProfileSection
+                            ref={aboutBox1Ref}
+                            title="CHARLIZE SAN GABRIEL"
+                        >
                             <div
                                 className={`${stylesProfile.profileSection__bulletWrapper}`}
                             >

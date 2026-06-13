@@ -31,6 +31,9 @@ export default function useChangePage(
         profileBox2Ref,
         profileBox3Ref,
 
+        aboutIMGRef,
+        aboutBox1Ref,
+
         profileHeaderRef,
         aboutHeaderRef,
         projectsHeaderRef,
@@ -237,6 +240,38 @@ export default function useChangePage(
             );
     }
 
+    function animateABout(tl: gsap.core.Timeline) {
+        const img = aboutIMGRef.current;
+        const box = aboutBox1Ref.current;
+
+        tl.fromTo(
+            box,
+            { x: -35, autoAlpha: 0 },
+            { duration: 0.4, x: 0, autoAlpha: 1 },
+            "1.4",
+        )
+            .fromTo(
+                img,
+                { clipPath: "inset(50% 50% 50% 50%)", autoAlpha: 0 },
+                {
+                    duration: 0.3,
+                    clipPath: "inset(48% 0% 48% 0%)",
+                    autoAlpha: 1,
+                    ease: "none",
+                },
+            )
+            .fromTo(
+                img,
+                { clipPath: "inset(48% 0% 48% 0%)" },
+                {
+                    duration: 0.2,
+                    delay: 0.05,
+                    clipPath: "inset(0% 0% 0% 0%)",
+                    ease: "none",
+                },
+            );
+    }
+
     function animateCards(
         tl: gsap.core.Timeline,
         projectItemRefs: React.RefObject<(HTMLLIElement | null)[]>,
@@ -322,6 +357,7 @@ export default function useChangePage(
                 closeHome(tl);
                 headerRef = aboutHeaderRef;
                 openPage(tl, aboutRef, headerRef);
+                animateABout(tl);
                 setPreviousPage("about");
                 break;
             case "projects":
