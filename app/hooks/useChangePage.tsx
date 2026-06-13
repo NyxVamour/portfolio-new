@@ -18,6 +18,10 @@ export default function useChangePage(
 
         hackingWindowRef,
 
+        hackingUITLRef,
+        hackingUITRRef,
+        hackingUIBLRef,
+
         profilePortraitRef,
         profileDetailsRef,
         profileThreatRef,
@@ -42,17 +46,60 @@ export default function useChangePage(
     const [previousPage, setPreviousPage] = useState("home");
 
     function closeHome(tl: gsap.core.Timeline) {
-        tl.to(hackingWindowRef.current, {
-            scaleX: 0,
-            autoAlpha: 0,
-        });
+        tl.fromTo(
+            hackingWindowRef.current,
+            { clipPath: "inset(0% 0% 0% 0%)" },
+            {
+                duration: 0.3,
+                clipPath: "inset(48% 0% 48% 0%)",
+                ease: "none",
+            },
+        ).fromTo(
+            hackingWindowRef.current,
+            { clipPath: "inset(48% 0% 48% 0%)", autoAlpha: 1 },
+            {
+                duration: 0.2,
+                clipPath: "inset(50% 50% 50% 50%)",
+                ease: "none",
+                autoAlpha: 0,
+            },
+        );
+    }
+
+    function startHackingDetailsAnim(tl: gsap.core.Timeline) {
+        const topL = hackingUITLRef.current;
+        const topR = hackingUITRRef.current;
+        const botL = hackingUIBLRef.current;
+        tl.fromTo(topL, { autoAlpha: 0, x: -25 }, { autoAlpha: 1, x: 0 }, "1.3")
+            .fromTo(topR, { autoAlpha: 0, y: -25 }, { autoAlpha: 1, y: 0 }, "<")
+            .fromTo(
+                botL,
+                { scaleX: 0 },
+                { scaleX: 1, transformOrigin: "left left" },
+                "<",
+            );
     }
 
     function openHome(tl: gsap.core.Timeline) {
-        tl.to(hackingWindowRef.current, {
-            scaleX: 1,
-            autoAlpha: 1,
-        });
+        tl.fromTo(
+            hackingWindowRef.current,
+            { clipPath: "inset(50% 50% 50% 50%)", autoAlpha: 0 },
+            {
+                duration: 0.3,
+                clipPath: "inset(48% 0% 48% 0%)",
+                autoAlpha: 1,
+                ease: "none",
+            },
+        ).fromTo(
+            hackingWindowRef.current,
+            { clipPath: "inset(48% 0% 48% 0%)" },
+            {
+                duration: 0.2,
+                delay: 0.05,
+                clipPath: "inset(0% 0% 0% 0%)",
+                ease: "none",
+            },
+        );
     }
 
     function openPage(
@@ -261,6 +308,7 @@ export default function useChangePage(
                 if (currentRef) {
                     closePage(tl, currentRef);
                     openHome(tl);
+                    startHackingDetailsAnim(tl);
                 }
                 break;
             case "profile":

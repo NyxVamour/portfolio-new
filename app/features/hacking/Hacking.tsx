@@ -14,7 +14,13 @@ type HackingProps = {
 };
 
 export default function Hacking({ pageRefs }: HackingProps) {
-    const { hackingRef, profileRef, aboutRef, hackingWindowRef } = pageRefs;
+    const {
+        hackingRef,
+        hackingUITLRef,
+        hackingUITRRef,
+        hackingUIBLRef,
+        hackingWindowRef,
+    } = pageRefs;
     const [isTouch, setIsTouch] = useState(false);
 
     return (
@@ -31,7 +37,10 @@ export default function Hacking({ pageRefs }: HackingProps) {
                     pageRefs={pageRefs}
                     setIsTouch={setIsTouch}
                 ></InteractiveNavigation>
-                <div className={`${styles.hackingUILeftWrapper}`}>
+                <div
+                    ref={hackingUITLRef}
+                    className={`${styles.hackingUILeftWrapper}`}
+                >
                     <div className={`${styles.hackingUI__titleWrapper}`}>
                         <h1 className={`${styles.hackingUI__title}`}>
                             HACKING TARGET
@@ -65,7 +74,10 @@ export default function Hacking({ pageRefs }: HackingProps) {
                         4241
                     </p>
                 </div>
-                <div className={`${styles.hackingUI_right}`}>
+                <div
+                    ref={hackingUITRRef}
+                    className={`${styles.hackingUI_right}`}
+                >
                     <p className={`${styles.hackingUI_rightYel}`}>
                         &gt; connect node_07
                         <br />
@@ -77,7 +89,7 @@ export default function Hacking({ pageRefs }: HackingProps) {
                         &gt; access granted
                     </p>
                 </div>
-                <section className={`${styles.controls}`}>
+                <section ref={hackingUIBLRef} className={`${styles.controls}`}>
                     <p className={`${styles.controlsLabel}`}>CONTROLS</p>
                     {!isTouch ? (
                         <div className={`${styles.iconsWrapper}`}>
