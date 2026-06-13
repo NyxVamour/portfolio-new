@@ -7,6 +7,7 @@ import styles from "./masterLayout.module.css";
 import Projects from "../projects/Projects";
 import Subpage from "../projects/subpages/Subpage";
 import type { ProjectDataProps } from "../projects/data/projectsData";
+import Loading from "../components/Loading";
 
 export type pageRefsProps = {
     backgroundLayerRef: React.RefObject<HTMLDivElement | null>;
@@ -58,6 +59,9 @@ export type pageRefsProps = {
 
 export default function MasterLayout() {
     const [projectInfo, setProjectInfo] = useState<ProjectDataProps>();
+    const [isSiteLoaded, setIsSiteLoaded] = useState(false);
+    const [showLoader, setShowLoader] = useState(true);
+
     const backgroundLayerRef = useRef<HTMLDivElement>(null);
     const hackingRef = useRef<HTMLDivElement>(null);
     const profileRef = useRef<HTMLDivElement>(null);
@@ -143,20 +147,85 @@ export default function MasterLayout() {
         subpageBodyRef,
     };
 
+    function waitForImage(src: string) {
+        return new Promise<void>((resolve, reject) => {
+            const img = new Image();
+            img.onload = () => resolve();
+            img.onerror = () => reject(new Error(`Failed to load ${src}`));
+            img.src = src;
+        });
+    }
+
+    useEffect(() => {
+        let cancelled = false;
+
+        const waitForWindowLoad = new Promise<void>((resolve) => {
+            if (document.readyState === "complete") {
+                resolve();
+                return;
+            }
+
+            window.addEventListener("load", () => resolve(), { once: true });
+        });
+
+        const waitForFonts = document.fonts?.ready ?? Promise.resolve();
+
+        const criticalImages = [
+            "/images/city-street.jpg",
+            "/images/target.png",
+        ];
+
+        Promise.all([
+            waitForWindowLoad,
+            waitForFonts,
+            ...criticalImages.map(waitForImage),
+        ]).then(() => {
+            if (!cancelled) setIsSiteLoaded(true);
+        });
+
+        return () => {
+            cancelled = true;
+        };
+    }, []);
+
     return (
-        <div className={styles.masterLayout}>
-            <div
-                ref={backgroundLayerRef}
-                className={`${styles.backgroundLayer}`}
-            >
-                <div className={styles.vignette}></div>
-                <MainBGElements></MainBGElements>
+        <>
+            {/* {showLoader ? (
+                <Loading
+                    isSiteLoaded={isSiteLoaded}
+                    onFinish={() => setShowLoader(false)}
+                />
+            ) : ( */}
+            <div className={styles.masterLayout}>
+                <div
+                    ref={backgroundLayerRef}
+                    className={`${styles.backgroundLayer}`}
+                >
+                    <div className={styles.vignette}></div>
+                    <MainBGElements></MainBGElements>
+                    <Hacking pageRefs={pageRefs} />
+                </div>
+                {showLoader ? (
+                    <Loading
+                        isSiteLoaded={isSiteLoaded}
+                        onFinish={() => setShowLoader(false)}
+                    />
+                ) : (
+                    <>
+                        <Profile pageRefs={pageRefs} />
+                        <About pageRefs={pageRefs} />
+                        <Projects
+                            pageRefs={pageRefs}
+                            setProjectInfo={setProjectInfo}
+                        />
+                        <Subpage
+                            pageRefs={pageRefs}
+                            projectInfo={projectInfo}
+                        />
+                    </>
+                )}
             </div>
-            <Hacking pageRefs={pageRefs} />
-            <Profile pageRefs={pageRefs} />
-            <About pageRefs={pageRefs} />
-            <Projects pageRefs={pageRefs} setProjectInfo={setProjectInfo} />
-            <Subpage pageRefs={pageRefs} projectInfo={projectInfo} />
-        </div>
+            {/* )} */}
+        </>
     );
 }
