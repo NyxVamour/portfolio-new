@@ -7,13 +7,13 @@ import stylesProfile from "../profile/profile.module.css";
 import type { pageRefsProps } from "../masterLayout/MasterLayout";
 
 export default function About({ pageRefs }: { pageRefs: pageRefsProps }) {
-    const { aboutRef, closeAboutBtnRef } = pageRefs;
+    const { aboutRef, aboutHeaderRef, closeAboutBtnRef } = pageRefs;
 
     return (
         <div ref={aboutRef} className={`${styles.aboutWrapper}`}>
             <BlurLayer></BlurLayer>
             <SubPageHeader
-                pageRefs={pageRefs}
+                headerRef={aboutHeaderRef}
                 buttonRef={closeAboutBtnRef}
                 title={"ABOUT"}
                 altHeader={"ABOUT PAGE OF CHARLIZE SAN GABRIEL"}

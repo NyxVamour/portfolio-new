@@ -15,19 +15,40 @@ export type pageRefsProps = {
     aboutRef: React.RefObject<HTMLDivElement | null>;
     projectsRef: React.RefObject<HTMLDivElement | null>;
     subpageRef: React.RefObject<HTMLDivElement | null>;
+
     subpageMainRef: React.RefObject<HTMLDivElement | null>;
     hackingWindowRef: React.RefObject<HTMLElement | null>;
-    pageHeaderRef: React.RefObject<HTMLDivElement | null>;
+
+    profileHeaderRef: React.RefObject<HTMLDivElement | null>;
+    aboutHeaderRef: React.RefObject<HTMLDivElement | null>;
+    projectsHeaderRef: React.RefObject<HTMLDivElement | null>;
+
+    hackingUITLRef: React.RefObject<HTMLDivElement | null>;
+    hackingUITRRef: React.RefObject<HTMLDivElement | null>;
+    hackingUIBLRef: React.RefObject<HTMLDivElement | null>;
+
+    profilePortraitRef: React.RefObject<HTMLDivElement | null>;
+    profileDetailsRef: React.RefObject<HTMLDivElement | null>;
+    profileThreatRef: React.RefObject<HTMLDivElement | null>;
+    profileBar1Ref: React.RefObject<HTMLDivElement | null>;
+    profileBar2Ref: React.RefObject<HTMLDivElement | null>;
+    profileBox1Ref: React.RefObject<HTMLDivElement | null>;
+    profileBox2Ref: React.RefObject<HTMLDivElement | null>;
+    profileBox3Ref: React.RefObject<HTMLDivElement | null>;
+
     projectCategoriesRef: React.RefObject<HTMLUListElement | null>;
     projectItemRefs: React.RefObject<(HTMLLIElement | null)[]>;
+
     closeProfileBtnRef: React.RefObject<HTMLButtonElement | null>;
     closeAboutBtnRef: React.RefObject<HTMLButtonElement | null>;
     closeProjectsBtnRef: React.RefObject<HTMLButtonElement | null>;
     closeSubpageBtnRef: React.RefObject<HTMLButtonElement | null>;
+
     projectHeaderRef: React.RefObject<HTMLElement | null>;
     projectHeaderTextGrpRef: React.RefObject<HTMLDivElement | null>;
     projectHeaderText1Ref: React.RefObject<HTMLParagraphElement | null>;
     projectHeaderText2Ref: React.RefObject<HTMLParagraphElement | null>;
+
     summaryRef: React.RefObject<HTMLDivElement | null>;
     subpageBodyRef: React.RefObject<HTMLDivElement | null>;
 };
@@ -40,21 +61,43 @@ export default function MasterLayout() {
     const aboutRef = useRef<HTMLDivElement>(null);
     const projectsRef = useRef<HTMLDivElement>(null);
     const subpageRef = useRef<HTMLDivElement>(null);
+
     const subpageMainRef = useRef<HTMLDivElement>(null);
     const hackingWindowRef = useRef<HTMLElement>(null);
-    const pageHeaderRef = useRef<HTMLDivElement>(null);
+
+    const profileHeaderRef = useRef<HTMLDivElement>(null);
+    const aboutHeaderRef = useRef<HTMLDivElement>(null);
+    const projectsHeaderRef = useRef<HTMLDivElement>(null);
+
+    const hackingUITLRef = useRef<HTMLDivElement>(null);
+    const hackingUITRRef = useRef<HTMLDivElement>(null);
+    const hackingUIBLRef = useRef<HTMLDivElement>(null);
+
+    const profilePortraitRef = useRef<HTMLDivElement>(null);
+    const profileDetailsRef = useRef<HTMLDivElement>(null);
+    const profileThreatRef = useRef<HTMLDivElement>(null);
+    const profileBar1Ref = useRef<HTMLDivElement>(null);
+    const profileBar2Ref = useRef<HTMLDivElement>(null);
+    const profileBox1Ref = useRef<HTMLDivElement>(null);
+    const profileBox2Ref = useRef<HTMLDivElement>(null);
+    const profileBox3Ref = useRef<HTMLDivElement>(null);
+
     const projectCategoriesRef = useRef<HTMLUListElement>(null);
     const projectItemRefs = useRef<(HTMLLIElement | null)[]>([]);
+
     const closeProfileBtnRef = useRef<HTMLButtonElement>(null);
     const closeAboutBtnRef = useRef<HTMLButtonElement>(null);
     const closeProjectsBtnRef = useRef<HTMLButtonElement>(null);
     const closeSubpageBtnRef = useRef<HTMLButtonElement>(null);
+
     const projectHeaderRef = useRef<HTMLDivElement>(null);
     const projectHeaderTextGrpRef = useRef<HTMLDivElement>(null);
     const projectHeaderText1Ref = useRef<HTMLParagraphElement>(null);
     const projectHeaderText2Ref = useRef<HTMLParagraphElement>(null);
+
     const summaryRef = useRef<HTMLDivElement>(null);
     const subpageBodyRef = useRef<HTMLDivElement>(null);
+
     const pageRefs: pageRefsProps = {
         backgroundLayerRef,
         hackingRef,
@@ -64,7 +107,20 @@ export default function MasterLayout() {
         subpageRef,
         subpageMainRef,
         hackingWindowRef,
-        pageHeaderRef,
+        profileHeaderRef,
+        aboutHeaderRef,
+        projectsHeaderRef,
+        hackingUITLRef,
+        hackingUITRRef,
+        hackingUIBLRef,
+        profilePortraitRef,
+        profileDetailsRef,
+        profileThreatRef,
+        profileBar1Ref,
+        profileBar2Ref,
+        profileBox1Ref,
+        profileBox2Ref,
+        profileBox3Ref,
         projectCategoriesRef,
         projectItemRefs,
         closeProfileBtnRef,

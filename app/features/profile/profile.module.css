@@ -30,7 +30,7 @@
 .profileCard{
     display: flex;
     padding-bottom: 59px;
-    gap: 20px;
+    gap: 16px;
     align-items: center;
 }
 
@@ -86,6 +86,7 @@
 }
 
 .mD_awesomenessWrapper{
+    width: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -5,7 +5,7 @@ import styles from "./subpageHeader.module.css";
 import WhiteDetail from "./WhiteDetail";
 
 type SubpageHeaderProps = {
-    pageRefs: pageRefsProps;
+    headerRef: React.RefObject<HTMLDivElement | null>;
     title: string;
     altHeader: string;
     buttonRef?: React.Ref<HTMLButtonElement>;
@@ -13,14 +13,12 @@ type SubpageHeaderProps = {
 };
 
 export default function SubPageHeader({
-    pageRefs,
+    headerRef,
     title,
     altHeader,
     buttonRef,
     setSelectedCategory,
 }: SubpageHeaderProps) {
-    const { pageHeaderRef } = pageRefs;
-
     function clearProjectCategory() {
         if (!setSelectedCategory) return;
         setTimeout(() => {
@@ -29,7 +27,7 @@ export default function SubPageHeader({
     }
 
     return (
-        <div ref={pageHeaderRef} className={`${styles.headerWrapper}`}>
+        <div ref={headerRef} className={`${styles.headerWrapper}`}>
             <header className={`${styles.header}`}>
                 <div className={`${styles.leftSide}`}>
                     <p className={`${styles.accessingData}`}>ACCESSING DATA</p>

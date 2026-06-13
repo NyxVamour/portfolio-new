@@ -2,28 +2,28 @@ import SubPageHeader from "../components/subpageHeader/SubpageHeader";
 import styles from "./profile.module.css";
 import BlurLayer from "../components/BlurLayer";
 import ProfileSection from "./components/ProfileSection";
-import IconFigma from "../components/icons/IconFigma";
-import IconAE from "../components/icons/IconAE";
-import IconAI from "../components/icons/IconAI";
-import IconPr from "../components/icons/IconPr";
-import IconPs from "../components/icons/IconPs";
-import IconJs from "../components/icons/IconJs";
-import IconReact from "../components/icons/IconReact";
-import IconHTML from "../components/icons/IconHTML";
-import IconCSS from "../components/icons/IconCSS";
-import IconPHP from "../components/icons/IconPHP";
-import IconNode from "../components/icons/IconNode";
-import TlDetails from "../components/TlDetails";
 import type { pageRefsProps } from "../masterLayout/MasterLayout";
 
 export default function Profile({ pageRefs }: { pageRefs: pageRefsProps }) {
-    const { profileRef, closeProfileBtnRef } = pageRefs;
+    const {
+        profileRef,
+        profileHeaderRef,
+        closeProfileBtnRef,
+        profilePortraitRef,
+        profileDetailsRef,
+        profileThreatRef,
+        profileBar1Ref,
+        profileBar2Ref,
+        profileBox1Ref,
+        profileBox2Ref,
+        profileBox3Ref,
+    } = pageRefs;
 
     return (
         <div ref={profileRef} className={`${styles.profileWrapper}`}>
             <BlurLayer></BlurLayer>
             <SubPageHeader
-                pageRefs={pageRefs}
+                headerRef={profileHeaderRef}
                 buttonRef={closeProfileBtnRef}
                 title={"PROFILE"}
                 altHeader={"PROFILE PAGE OF CHARLIZE SAN GABRIEL"}
@@ -31,7 +31,10 @@ export default function Profile({ pageRefs }: { pageRefs: pageRefsProps }) {
             <main className={`${styles.profileMain}`}>
                 <div className={`${styles.profileContentWrapper}`}>
                     <section className={`${styles.profileCard}`}>
-                        <div className={`${styles.portraitWrapper}`}>
+                        <div
+                            ref={profilePortraitRef}
+                            className={`${styles.portraitWrapper}`}
+                        >
                             <figure className={`${styles.mugshotWrapper}`}>
                                 <img
                                     src="/images/mugshot-transparent.png"
@@ -48,7 +51,10 @@ export default function Profile({ pageRefs }: { pageRefs: pageRefsProps }) {
                                 </p>
                             </div>
                         </div>
-                        <div className={`${styles.mugDetails}`}>
+                        <div
+                            ref={profileDetailsRef}
+                            className={`${styles.mugDetails}`}
+                        >
                             <div className={`${styles.mD_awesomenessWrapper}`}>
                                 <p className={`${styles.mD_awesomeness}`}>
                                     AWESOMENESS DETECTED
@@ -72,6 +78,7 @@ export default function Profile({ pageRefs }: { pageRefs: pageRefsProps }) {
                                     Threat Level:
                                 </p>
                                 <div
+                                    ref={profileThreatRef}
                                     className={`${styles.mD_threatResultWrapper}`}
                                 >
                                     <p className={`${styles.mD_threatResult}`}>
@@ -93,6 +100,7 @@ export default function Profile({ pageRefs }: { pageRefs: pageRefsProps }) {
                                     Attention Span:
                                 </p>
                                 <div
+                                    ref={profileBar1Ref}
                                     className={`${styles.mD_attentionSpanBar}`}
                                 ></div>
                             </div>
@@ -101,13 +109,17 @@ export default function Profile({ pageRefs }: { pageRefs: pageRefsProps }) {
                                     Power Level:
                                 </p>
                                 <div
+                                    ref={profileBar2Ref}
                                     className={`${styles.mD_powerLevelBar}`}
                                 ></div>
                             </div>
                         </div>
                     </section>
                     <div className={`${styles.profileSectionsWrapper}`}>
-                        <ProfileSection title="INFORMATION">
+                        <ProfileSection
+                            ref={profileBox1Ref}
+                            title="INFORMATION"
+                        >
                             <div
                                 className={`${styles.profileSection__bulletWrapper}`}
                             >
@@ -149,7 +161,7 @@ export default function Profile({ pageRefs }: { pageRefs: pageRefsProps }) {
                                 </p>
                             </div>
                         </ProfileSection>
-                        <ProfileSection title="SKILLS">
+                        <ProfileSection ref={profileBox2Ref} title="SKILLS">
                             <div className={`${styles.profileSection__skills}`}>
                                 <div
                                     className={`${styles.profileSection__bulletWrapper}`}
@@ -192,7 +204,10 @@ export default function Profile({ pageRefs }: { pageRefs: pageRefsProps }) {
                                 </div>
                             </div>
                         </ProfileSection>
-                        <ProfileSection title="CONTACT INFORMATION">
+                        <ProfileSection
+                            ref={profileBox3Ref}
+                            title="CONTACT INFORMATION"
+                        >
                             <div
                                 className={`${styles.profileSection__bulletWrapper}`}
                             >
