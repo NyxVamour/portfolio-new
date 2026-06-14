@@ -4,8 +4,11 @@ import MasterLayout from "~/features/masterLayout/MasterLayout";
 
 export function meta({}: Route.MetaArgs) {
     return [
-        { title: "New React Router App" },
-        { name: "description", content: "Welcome to React Router!" },
+        { title: "Charlize's Website" },
+        {
+            name: "description",
+            content: "Charlize San Gabriel's portfolio website",
+        },
     ];
 }
 
