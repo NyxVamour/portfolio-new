@@ -190,19 +190,13 @@ export default function MasterLayout() {
 
     return (
         <>
-            {/* {showLoader ? (
-                <Loading
-                    isSiteLoaded={isSiteLoaded}
-                    onFinish={() => setShowLoader(false)}
-                />
-            ) : ( */}
             <div className={styles.masterLayout}>
                 <div
                     ref={backgroundLayerRef}
                     className={`${styles.backgroundLayer}`}
                 >
                     <div className={styles.vignette}></div>
-                    <MainBGElements></MainBGElements>
+                    <MainBGElements showLoader={showLoader}></MainBGElements>
                     <Hacking pageRefs={pageRefs} />
                 </div>
                 {showLoader ? (
@@ -225,7 +219,6 @@ export default function MasterLayout() {
                     </>
                 )}
             </div>
-            {/* )} */}
         </>
     );
 }

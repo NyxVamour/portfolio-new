@@ -1,6 +1,13 @@
-export default function Reticle_circ({ className }: { className: string }) {
+export default function Reticle_circ({
+    ref,
+    className,
+}: {
+    ref: React.RefObject<SVGSVGElement | null>;
+    className: string;
+}) {
     return (
         <svg
+            ref={ref}
             width="100%"
             viewBox="0 0 352 352"
             fill="none"

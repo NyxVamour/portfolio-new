@@ -1,6 +1,13 @@
-export default function Reticle_rect({ className }: { className: string }) {
+export default function Reticle_rect({
+    ref,
+    className,
+}: {
+    ref: React.RefObject<SVGSVGElement | null>;
+    className: string;
+}) {
     return (
         <svg
+            ref={ref}
             width="100%"
             height="100%"
             viewBox="0 0 330 464"

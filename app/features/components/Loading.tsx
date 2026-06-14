@@ -48,8 +48,7 @@ export default function Loading({ isSiteLoaded, onFinish }: LoadingProps) {
             .fromTo(movingText, { y: 50 }, { duration: 0.5, y: 25 })
             .to(movingText, { duration: 0.5, y: 0, delay: 0 })
             .to(movingText, { duration: 0.5, y: -25, delay: 2 })
-            .to(movingText, { duration: 0.5, y: -50, delay: 1 })
-            .to(movingText, { duration: 0.5, y: -75, delay: 1 });
+            .to(movingText, { duration: 0.5, y: -50, delay: 1 });
 
         if (!isSiteLoaded || !innerBar) return;
         console.log("site is loaded!");
@@ -57,13 +56,14 @@ export default function Loading({ isSiteLoaded, onFinish }: LoadingProps) {
             innerBar,
             { scaleX: 0 },
             {
-                duration: 5,
+                duration: 3,
                 scaleX: 1,
                 transformOrigin: "left left",
                 ease: " none",
             },
             "2",
         ).to([main, lyka, movingText, outerBar, decryptText], {
+            duration: 0.5,
             autoAlpha: 0,
             onComplete: onFinish,
         });
@@ -79,8 +79,6 @@ export default function Loading({ isSiteLoaded, onFinish }: LoadingProps) {
                 <div className={`${styles.textWrapper}`}>
                     <p ref={movingTextRef} className={`${styles.loadingText1}`}>
                         INITATING HACK...
-                        <br />
-                        REROUTING THROUGH PROXY RELAYS
                         <br />
                         BYPASSING AUTHENTICATION LAYERS
                         <br />

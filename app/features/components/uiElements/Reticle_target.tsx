@@ -1,6 +1,13 @@
-export default function Reticle_target({ className }: { className: string }) {
+export default function Reticle_target({
+    ref,
+    className,
+}: {
+    ref: React.RefObject<SVGSVGElement | null>;
+    className: string;
+}) {
     return (
         <svg
+            ref={ref}
             width="114"
             height="114"
             viewBox="0 0 114 114"
