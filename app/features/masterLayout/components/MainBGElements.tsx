@@ -12,8 +12,10 @@ import { useRef } from "react";
 
 export default function MainBGElements({
     showLoader,
+    setStartAnimFinished,
 }: {
     showLoader: boolean;
+    setStartAnimFinished: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
     const uiTLRef = useRef<HTMLParagraphElement>(null);
     const uiTRRef = useRef<HTMLDivElement>(null);
@@ -125,7 +127,14 @@ export default function MainBGElements({
             .fromTo(
                 targetIMG,
                 { scale: 0, autoAlpha: 0 },
-                { scale: 1, autoAlpha: 1, transformOrigin: "left left" },
+                {
+                    scale: 1,
+                    autoAlpha: 1,
+                    transformOrigin: "left left",
+                    onComplete: () => {
+                        setStartAnimFinished(true);
+                    },
+                },
                 ">0.5",
             )
             .fromTo(

@@ -21,12 +21,14 @@ type interactiveNavigationProps = {
     pageRefs: pageRefsProps;
     setIsTouch: React.Dispatch<React.SetStateAction<boolean>>;
     isTouch: boolean;
+    firstHackWindowOpened: boolean;
 };
 
 export default function InteractiveNavigation({
     pageRefs,
     setIsTouch,
     isTouch,
+    firstHackWindowOpened,
 }: interactiveNavigationProps) {
     const [isMoving, setIsMoving] = useState(false);
     const [currentPage, setCurrentPage] = useState("home");
@@ -42,9 +44,10 @@ export default function InteractiveNavigation({
         hackingWindowRef,
         enterBtnRef,
         setIsTouch,
+        firstHackWindowOpened,
     );
     useMap(mapRef, position, prevPosition, setIsMoving, enterBtnRef);
-    useChangePage(currentPage, setCurrentPage, pageRefs);
+    useChangePage(currentPage, setCurrentPage, pageRefs, firstHackWindowOpened);
 
     return (
         <section

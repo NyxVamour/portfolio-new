@@ -61,6 +61,7 @@ export default function MasterLayout() {
     const [projectInfo, setProjectInfo] = useState<ProjectDataProps>();
     const [isSiteLoaded, setIsSiteLoaded] = useState(false);
     const [showLoader, setShowLoader] = useState(true);
+    const [startAnimFinished, setStartAnimFinished] = useState(false);
 
     const backgroundLayerRef = useRef<HTMLDivElement>(null);
     const hackingRef = useRef<HTMLDivElement>(null);
@@ -196,8 +197,14 @@ export default function MasterLayout() {
                     className={`${styles.backgroundLayer}`}
                 >
                     <div className={styles.vignette}></div>
-                    <MainBGElements showLoader={showLoader}></MainBGElements>
-                    <Hacking pageRefs={pageRefs} />
+                    <MainBGElements
+                        showLoader={showLoader}
+                        setStartAnimFinished={setStartAnimFinished}
+                    ></MainBGElements>
+                    <Hacking
+                        pageRefs={pageRefs}
+                        startAnimFinished={startAnimFinished}
+                    />
                 </div>
                 {showLoader ? (
                     <Loading

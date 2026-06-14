@@ -7,6 +7,7 @@ export default function useChangePage(
     currentPage: string,
     setCurrentPage: React.Dispatch<React.SetStateAction<string>>,
     pageRefs: pageRefsProps,
+    firstHackWindowOpened: boolean,
 ) {
     gsap.registerPlugin(useGSAP);
     const {
@@ -315,6 +316,7 @@ export default function useChangePage(
         function closeBtnAction() {
             setCurrentPage("home");
         }
+        if (!firstHackWindowOpened) return;
 
         const elProfile = closeProfileBtnRef.current;
         const elAbout = closeAboutBtnRef.current;
@@ -331,7 +333,7 @@ export default function useChangePage(
             elAbout.removeEventListener("click", closeBtnAction);
             elProjects.removeEventListener("click", closeBtnAction);
         };
-    }, [closeProfileBtnRef]);
+    }, [closeProfileBtnRef, firstHackWindowOpened]);
 
     useGSAP(() => {
         const tl = gsap.timeline();
