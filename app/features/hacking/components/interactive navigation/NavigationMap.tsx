@@ -329,8 +329,8 @@ const NavigationMap = React.forwardRef<SVGSVGElement, NavigationMapProps>(
                                 fontWeight="bold"
                                 letterSpacing="0em"
                             >
-                                <tspan x="372.455" y="144.108">
-                                    COMING SOON
+                                <tspan x="369.455" y="144.108">
+                                    ACCESS DENIED
                                 </tspan>
                             </text>
                         </g>

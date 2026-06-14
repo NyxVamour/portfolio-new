@@ -48,7 +48,7 @@ export function useControls(
         const currentNode = nodes[position];
         const enterID = currentNode.enterID;
         const newPage = currentNode.linkTo;
-        if (enterID && newPage) {
+        if (enterID && newPage && enterID !== "COMING_SOON") {
             changePage(newPage);
         }
     }
