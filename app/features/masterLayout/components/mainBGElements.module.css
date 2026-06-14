@@ -25,6 +25,8 @@
 }
 
 .reticle_rect{
+    opacity: 0%;
+    visibility: hidden;
     position: absolute;
 }
 
@@ -38,20 +40,28 @@
 }
 
 .reticle_circ{
+    opacity: 0%;
+    visibility: hidden;
     position: absolute;
     transform: scale(0.9);
 }
 
 .circle_serial{
+    opacity: 0%;
+    visibility: hidden;
     position: absolute;
 }
 
 .reticle_target{
+    opacity: 0%;
+    visibility: hidden;
     position: absolute;
 }
 
 /** REMOTE ACCESS **/
 .remoteAccess_wrapper{
+    opacity: 0%;
+    visibility: hidden;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -83,6 +93,8 @@
 }
 
 .circle_nums{
+    opacity: 0%;
+    visibility: hidden;
     position: absolute;
     left: 10%;
     color: var(--color-primary);
@@ -92,7 +104,8 @@
 }
 
 .circle_serial{
-    opacity: 60%;
+    opacity: 0%;
+    visibility: hidden;
     bottom: 24px;
     font-weight: bold;
     font-size: 8px;
@@ -162,7 +175,8 @@
 
 .cameraTerminalText{
     margin-top: 8px;
-    opacity: 60%;
+    opacity: 0%;
+    visibility: hidden;
     color: var(--color-secondary);
     font-weight: bold;
     font-size: 4px;
@@ -217,7 +231,6 @@
 
 /** BOTTOM RIGHT **/
 .cameraAngle{
-    opacity: 60%;
     font-weight: bold;
     font-size: 8px;
     filter: drop-shadow(3px 0px 1px var(--drop-shadow-white))
@@ -233,19 +246,26 @@
 }
 
 .targetText{
-    opacity: 60%;
+    opacity: 0%;
+    visibility: hidden;
     font-weight: bold;
     font-size: clamp(0.5rem, 0.4669rem + 0.1765vw, 0.6875rem);
     filter: drop-shadow(3px 0px 2px var(--drop-shadow-white))
 }
 
 .targetImage{
+    opacity: 0%;
+    visibility: hidden;
     width: 100%;
     aspect-ratio: 1;
 }
 
 .targetVitalsWrapper{
-    opacity: 60%;
+    opacity: 0%;
+    visibility: hidden;
+}
+
+.targetVitalWrapper{
     display: flex;
     flex-direction: column;
     font-weight: bold;
@@ -268,6 +288,8 @@
 }
 
 .topRightData{
+    opacity: 0%;
+    visibility: hidden;
     position: absolute;
     top: 2%;
     right: 7%;
@@ -278,12 +300,16 @@
 }
 
 .bottomLeftData{
+    opacity: 0%;
+    visibility: hidden;
     position: absolute;
     bottom: 20px;
     left: 2%;
 }
 
 .bottomRightData{
+    opacity: 0%;
+    visibility: hidden;
     position: absolute;
     bottom: 8%;
     right: 7%;
@@ -291,6 +317,14 @@
 
 .linesContainer{
     position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.vertWrapper, .horWrapper{
+    opacity: 0%;
+    visibility: hidden;
+    position: absolute;
     width: 100%;
     height: 100%;
 }

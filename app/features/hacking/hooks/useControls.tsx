@@ -9,6 +9,7 @@ export function useControls(
     hackingWindowRef: React.RefObject<HTMLElement | null>,
     enterBtnRef: React.RefObject<HTMLButtonElement | null>,
     setIsTouch: React.Dispatch<React.SetStateAction<boolean>>,
+    firstHackWindowOpened: boolean,
 ) {
     const [position, setPosition] = useState<NodeID>("a3");
     const [prevPosition, setPrevPosition] = useState<NodeID | "">("");
@@ -47,7 +48,7 @@ export function useControls(
         const currentNode = nodes[position];
         const enterID = currentNode.enterID;
         const newPage = currentNode.linkTo;
-        if (enterID && newPage) {
+        if (enterID && newPage && enterID !== "COMING_SOON") {
             changePage(newPage);
         }
     }
@@ -66,7 +67,7 @@ export function useControls(
 
     // enable touch navigation (swipe, tap, etc.)
     useEffect(() => {
-        if (isTouchScreen) {
+        if (isTouchScreen && firstHackWindowOpened) {
             function onPointerDown(e: PointerEvent) {
                 swipeStartRef.current = {
                     x: e.clientX,
@@ -141,7 +142,7 @@ export function useControls(
 
                 enterBtnRef.current.removeEventListener("click", enterPage);
             };
-        } else {
+        } else if (!isTouchScreen && firstHackWindowOpened) {
             function keyDown(e: KeyboardEvent) {
                 if (isMoving) return;
 
@@ -190,6 +191,7 @@ export function useControls(
         isTouchScreen,
         position,
         isHome,
+        firstHackWindowOpened,
     ]);
 
     return { position, prevPosition };

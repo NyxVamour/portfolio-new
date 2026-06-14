@@ -94,6 +94,8 @@ export default function useMap(
         const currentTextWrapper = document.getElementById(
             `${nodes[position].textWrapperID}`,
         );
+
+        const secrets = document.getElementById("COMING_SOON");
         const filledTextShape = currentTextWrapper?.querySelector("path[fill]");
         const enterBtn = enterBtnRef.current;
         const hasEnterID = currentNode.enterID;
@@ -139,7 +141,17 @@ export default function useMap(
                 "0.5",
             );
         }
-        if (hasEnterID) {
+        if (hasEnterID === "COMING_SOON") {
+            tl.to(
+                secrets,
+                {
+                    autoAlpha: 1,
+                    duration: 0.5,
+                },
+                "0.5",
+            );
+        }
+        if (hasEnterID && hasEnterID !== "COMING_SOON") {
             tl.to(
                 enterBtn,
                 {
@@ -162,6 +174,9 @@ export default function useMap(
         const prevTextWrapper = document.getElementById(
             `${prevNode.textWrapperID}`,
         );
+
+        const secrets = document.getElementById("COMING_SOON");
+
         const filledTextShape = prevTextWrapper?.querySelector("path[fill]");
         const enterBtn = enterBtnRef.current;
         const prevHasEnterID = prevNode.enterID;
@@ -200,6 +215,16 @@ export default function useMap(
                     duration: 0.5,
                 },
                 "<",
+            );
+        }
+        if (prevHasEnterID === "COMING_SOON") {
+            tl.to(
+                secrets,
+                {
+                    autoAlpha: 0,
+                    duration: 0,
+                },
+                "0",
             );
         }
         if (prevHasEnterID) {
