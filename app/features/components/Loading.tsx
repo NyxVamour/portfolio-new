@@ -50,7 +50,7 @@ export default function Loading({ isSiteLoaded, onFinish }: LoadingProps) {
             .to(movingText, { duration: 0.5, y: -25, delay: 2 });
 
         if (!isSiteLoaded || !innerBar) return;
-        console.log("site is loaded!");
+        // console.log("site is loaded!");
         tl.fromTo(
             innerBar,
             { scaleX: 0 },
@@ -66,7 +66,7 @@ export default function Loading({ isSiteLoaded, onFinish }: LoadingProps) {
             autoAlpha: 0,
             onComplete: onFinish,
         });
-        console.log("bar done!");
+        // console.log("bar done!");
     }, [isSiteLoaded, onFinish]);
 
     return (
