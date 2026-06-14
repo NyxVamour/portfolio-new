@@ -85,7 +85,7 @@ export default function MainBGElements({
                 autoAlpha: 0.6,
                 transformOrigin: "top top",
             },
-            "1",
+            "0.5",
         )
             .fromTo(
                 uiTR,
@@ -114,10 +114,11 @@ export default function MainBGElements({
                 ">",
             )
             .to(retTarget, { duration: 0.2, x: -90, y: -30 }, "<-0.5")
-            .to(retTarget, { duration: 0.2, x: 50, y: -60 })
             .to(retTarget, { duration: 0.2, x: 120, y: -0 })
+            .to(retTarget, { duration: 0.2, x: 50, y: -60 })
+
             .to(retTarget, { duration: 0.2, x: 150, y: -20 })
-            .to(retTarget, { duration: 0.2, x: 60, y: -70 })
+            .to(retTarget, { duration: 0.2, x: 120, y: -70 })
             .to(retTarget, {
                 duration: 0.05,
                 scale: 0.6,
