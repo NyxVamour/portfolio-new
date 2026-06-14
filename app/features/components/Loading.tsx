@@ -47,8 +47,7 @@ export default function Loading({ isSiteLoaded, onFinish }: LoadingProps) {
             .to(movingText, { duration: 0, autoAlpha: 1 }, "0")
             .fromTo(movingText, { y: 50 }, { duration: 0.5, y: 25 })
             .to(movingText, { duration: 0.5, y: 0, delay: 0 })
-            .to(movingText, { duration: 0.5, y: -25, delay: 2 })
-            .to(movingText, { duration: 0.5, y: -50, delay: 1 });
+            .to(movingText, { duration: 0.5, y: -25, delay: 2 });
 
         if (!isSiteLoaded || !innerBar) return;
         console.log("site is loaded!");
@@ -80,11 +79,7 @@ export default function Loading({ isSiteLoaded, onFinish }: LoadingProps) {
                     <p ref={movingTextRef} className={`${styles.loadingText1}`}>
                         INITATING HACK...
                         <br />
-                        BYPASSING AUTHENTICATION LAYERS
-                        <br />
-                        ESTABLISHING SECURE TUNNEL
-                        <br />
-                        LOADING CITY NET MAP
+                        LOCATING CHARLIZE...
                     </p>
                 </div>
 
