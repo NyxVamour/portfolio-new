@@ -21,6 +21,7 @@
 
 html,body{
   overscroll-behavior-y: none;
+  color: white;
 }
 
 ::-webkit-scrollbar{
