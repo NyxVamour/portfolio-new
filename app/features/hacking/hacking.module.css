@@ -26,6 +26,7 @@
 
 /** WARNING  **/
 .warning{
+    user-select: none;
     position: absolute;
     top: 15%;
     left: 50%;
