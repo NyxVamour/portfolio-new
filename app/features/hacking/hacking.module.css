@@ -12,6 +12,7 @@
 .hackingContainer{
     opacity: 0;
     visibility: hidden;
+    touch-action: none;
     background-color: var(--color-bg);
     position: absolute;
     display: flex;
