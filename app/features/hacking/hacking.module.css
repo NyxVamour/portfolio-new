@@ -250,7 +250,6 @@
 .controlsBoxOuter{
     width: fit-content;
     background-color: var(--color-primary);
-    padding: 1px;
     border: 1px solid var(--color-primary);
     filter: drop-shadow(0 0 4px rgba(189, 74, 74, 0.75));
 }
