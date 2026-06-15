@@ -35,8 +35,14 @@ export default function InteractiveNavigation({
     const [currentPage, setCurrentPage] = useState("home");
     const mapRef = useRef<SVGSVGElement>(null);
     const enterBtnRef = useRef<HTMLButtonElement>(null);
-    const { hackingWindowRef, hackingUITLRef, hackingUITRRef, hackingUIBLRef } =
-        pageRefs;
+    const {
+        hackingWindowRef,
+        hackingUITLRef,
+        hackingUITRRef,
+        hackingUIBLRef,
+        hackingWarningIconRef,
+        hackingWarningBoxRef,
+    } = pageRefs;
     const isHome = currentPage === "home";
     const { position, prevPosition } = useControls(
         isMoving,
@@ -63,11 +69,17 @@ export default function InteractiveNavigation({
             <NavigationController className={styles.navigationController} />
             <NavigationMap className={styles.navigationMap} ref={mapRef} />
             <div className={`${styles.warning}`}>
-                <div className={`${styles.warning__iconWrapper}`}>
+                <div
+                    ref={hackingWarningIconRef}
+                    className={`${styles.warning__iconWrapper}`}
+                >
                     <IconWarning />
                 </div>
 
-                <div className={`${styles.warning__boxOuter}`}>
+                <div
+                    ref={hackingWarningBoxRef}
+                    className={`${styles.warning__boxOuter}`}
+                >
                     <div className={`${styles.warning__boxInner}`}>
                         <p className={`${styles.warning__text}`}>
                             CONTROLS LOCATED BELOW
