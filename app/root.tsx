@@ -10,6 +10,13 @@ import {
 import type { Route } from "./+types/root";
 import "./styles/app.css";
 
+const SITE_URL = (
+    import.meta.env.VITE_SITE_URL ?? "http://localhost:5173"
+).replace(/\/$/, "");
+const SITE_TITLE = "Charlize's Website";
+const SITE_DESCRIPTION = "Charlize San Gabriel's portfolio website";
+const SHARE_IMAGE = `${SITE_URL}/images/portfolioIMG.jpeg`;
+
 export const links: Route.LinksFunction = () => [
     { rel: "preconnect", href: "https://fonts.googleapis.com" },
     {
@@ -32,6 +39,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     name="viewport"
                     content="width=device-width, initial-scale=1"
                 />
+                <meta property="og:type" content="website" />
+                <meta property="og:site_name" content={SITE_TITLE} />
+                <meta property="og:title" content={SITE_TITLE} />
+                <meta property="og:description" content={SITE_DESCRIPTION} />
+                <meta property="og:url" content={SITE_URL} />
+                <meta property="og:image" content={SHARE_IMAGE} />
+                <meta property="og:image:alt" content={SITE_DESCRIPTION} />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={SITE_TITLE} />
+                <meta name="twitter:description" content={SITE_DESCRIPTION} />
+                <meta name="twitter:image" content={SHARE_IMAGE} />
+                <meta name="description" content={SITE_DESCRIPTION} />
+                <link rel="canonical" href={SITE_URL} />
                 <Meta />
                 <Links />
             </head>
