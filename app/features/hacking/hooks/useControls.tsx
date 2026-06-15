@@ -92,13 +92,13 @@ export function useControls(
                         Math.abs(dx) >= threshold &&
                         Math.abs(dy) <= restraint
                     ) {
-                        changePosition(dx < 0 ? "left" : "right");
+                        changePosition(dx > 0 ? "left" : "right");
                     } else if (
                         Math.abs(dy) > Math.abs(dx) &&
                         Math.abs(dy) >= threshold &&
                         Math.abs(dx) <= restraint
                     ) {
-                        changePosition(dy < 0 ? "up" : "down");
+                        changePosition(dy > 0 ? "up" : "down");
                     }
                 }
 

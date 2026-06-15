@@ -24,6 +24,8 @@ export type pageRefsProps = {
     aboutHeaderRef: React.RefObject<HTMLDivElement | null>;
     projectsHeaderRef: React.RefObject<HTMLDivElement | null>;
 
+    hackingWarningIconRef: React.RefObject<HTMLDivElement | null>;
+    hackingWarningBoxRef: React.RefObject<HTMLDivElement | null>;
     hackingUITLRef: React.RefObject<HTMLDivElement | null>;
     hackingUITRRef: React.RefObject<HTMLDivElement | null>;
     hackingUIBLRef: React.RefObject<HTMLDivElement | null>;
@@ -77,6 +79,8 @@ export default function MasterLayout() {
     const aboutHeaderRef = useRef<HTMLDivElement>(null);
     const projectsHeaderRef = useRef<HTMLDivElement>(null);
 
+    const hackingWarningIconRef = useRef<HTMLDivElement>(null);
+    const hackingWarningBoxRef = useRef<HTMLDivElement>(null);
     const hackingUITLRef = useRef<HTMLDivElement>(null);
     const hackingUITRRef = useRef<HTMLDivElement>(null);
     const hackingUIBLRef = useRef<HTMLDivElement>(null);
@@ -121,6 +125,8 @@ export default function MasterLayout() {
         profileHeaderRef,
         aboutHeaderRef,
         projectsHeaderRef,
+        hackingWarningIconRef,
+        hackingWarningBoxRef,
         hackingUITLRef,
         hackingUITRRef,
         hackingUIBLRef,

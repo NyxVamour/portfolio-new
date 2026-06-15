@@ -20,6 +20,7 @@ export default function SubPageHeader({
     setSelectedCategory,
 }: SubpageHeaderProps) {
     function clearProjectCategory() {
+        if (!setSelectedCategory) return;
         setTimeout(() => {
             setSelectedCategory("All");
         }, 500);

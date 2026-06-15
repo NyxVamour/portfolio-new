@@ -16,6 +16,7 @@ import IconArrowSMDown from "../../../components/icons/IconArrowSMDown";
 import IconArrowSMRight from "../../../components/icons/IconArrowSMRight";
 import IconScrollHor from "../../../components/icons/IconScrollHor";
 import IconScrollVer from "../../../components/icons/IconScrollVer";
+import IconWarning from "~/features/components/icons/IconWarning";
 
 type interactiveNavigationProps = {
     pageRefs: pageRefsProps;
@@ -34,8 +35,14 @@ export default function InteractiveNavigation({
     const [currentPage, setCurrentPage] = useState("home");
     const mapRef = useRef<SVGSVGElement>(null);
     const enterBtnRef = useRef<HTMLButtonElement>(null);
-    const { hackingWindowRef, hackingUITLRef, hackingUITRRef, hackingUIBLRef } =
-        pageRefs;
+    const {
+        hackingWindowRef,
+        hackingUITLRef,
+        hackingUITRRef,
+        hackingUIBLRef,
+        hackingWarningIconRef,
+        hackingWarningBoxRef,
+    } = pageRefs;
     const isHome = currentPage === "home";
     const { position, prevPosition } = useControls(
         isMoving,
@@ -61,6 +68,25 @@ export default function InteractiveNavigation({
             </button>
             <NavigationController className={styles.navigationController} />
             <NavigationMap className={styles.navigationMap} ref={mapRef} />
+            <div className={`${styles.warning}`}>
+                <div
+                    ref={hackingWarningIconRef}
+                    className={`${styles.warning__iconWrapper}`}
+                >
+                    <IconWarning />
+                </div>
+
+                <div
+                    ref={hackingWarningBoxRef}
+                    className={`${styles.warning__boxOuter}`}
+                >
+                    <div className={`${styles.warning__boxInner}`}>
+                        <p className={`${styles.warning__text}`}>
+                            CONTROLS LOCATED BELOW
+                        </p>
+                    </div>
+                </div>
+            </div>
             <div
                 ref={hackingUITLRef}
                 className={`${styles.hackingUILeftWrapper}`}
@@ -111,7 +137,11 @@ export default function InteractiveNavigation({
                 </p>
             </div>
             <section ref={hackingUIBLRef} className={`${styles.controls}`}>
-                <p className={`${styles.controlsLabel}`}>CONTROLS</p>
+                <div className={`${styles.controlsBoxOuter}`}>
+                    <div className={`${styles.controlsBoxInner}`}>
+                        <p className={`${styles.controlsLabel}`}>CONTROLS</p>
+                    </div>
+                </div>
                 {!isTouch ? (
                     <div className={`${styles.iconsWrapper}`}>
                         <kbd className={`${styles.kbdIcon}`}>
