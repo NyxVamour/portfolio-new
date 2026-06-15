@@ -111,7 +111,11 @@ export default function InteractiveNavigation({
                 </p>
             </div>
             <section ref={hackingUIBLRef} className={`${styles.controls}`}>
-                <p className={`${styles.controlsLabel}`}>CONTROLS</p>
+                <div className={`${styles.controlsBoxOuter}`}>
+                    <div className={`${styles.controlsBoxInner}`}>
+                        <p className={`${styles.controlsLabel}`}>CONTROLS</p>
+                    </div>
+                </div>
                 {!isTouch ? (
                     <div className={`${styles.iconsWrapper}`}>
                         <kbd className={`${styles.kbdIcon}`}>
