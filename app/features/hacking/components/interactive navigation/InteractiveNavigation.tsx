@@ -16,6 +16,7 @@ import IconArrowSMDown from "../../../components/icons/IconArrowSMDown";
 import IconArrowSMRight from "../../../components/icons/IconArrowSMRight";
 import IconScrollHor from "../../../components/icons/IconScrollHor";
 import IconScrollVer from "../../../components/icons/IconScrollVer";
+import IconWarning from "~/features/components/icons/IconWarning";
 
 type interactiveNavigationProps = {
     pageRefs: pageRefsProps;
@@ -61,6 +62,19 @@ export default function InteractiveNavigation({
             </button>
             <NavigationController className={styles.navigationController} />
             <NavigationMap className={styles.navigationMap} ref={mapRef} />
+            <div className={`${styles.warning}`}>
+                <div className={`${styles.warning__iconWrapper}`}>
+                    <IconWarning />
+                </div>
+
+                <div className={`${styles.warning__boxOuter}`}>
+                    <div className={`${styles.warning__boxInner}`}>
+                        <p className={`${styles.warning__text}`}>
+                            CONTROLS LOCATED BELOW
+                        </p>
+                    </div>
+                </div>
+            </div>
             <div
                 ref={hackingUITLRef}
                 className={`${styles.hackingUILeftWrapper}`}

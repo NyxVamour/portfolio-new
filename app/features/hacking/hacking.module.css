@@ -24,6 +24,49 @@
     overflow: hidden;
 }
 
+/** WARNING  **/
+.warning{
+    top: 15%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.warning__iconWrapper{
+    width: 80px;
+    height: 80px;
+}
+
+.warning__boxOuter{
+    position: relative;
+    top: -10px;
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    border-radius: 0 7px 0 7px;
+    width: fit-content;
+    filter: drop-shadow(0 0 4px rgba(189, 74, 74, 1));
+}
+
+.warning__boxInner{
+    border: 2px solid var(--color-primary--darkest);
+    border-radius: 0 7px 0 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px 12px;
+}
+
+.warning__text{
+    font-family: var(--font-orbitron);
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--color-primary--darkest);
+}
+
 .hackingUILeftWrapper{
     position: absolute;
     top: 12px;
