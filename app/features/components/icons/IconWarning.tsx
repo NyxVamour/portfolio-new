@@ -1,0 +1,64 @@
+export default function IconWarning() {
+    return (
+        <svg
+            width="51"
+            height="46"
+            viewBox="0 0 51 46"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <g filter="url(#filter0_d_2866_1646)">
+                <path d="M25.3205 8L42.641 38H8L25.3205 8Z" fill="#BD4A4A" />
+                <path
+                    d="M41.7754 37.5H8.86523L25.3203 9L41.7754 37.5Z"
+                    stroke="#BD4A4A"
+                />
+            </g>
+            <path
+                d="M23.9871 29.7174V18.6667H26.7817V29.7174H23.9871ZM23.9871 34.0267V31.2321H26.7817V34.0267H23.9871Z"
+                fill="#1F0909"
+            />
+            <path
+                d="M40.5344 36.8179H10.2375L25.386 11.0318L40.5344 36.8179Z"
+                stroke="#1F0909"
+            />
+            <defs>
+                <filter
+                    id="filter0_d_2866_1646"
+                    x="0"
+                    y="0"
+                    width="50.641"
+                    height="46"
+                    filterUnits="userSpaceOnUse"
+                    colorInterpolationFilters="sRGB"
+                >
+                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                    />
+                    <feOffset />
+                    <feGaussianBlur stdDeviation="4" />
+                    <feComposite in2="hardAlpha" operator="out" />
+                    <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0.741176 0 0 0 0 0.290196 0 0 0 0 0.290196 0 0 0 1 0"
+                    />
+                    <feBlend
+                        mode="normal"
+                        in2="BackgroundImageFix"
+                        result="effect1_dropShadow_2866_1646"
+                    />
+                    <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="effect1_dropShadow_2866_1646"
+                        result="shape"
+                    />
+                </filter>
+            </defs>
+        </svg>
+    );
+}
