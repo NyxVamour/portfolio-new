@@ -19,14 +19,8 @@
   --drop-shadow-green: rgba(74, 255, 50, 0.8);
 }
 
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
-
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
-
+html,body{
+  overscroll-behavior-y: none;
 }
 
 ::-webkit-scrollbar{
