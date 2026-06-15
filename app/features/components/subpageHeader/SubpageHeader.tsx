@@ -9,7 +9,7 @@ type SubpageHeaderProps = {
     title: string;
     altHeader: string;
     buttonRef?: React.Ref<HTMLButtonElement>;
-    setSelectedCategory?: React.Dispatch<React.SetStateAction<string>>;
+    setSelectedCategory: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export default function SubPageHeader({
@@ -20,10 +20,9 @@ export default function SubPageHeader({
     setSelectedCategory,
 }: SubpageHeaderProps) {
     function clearProjectCategory() {
-        if (!setSelectedCategory) return;
         setTimeout(() => {
             setSelectedCategory("All");
-        }, 1500);
+        }, 500);
     }
 
     return (
