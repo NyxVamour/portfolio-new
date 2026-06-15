@@ -26,24 +26,24 @@
 
 /** WARNING  **/
 .warning{
-    top: 15%;
-    left: 0;
-    right: 0;
     position: absolute;
+    top: 15%;
+    left: 50%;
+    /* right: 50%; */
+    transform: translateX(-50%);
     z-index: 20;
     display: flex;
-    flex-direction: column;
     align-items: center;
 }
 
 .warning__iconWrapper{
-    width: 80px;
-    height: 80px;
+    height: 55px;
+    aspect-ratio: 1;
 }
 
 .warning__boxOuter{
     position: relative;
-    top: -10px;
+    top: -2px;
     background-color: var(--color-primary);
     border: 1px solid var(--color-primary);
     border-radius: 0 7px 0 7px;
@@ -63,8 +63,9 @@
 .warning__text{
     font-family: var(--font-orbitron);
     font-weight: 500;
-    font-size: 16px;
+    font-size: 12px;
     color: var(--color-primary--darkest);
+    text-wrap: nowrap;
 }
 
 .hackingUILeftWrapper{
@@ -328,6 +329,26 @@
 }
 
 @media (min-width: 992px) {
+    /** WARNING  **/
+
+
+    .warning__iconWrapper{
+        height: 65px;
+        aspect-ratio: 1;
+    }
+
+    .warning__boxOuter{
+        top: -2px;
+    }
+
+    .warning__boxInner{
+
+    }
+
+    .warning__text{
+        font-size: 16px;
+    }
+
     .hackingUILeftWrapper{
         top: 16px;
         left: 16px;
