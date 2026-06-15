@@ -9,7 +9,7 @@ type SubpageHeaderProps = {
     title: string;
     altHeader: string;
     buttonRef?: React.Ref<HTMLButtonElement>;
-    setSelectedCategory: React.Dispatch<React.SetStateAction<string>>;
+    setSelectedCategory?: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export default function SubPageHeader({
